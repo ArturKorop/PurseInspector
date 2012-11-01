@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 
@@ -15,6 +16,10 @@ namespace Domain.Purse
             {
                 Years.Add(new Year(i));
             }
+        }
+        public void AddDaySpanOperation(int year, int month, int day, SingleOperation operation)
+        {
+            Years[year].Months[month].Days[day].AddSpanOperation(operation);
         }
     }
 
@@ -74,8 +79,21 @@ namespace Domain.Purse
         }
         public void AddSpanOperation(SingleOperation operation)
         {
+            if (SpanDaysSingleOperations.Count == 0)
+                operation.Id = 0;
+            else
+                operation.Id = SpanDaysSingleOperations.Max(x => x.Id) + 1;
             SpanDaysSingleOperations.Add(operation);
             _sumSpan = SpanDaysSingleOperations.Sum(x => x.Value);
+        }
+        public void ChangeSpanOperation(int id,SingleOperation operation)
+        {
+            SpanDaysSingleOperations.Where(x => x.Id == id).Select(x => x).First().OperationName = operation.OperationName;
+            SpanDaysSingleOperations.Where(x => x.Id == id).Select(x => x).First().Value = operation.Value;
+        }
+        public void RemoveSpanOperation(int id)
+        {
+            SpanDaysSingleOperations.Remove(SpanDaysSingleOperations.Where(x => x.Id == id).Select(x => x).First());
         }
         public int GetSumRent()
         {
@@ -89,6 +107,7 @@ namespace Domain.Purse
 
     public class SingleOperation
     {
+        public int Id { get; set; }
         public string OperationName { get; set; }
         public int Value { get; set; }
     }

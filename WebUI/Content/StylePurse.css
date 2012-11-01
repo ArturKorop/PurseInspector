@@ -26,9 +26,21 @@
     border: grey;
     border-style: solid;
 }
+.NewOperation 
+{
+    border: none;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    width: 100px;
+}
 .Operation 
 {
     border: none;
+    background-color: rgb(244, 105, 126);
+    color: white;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    width: 100px;
 }
 .Day {
 

@@ -1,13 +1,23 @@
-﻿@model Domain.Purse.PurseSingleUserModel
+﻿@using Domain.Purse
+@model Domain.Purse.PurseSingleUserModel
 
 @{
     ViewBag.Title = "Index";
     <link href="@Url.Content("~/Content/StylePurse.css")" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../Scripts/jquery-1.7.1.min.js"></script>
 }
-<script type="text/javascript">
-    $(document).ready(function () {
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            func1();
+        });
 
-    })
+        function func1() {
+            $('.NewOperation').focusout(function () {
+                var day = $(this);
+                $.post("/Purse/AddDaySpanOperation", { year:0,month:1,day:5,operationName:'aaa',operationValue:33 }, null);
+                alert('Focus Out');
+            });
+        }
 </script>
 
 <h2>Purse Index</h2>
@@ -16,52 +26,24 @@
 <table id="tablePurse">
 @foreach (var item in Model.Years[0].Months[1].Days)
 {
-    var rowspan = item.SpanDaysSingleOperations.Count + 1;
-    var colspan = 1;
-    if (rowspan > 1)
-    {
-        colspan = 2;
-    }
+    var rowspan = item.SpanDaysSingleOperations.Count + 2;
     <tr class="Day">
         <td rowspan="@rowspan">@item.Number</td>
         <td rowspan="@rowspan">@item.Name</td>
-        <td colspan="2" id="SpanDaysSingleOperations">
-               
-            
-            <!--   <table>
-                       @foreach (var operation in item.SpanDaysSingleOperations)
-                       {
-                           <tr class="Operation">
-                               <td>@operation.OperationName</td>
-                               <td>@operation.Value</td>
-                           </tr>
-                       }
-                   </table>-->
-        </td>
+        <td colspan="2" id="SpanDaysSingleOperations"></td>
         <td rowspan="@rowspan">@item.GetSumSpan()</td>
+    </tr>
+    <tr class="Operation">
+        <td>@Html.TextBox("NewOperation", null, new { Class = "NewOperation" })</td>
+        <td>@Html.TextBox("NewOperation", null, new { Class = "NewOperation" })</td>
     </tr>
     foreach (var operation in item.SpanDaysSingleOperations)
     {
-                           <tr class="Operation">
-                               <td>@operation.OperationName</td>
-                               <td>@operation.Value</td>
-                           </tr>
+        <tr class="Operation">
+            <td>@Html.TextBoxFor(x => x.Years[0].Months[1].Days[item.Number - 1].SpanDaysSingleOperations.Where(y => y.OperationName == operation.OperationName).First().OperationName, new { Class = "Operation" })</td>
+            <td>@Html.TextBoxFor(x => x.Years[0].Months[1].Days[item.Number - 1].SpanDaysSingleOperations.Where(y => y.OperationName == operation.OperationName).First().Value, new { Class = "Operation" })</td>
+        </tr>
     }
 }
-
-    <tr>
-        <td rowspan="1">id</td>
-        <td colspan="1">ff</td>
-        <td rowspan="1">qq</td>
-    </tr>
-    <tr>
-        <td rowspan="2">id</td>
-        <td colspan="2">ff</td>
-        <td rowspan="2">qq</td>
-    </tr>
-    <tr>
-        <td>22</td>
-        <td>33</td>
-    </tr>
 </table>
 
