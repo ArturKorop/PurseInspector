@@ -1,0 +1,42 @@
+﻿#tablePurse {
+    font-size: smaller;
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+}
+#tablePurse tr {
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+}
+#tablePurse tr td{
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+    padding: 0 .5em 0 .5em;
+}
+#SpanDaysSingleOperations {
+    background-color: rgb(244, 105, 126);
+    color: white;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+.Sum {
+    background-color: green;
+    border: grey;
+    border-style: solid;
+}
+.Operation 
+{
+    border: none;
+}
+.Day {
+
+}
+#Sum {
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+    text-align: right;
+    margin-right: .2em;
+}

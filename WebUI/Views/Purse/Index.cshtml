@@ -1,0 +1,67 @@
+﻿@model Domain.Purse.PurseSingleUserModel
+
+@{
+    ViewBag.Title = "Index";
+    <link href="@Url.Content("~/Content/StylePurse.css")" rel="stylesheet" type="text/css"/>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    })
+</script>
+
+<h2>Purse Index</h2>
+<h3>@Model.Years[0].Months[0].Name</h3>
+@Html.DisplayForModel(Model.Years[0].Months[1].Days)
+<table id="tablePurse">
+@foreach (var item in Model.Years[0].Months[1].Days)
+{
+    var rowspan = item.SpanDaysSingleOperations.Count + 1;
+    var colspan = 1;
+    if (rowspan > 1)
+    {
+        colspan = 2;
+    }
+    <tr class="Day">
+        <td rowspan="@rowspan">@item.Number</td>
+        <td rowspan="@rowspan">@item.Name</td>
+        <td colspan="2" id="SpanDaysSingleOperations">
+               
+            
+            <!--   <table>
+                       @foreach (var operation in item.SpanDaysSingleOperations)
+                       {
+                           <tr class="Operation">
+                               <td>@operation.OperationName</td>
+                               <td>@operation.Value</td>
+                           </tr>
+                       }
+                   </table>-->
+        </td>
+        <td rowspan="@rowspan">@item.GetSumSpan()</td>
+    </tr>
+    foreach (var operation in item.SpanDaysSingleOperations)
+    {
+                           <tr class="Operation">
+                               <td>@operation.OperationName</td>
+                               <td>@operation.Value</td>
+                           </tr>
+    }
+}
+
+    <tr>
+        <td rowspan="1">id</td>
+        <td colspan="1">ff</td>
+        <td rowspan="1">qq</td>
+    </tr>
+    <tr>
+        <td rowspan="2">id</td>
+        <td colspan="2">ff</td>
+        <td rowspan="2">qq</td>
+    </tr>
+    <tr>
+        <td>22</td>
+        <td>33</td>
+    </tr>
+</table>
+
