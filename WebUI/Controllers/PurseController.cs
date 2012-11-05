@@ -13,8 +13,9 @@ namespace WebUI.Controllers
 {
     public class PurseController : Controller
     {
-        private PurseSingleUserModel _purseSingleUserModel;
+        //private PreviewModel _previewModel;
         private IUserRepository _repository;
+        private AdapterEFURepoToPrevMod _adapter;
 
         public PurseController(IUserRepository repository)
         {
@@ -22,24 +23,25 @@ namespace WebUI.Controllers
         }
         public ActionResult Index()
         {
-            //_purseSingleUserModel = new PurseSingleUserModel(2012, 2013);
+            //_previewModel = new PreviewModel(2012, 2013);
             /*      _repository.AddSpanOperation(2012, 1, 5, new SingleOperation { OperationName = "Ticket", Value = 95 });
                     _repository.AddSpanOperation(2012, 1, 5, new SingleOperation { OperationName = "Ticket", Value = 95 });
                     _repository.AddSpanOperation(2012, 1, 5, new SingleOperation { OperationName = "Novus", Value = 124 });
                     _repository.AddSpanOperation(2012, 1, 17, new SingleOperation { OperationName = "Ostin", Value = 44 });
                     _repository.AddSpanOperation(2012, 1, 19, new SingleOperation { OperationName = "Novus", Value = 22 });
                     _repository.AddSpanOperation(2012, 1, 19, new SingleOperation { OperationName = "Ostin", Value = 323 });*/
-            EFUserRepositoryToPurseSingleUserModel adapter = new EFUserRepositoryToPurseSingleUserModel(_repository);
-            _purseSingleUserModel = adapter.GetModel();
-
-            return View(_purseSingleUserModel);
+            _adapter = new AdapterEFURepoToPrevMod(_repository);
+            return View(_adapter.GetModel());
         }
 
 
         public ActionResult AddDaySpanOperation(int year,int month,int day,string operationName, int operationValue)
         {
             _repository.AddSpanOperation(year, month, day, new SingleOperation { OperationName = operationName, Value = operationValue });
-            return RedirectToAction("Index");
+            /*if (Request.IsAjaxRequest())
+                return Json("Add sucessfull!");*/
+            _adapter = new AdapterEFURepoToPrevMod(_repository);
+            return  View("Index",_adapter.GetModel());
         }
     }
 }

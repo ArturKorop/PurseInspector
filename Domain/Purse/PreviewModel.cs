@@ -6,11 +6,11 @@ using System.Linq;
 
 namespace Domain.Purse
 {
-    public class PurseSingleUserModel
+    public class PreviewModel
     {
         public Collection<Year> Years = new Collection<Year>();
 
-        public PurseSingleUserModel(int beginYear, int endYear)
+        public PreviewModel(int beginYear, int endYear)
         {
             for (int i = beginYear; i <= endYear; i++)
             {
@@ -19,7 +19,7 @@ namespace Domain.Purse
         }
         public void AddDaySpanOperation(int year, int month, int day, SingleOperation operation)
         {
-            Years.Where(x=>x.Name == year).First().Months[month-1].Days[day+1].AddSpanOperation(operation);
+            Years.First(x => x.Name == year).Months[month-1].Days[day-1].AddSpanOperation(operation);
         }
     }
 
@@ -81,10 +81,7 @@ namespace Domain.Purse
         }
         public void AddSpanOperation(SingleOperation operation)
         {
-            if (SpanDaysSingleOperations.Count == 0)
-                operation.Id = 0;
-            else
-                operation.Id = SpanDaysSingleOperations.Max(x => x.Id) + 1;
+            operation.Id = operation.Id;
             SpanDaysSingleOperations.Add(operation);
             _sumSpan = SpanDaysSingleOperations.Sum(x => x.Value);
         }

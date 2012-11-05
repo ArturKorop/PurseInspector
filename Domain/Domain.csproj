@@ -48,8 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IUserRepository.cs" />
-    <Compile Include="Adapter\EFUserRepositoryToPurseSingleUserModel.cs" />
-    <Compile Include="Purse\PurseSingleUserModel.cs" />
+    <Compile Include="Adapter\AdapterEFURepoToPrevMod.cs" />
+    <Compile Include="Purse\PreviewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EFDbContext.cs" />
     <Compile Include="Repository\EFUserRepository.cs" />

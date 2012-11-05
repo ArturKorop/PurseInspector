@@ -18,7 +18,6 @@ namespace Domain.Repository
                     Day = day,
                     Month = month,
                     Year = year,
-                    OperationId = operation.Id,
                     OperationName = operation.OperationName,
                     OperationValue = operation.Value,
                     OperationType = operation.OperationName,
