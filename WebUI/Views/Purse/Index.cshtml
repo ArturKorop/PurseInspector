@@ -14,7 +14,7 @@
         function func1() {
             $('.NewOperation').focusout(function () {
                 var day = $(this);
-                $.post("/Purse/AddDaySpanOperation", { year:0,month:1,day:5,operationName:'aaa',operationValue:33 }, null);
+                $.post("/Purse/AddDaySpanOperation", { year:2012,month:1,day:14,operationName:'MacDonalds',operationValue:36 }, null);
                 alert('Focus Out');
             });
         }
@@ -22,9 +22,9 @@
 
 <h2>Purse Index</h2>
 <h3>@Model.Years[0].Months[0].Name</h3>
-@Html.DisplayForModel(Model.Years[0].Months[1].Days)
+@Html.DisplayForModel(Model.Years[0].Months[0].Days)
 <table id="tablePurse">
-@foreach (var item in Model.Years[0].Months[1].Days)
+@foreach (var item in Model.Years[0].Months[0].Days)
 {
     var rowspan = item.SpanDaysSingleOperations.Count + 2;
     <tr class="Day">
@@ -40,8 +40,8 @@
     foreach (var operation in item.SpanDaysSingleOperations)
     {
         <tr class="Operation">
-            <td>@Html.TextBoxFor(x => x.Years[0].Months[1].Days[item.Number - 1].SpanDaysSingleOperations.Where(y => y.OperationName == operation.OperationName).First().OperationName, new { Class = "Operation" })</td>
-            <td>@Html.TextBoxFor(x => x.Years[0].Months[1].Days[item.Number - 1].SpanDaysSingleOperations.Where(y => y.OperationName == operation.OperationName).First().Value, new { Class = "Operation" })</td>
+            <td>@Html.TextBoxFor(x => x.Years[0].Months[0].Days[item.Number - 1].SpanDaysSingleOperations.Where(y => y.OperationName == operation.OperationName).First().OperationName, new { Class = "Operation" })</td>
+            <td>@Html.TextBoxFor(x => x.Years[0].Months[0].Days[item.Number - 1].SpanDaysSingleOperations.Where(y => y.OperationName == operation.OperationName).First().Value, new { Class = "Operation" })</td>
         </tr>
     }
 }

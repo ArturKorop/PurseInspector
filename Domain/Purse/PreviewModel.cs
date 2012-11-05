@@ -19,16 +19,18 @@ namespace Domain.Purse
         }
         public void AddDaySpanOperation(int year, int month, int day, SingleOperation operation)
         {
-            Years[year].Months[month].Days[day].AddSpanOperation(operation);
+            Years.Where(x=>x.Name == year).First().Months[month-1].Days[day+1].AddSpanOperation(operation);
         }
     }
 
     public class Year
     {
         public Collection<Month> Months = new Collection<Month>();
+        public int Name;
 
         public Year(int numYear)
         {
+            Name = numYear;
             for (int i = 1; i <= 12; i++)
             {
                 Months.Add(new Month(i, numYear));

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Domain.Abstract;
+using Domain.Repository;
 using Ninject;
 
 namespace WebUI.Infrastructure
@@ -22,7 +24,7 @@ namespace WebUI.Infrastructure
         }
         private void AddBindings()
         {
-
+            _ninjectKernel.Bind<IUserRepository>().To<EFUserRepository>();
         }
     }
 }

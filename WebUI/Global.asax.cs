@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Domain.Repository;
 using WebUI.Infrastructure;
 
 namespace WebUI
@@ -21,6 +23,7 @@ namespace WebUI
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
+         //   Database.SetInitializer<EFDbContext>(null);
         }
     }
 }
