@@ -1,6 +1,6 @@
 ﻿namespace Domain.Repository
 {
-    public class UserOperationDataElement
+    public class RepositoryOperation
     {
         public int ID { get; set; }
         public int UserID { get; set; }

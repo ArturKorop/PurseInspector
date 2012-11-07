@@ -7,6 +7,6 @@ namespace Domain.Repository
 {
     public class EFDbContext : DbContext   
     {
-        public DbSet<UserOperationDataElement> UserOperationDataElements { get; set; }
+        public DbSet<RepositoryOperation> RepositoryOperations { get; set; }
     }
 }

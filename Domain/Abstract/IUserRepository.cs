@@ -6,10 +6,10 @@ namespace Domain.Abstract
 {
     public interface IUserRepository
     {
-        IQueryable<UserOperationDataElement> Repository { get; }
-        void AddSpanOperation(int year, int month, int day, SingleOperation operation);
-        void ChangeSpanOperation(int year, int month, int day, int id, SingleOperation operation);
-        void RemoveSpanOperation(int year, int month, int day, int id);
+        IQueryable<RepositoryOperation> Repository(int userID);
+        int AddOperation(RepositoryOperation repositoryOperation, int userID);
+        void ChangeOperation(int id, SingleOperation operation, int userID);
+        void RemoveOperation(int id, int userID);
 
     }
 }

@@ -7,32 +7,38 @@ namespace Domain.Repository
     public class EFUserRepository : IUserRepository
     {
         private EFDbContext _context = new EFDbContext();
-        public IQueryable<UserOperationDataElement> Repository
+        public IQueryable<RepositoryOperation> Repository(int userID)
         {
-            get { return _context.UserOperationDataElements; }
+            return _context.RepositoryOperations.Where(x => x.UserID == userID);
         }
-        public void AddSpanOperation(int year, int month, int day, SingleOperation operation)
+
+        public int AddOperation(RepositoryOperation repositoryOperation, int userID)
         {
-            _context.UserOperationDataElements.Add(new UserOperationDataElement
+            var operation = new RepositoryOperation
                 {
-                    Day = day,
-                    Month = month,
-                    Year = year,
-                    OperationName = operation.OperationName,
-                    OperationValue = operation.Value,
-                    OperationType = operation.OperationName,
+                    Day = repositoryOperation.Day,
+                    Month = repositoryOperation.Month,
+                    Year = repositoryOperation.Year,
+                    OperationName = repositoryOperation.OperationName,
+                    OperationValue = repositoryOperation.OperationValue,
+                    OperationType = repositoryOperation.OperationName,
                     UserName = "akorop",
-                    UserID = 1
-                });
+                    UserID = userID
+                };
+            _context.RepositoryOperations.Add(operation);
             _context.SaveChanges();
+            return _context.RepositoryOperations.Where(y => y.UserID == userID).Max(x => x.ID);
         }
 
-        public void ChangeSpanOperation(int year, int month, int day, int id, SingleOperation operation)
+        public void ChangeOperation(int id, SingleOperation operation, int userID)
         {
         }
 
-        public void RemoveSpanOperation(int year, int month, int day, int id)
+        public void RemoveOperation(int id, int userID)
         {
+            var temp = _context.RepositoryOperations.FirstOrDefault(x => x.ID == id && x.UserID == userID);
+            _context.RepositoryOperations.Remove(temp);
+            _context.SaveChanges();
         }
     }
 }

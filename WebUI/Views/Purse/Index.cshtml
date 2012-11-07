@@ -4,61 +4,125 @@
 @{
     ViewBag.Title = "Index";
     <link href="@Url.Content("~/Content/StylePurse.css")" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../../Scripts/jquery-1.7.1.min.js"></script>
-}
+    <script type="text/javascript" src="../../Scripts/jquery-1.7.1.min.js"></script>}
     <script type="text/javascript">
         jQuery(document).ready(function () {
             funcAddNewOperation();
             funcDeleteOperation();
         });
-
         function funcAddNewOperation() {
-            $('.NewOperationName').focusout(function () {
-                var operationName = $(this).prop('value');
-                var operationValue = $(this).parent().next().children('.NewOperationValue').prop('value');
-                var day = $(this).parent().parent().prev().children().first().text();
-                if (operationName != '' && operationValue != '') {
-                    $.post("/Purse/AddDaySpanOperation", { year: 2012, month: 1, day: day, operationName: operationName, operationValue: operationValue }, null);
-                    //alert('text = ' + operationName + ' ' + day);
+            $('.NewOperationName').focusout({ type: "name" }, funcFocusout);
+            $('.NewOperationValue').focusout({ type: "value" }, funcFocusout);
+            $('.NewOperationName').keypress(function (e) {
+                if (e.which == 13) {
+                    funcOperationAdd("name", $(this));
+                }
+            });
+            $('.NewOperationValue').keypress(function (e) {
+                if (e.which == 13) {
+                    funcOperationAdd("value", $(this));
                 }
             });
         }
 
+        function funcFocusout(eventObject) {
+            funcOperationAdd(eventObject.data.type, $(this));
+        }
+        
+        function funcOperationAdd(type, object) {
+            var item = object;
+            var operationName;
+            var operationValue;
+            if (type == "name") {
+                operationName = item.prop('value');
+                operationValue = item.parent().next().children('.NewOperationValue').prop('value');
+            }
+            else {
+                operationValue = item.prop('value');
+                operationName = item.parent().prev().children('.NewOperationName').prop('value');
+            }
+            var dayRow = item.parent().parent().prevAll('.Day').first();
+            var day = item.parent().parent().prev().children().first().text();
+            if (operationName != '' && operationValue != '') {
+                
+                $.post("/Purse/AddOperation", { year: 2012, month: 1, day: day, operationName: operationName, operationValue: operationValue, operationType: 'span' }, function (data) {
+                    funcClear(item, type);
+                    var newRowAddSpan = dayRow.children().first().prop('rowspan') + 1;
+                    dayRow.children().each(function () {
+                        if ($(this).prop('id') != 'SpanDaysSingleOperations') {
+                            $(this).prop('rowspan', newRowAddSpan);
+                        }
+                    });
+                    dayRow.nextAll('.Day').first().before('<tr class="Operation" id="' + data + '">' +
+                        '<td>' +
+                        '<input id="OperationName" class="Operation" type="text" value="' + operationName + '" name="OperationName">' +
+                        '</td>' +
+                        '<td>' +
+                        '<input id="OperationValue" class="Operation" type="text" value="' + operationValue + '" name="OperationValue">' +
+                        '</td>' +
+                        '<td class="ButtonDelete">X</td>' +
+                        '</tr>');
+                });
+            }
+            
+        }
+        function funcClear(item, type) {
+            if (type == "name") {
+                item.parent().next().children('.NewOperationValue').prop('value', '');
+            }
+            else {
+                item.parent().prev().children('.NewOperationName').prop('value', '');
+            }
+            item.prop('value', '');
+        }
         function funcDeleteOperation() {
-            $('.ButtonDelete').click(function () {
+            $('.ButtonDelete').live('click',function () {
                 var operationId = $(this).parent().prop('id');
-                var operationId2 = $(this).parent().prop('class');
-                alert('text = ' + operationId + operationId2);
-                $.post("/Purse/DeleteOperation", { year: 2012, month: 1, day: day, operationName: operationName, operationValue: operationValue }, null);
+                var currentRow = $(this).parent();
+                $.post("/Purse/DeleteOperation", { id: operationId }, function () {
+                    var dayRow = currentRow.prevAll('.Day').first();
+                    var newRowSpan = dayRow.children().first().prop('rowspan') - 1;
+                    dayRow.children().each(function () {
+                        if ($(this).prop('id') != 'SpanDaysSingleOperations') {
+                            $(this).prop('rowspan', newRowSpan);
+                        }
+                    });
+                    currentRow.remove();
+                });
             });
         }
-</script>
 
+</script>
+<div id="main">
 <h2>Purse Index</h2>
 <h3>@Model.Years[0].Months[0].Name</h3>
 @Html.DisplayForModel(Model.Years[0].Months[0].Days)
 <table id="tablePurse">
-@foreach (var item in Model.Years[0].Months[0].Days)
-{
-    var rowspan = item.SpanDaysSingleOperations.Count + 2;
-    <tr class="Day">
-        <td rowspan="@rowspan">@item.Number</td>
-        <td rowspan="@rowspan">@item.Name</td>
-        <td colspan="3" id="SpanDaysSingleOperations"></td>
-        <td rowspan="@rowspan">@item.GetSumSpan()</td>
-    </tr>
-    <tr class="Operation">
-        <td>@Html.TextBox("NewOperationName", null, new { Class = "NewOperationName" })</td>
-        <td>@Html.TextBox("NewOperationValue", null, new { Class = "NewOperationValue" })</td>
-    </tr>
-    foreach (var operation in item.SpanDaysSingleOperations)
+    @foreach (var item in Model.Years[0].Months[0].Days)
     {
-        <tr class="Operation" id="@operation.Id">
-            <td>@Html.TextBox("OperationName", operation.OperationName, new { Class = "Operation" })</td>
-            <td>@Html.TextBox("OperationValue", operation.Value, new { Class = "Operation" })</td>
-            <td class="ButtonDelete">X</td>
+        var rowspan = item.SpanDaysSingleOperations.Count + 2;
+        <tr class="Day" id="test">
+            <td rowspan="@rowspan">@item.Number</td>
+            <td rowspan="@rowspan">@item.Name</td>
+            <td colspan="3" id="SpanDaysSingleOperations"></td>
+            <td rowspan="@rowspan">@item.GetSumSpan()</td>
         </tr>
+        <tr class="NewOperation">
+            <td>@Html.TextBox("NewOperationName", null, new { Class = "NewOperationName" })</td>
+            <td>@Html.TextBox("NewOperationValue", null, new { Class = "NewOperationValue" })</td>
+        </tr>
+        foreach (var operation in item.SpanDaysSingleOperations)
+        {
+            <tr class="Operation" id="@operation.Id">
+                <td>@Html.TextBox("OperationName", operation.OperationName, new { Class = "Operation" })</td>
+                <td>@Html.TextBox("OperationValue", operation.Value, new { Class = "Operation" })</td>
+                <td class="ButtonDelete">X</td>
+            </tr>
+        }
     }
-}
 </table>
-
+@using(Html.BeginForm("DeleteOperation","Purse", new {id=0}))
+{
+    <input type="submit" value="Go"/>
+}
+</div>

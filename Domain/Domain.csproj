@@ -54,7 +54,7 @@
     <Compile Include="Repository\EFDbContext.cs" />
     <Compile Include="Repository\EFUserRepository.cs" />
     <Compile Include="Repository\Test.cs" />
-    <Compile Include="Repository\UserOperationDataElement.cs" />
+    <Compile Include="Repository\RepositoryOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concrete\" />

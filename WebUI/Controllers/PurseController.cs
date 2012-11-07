@@ -30,18 +30,34 @@ namespace WebUI.Controllers
                     _repository.AddSpanOperation(2012, 1, 17, new SingleOperation { OperationName = "Ostin", Value = 44 });
                     _repository.AddSpanOperation(2012, 1, 19, new SingleOperation { OperationName = "Novus", Value = 22 });
                     _repository.AddSpanOperation(2012, 1, 19, new SingleOperation { OperationName = "Ostin", Value = 323 });*/
-            _adapter = new AdapterEFURepoToPrevMod(_repository);
+            _adapter = new AdapterEFURepoToPrevMod(_repository, 1);
             return View(_adapter.GetModel());
         }
 
 
-        public ActionResult AddDaySpanOperation(int year,int month,int day,string operationName, int operationValue)
+        public ActionResult AddOperation(int year,int month,int day,string operationType, string operationName, int operationValue)
         {
-            _repository.AddSpanOperation(year, month, day, new SingleOperation { OperationName = operationName, Value = operationValue });
-            /*if (Request.IsAjaxRequest())
-                return Json("Add sucessfull!");*/
-            _adapter = new AdapterEFURepoToPrevMod(_repository);
+            var itemID = _repository.AddOperation(new RepositoryOperation
+                {
+                    Day = day,
+                    Month = month,
+                    Year = year,
+                    OperationName = operationName,
+                    OperationValue = operationValue,
+                    OperationType = operationType
+                }, 1);
+            if (Request.IsAjaxRequest())
+                return Json(itemID);
+
+            _adapter = new AdapterEFURepoToPrevMod(_repository, 1);
             return  View("Index",_adapter.GetModel());
+        }
+        
+        public ActionResult DeleteOperation(int id)
+        {
+            _repository.RemoveOperation(id, 1);
+            _adapter = new AdapterEFURepoToPrevMod(_repository, 1);
+            return View();
         }
     }
 }
