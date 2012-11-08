@@ -12,9 +12,9 @@
     </script>
 <div id="main">
 <h2>Purse Index</h2>
-<h3>@Model.Years[0].Months[0].Name</h3>
+<h3>@Model.CurrentMonth().Name</h3>
     <table id="tablePurse">
-        @foreach (var item in Model.Years[0].Months[1].Days)
+        @foreach (var item in Model.CurrentMonth().GetDays())
         {
             var rowspan = item.SpanDaysSingleOperations.Count + 2;
             <tr class="Day">
