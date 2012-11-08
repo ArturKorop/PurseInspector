@@ -6,7 +6,7 @@ namespace Domain.Repository
 {
     public class EFOperationRepository : IOperationRepository
     {
-        private EFDbContext _context = new EFDbContext();
+        private readonly EFDbContext _context = new EFDbContext();
         public IQueryable<RepositoryOperation> Repository(int userID)
         {
             return _context.RepositoryOperations.Where(x => x.UserID == userID);
@@ -30,8 +30,15 @@ namespace Domain.Repository
             return _context.RepositoryOperations.Where(y => y.UserID == userID).Max(x => x.ID);
         }
 
-        public void ChangeOperation(int id, SingleOperation operation, int userID)
+        public void ChangeOperation(SingleOperation operation, int userID)
         {
+            var item = _context.RepositoryOperations.FirstOrDefault(x => x.ID == operation.Id && x.UserID == userID);
+            if (item != null)
+            {
+                item.OperationName = operation.OperationName;
+                item.OperationValue = operation.Value;
+            }
+            _context.SaveChanges();
         }
 
         public void RemoveOperation(int id, int userID)

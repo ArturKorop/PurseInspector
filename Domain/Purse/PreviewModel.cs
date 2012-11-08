@@ -8,10 +8,22 @@ namespace Domain.Purse
 {
     public class PreviewModel
     {
+        public Month CurrentMonth()
+        {
+            var currentYear = Years.FirstOrDefault(x => x.Name == DateTime.Now.Year);
+            return currentYear != null ? currentYear.Months[DateTime.Now.Month - 1] : new Month(DateTime.Now.Month, DateTime.Now.Year);
+
+        }
+
+
         public Collection<Year> Years = new Collection<Year>();
 
         public PreviewModel(int beginYear, int endYear)
         {
+            if (endYear < 2012 && beginYear > 2020)
+                beginYear = 2012;
+            if (endYear < 2012 && endYear > 2030)
+                endYear = 2030;
             for (int i = beginYear; i <= endYear; i++)
             {
                 Years.Add(new Year(i));
@@ -85,7 +97,7 @@ namespace Domain.Purse
             SpanDaysSingleOperations.Add(operation);
             _sumSpan = SpanDaysSingleOperations.Sum(x => x.Value);
         }
-        public void ChangeSpanOperation(int id,SingleOperation operation)
+      /*  public void ChangeSpanOperation(int id,SingleOperation operation)
         {
             SpanDaysSingleOperations.Where(x => x.Id == id).Select(x => x).First().OperationName = operation.OperationName;
             SpanDaysSingleOperations.Where(x => x.Id == id).Select(x => x).First().Value = operation.Value;
@@ -93,7 +105,7 @@ namespace Domain.Purse
         public void RemoveSpanOperation(int id)
         {
             SpanDaysSingleOperations.Remove(SpanDaysSingleOperations.Where(x => x.Id == id).Select(x => x).First());
-        }
+        }*/
         public int GetSumRent()
         {
             return _sumRent;

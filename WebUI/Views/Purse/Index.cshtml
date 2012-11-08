@@ -13,29 +13,30 @@
 <div id="main">
 <h2>Purse Index</h2>
 <h3>@Model.Years[0].Months[0].Name</h3>
-@Html.DisplayForModel(Model.Years[0].Months[0].Days)
-<table id="tablePurse">
-    @foreach (var item in Model.Years[0].Months[0].Days)
-    {
-        var rowspan = item.SpanDaysSingleOperations.Count + 2;
-        <tr class="Day">
-            <td rowspan="@rowspan">@item.Number</td>
-            <td rowspan="@rowspan">@item.Name</td>
-            <td colspan="3" id="SpanDaysSingleOperations"></td>
-            <td rowspan="@rowspan" class="Sum">@item.GetSumSpan()</td>
-        </tr>
-        <tr class="NewOperation">
-            <td>@Html.TextBox("NewOperationName", null, new { Class = "NewOperationName" })</td>
-            <td>@Html.TextBox("NewOperationValue", null, new { Class = "NewOperationValue" })</td>
-        </tr>
-        foreach (var operation in item.SpanDaysSingleOperations)
+    <table id="tablePurse">
+        @foreach (var item in Model.Years[0].Months[1].Days)
         {
-            <tr class="Operation" id="@operation.Id">
-                <td>@Html.TextBox("OperationName", operation.OperationName, new { Class = "Operation" })</td>
-                <td>@Html.TextBox("OperationValue", operation.Value, new { Class = "Operation" })</td>
-                <td class="ButtonDelete">X</td>
+            var rowspan = item.SpanDaysSingleOperations.Count + 2;
+            <tr class="Day">
+                <td rowspan="@rowspan">@item.Number</td>
+                <td rowspan="@rowspan">@item.Name</td>
+                <td colspan="3" id="SpanDaysSingleOperations"></td>
+                <td rowspan="@rowspan" class="Sum">@item.GetSumSpan()</td>
             </tr>
+            <tr class="NewOperation">
+                <td>@Html.TextBox("NewOperationName", null, new { Class = "NewOperationName" })</td>
+                <td>@Html.TextBox("NewOperationValue", null, new { Class = "NewOperationValue" })</td>
+            </tr>
+            foreach (var operation in item.SpanDaysSingleOperations)
+            {
+                <tr class="Operation" id="@operation.Id">
+                    <td>@Html.TextBox("OperationName", operation.OperationName, new { Class = "OperationName" })</td>
+                    <td>@Html.TextBox("OperationValue", operation.Value, new { Class = "OperationValue" })</td>
+                    <td class="ButtonDelete">X</td>
+                </tr>
+            }
         }
-    }
-</table>
+    </table>
+    <input type="button" value="Prev" id="Prev" align="left"/>
+    <input type="button" value="Next" id="Next" align="right"/>
 </div>

@@ -1,8 +1,9 @@
 ﻿function SetScripts() {
     funcAddNewOperation();
     funcDeleteOperation();
+    funcChangeOperation();
 }
-
+// Add operation
 function funcAddNewOperation() {
     $('.NewOperationName').focusout({ type: "name" }, funcFocusout);
     $('.NewOperationValue').focusout({ type: "value" }, funcFocusout);
@@ -69,7 +70,8 @@ function funcClear(item, type) {
     }
     item.prop('value', '');
 }
-
+// /Add operation
+// Delete operation
 function funcDeleteOperation() {
     $('.ButtonDelete').live('click', function () {
         var operationId = $(this).parent().prop('id');
@@ -89,3 +91,49 @@ function funcDeleteOperation() {
         });
     });
 }
+// /Delete operation
+// Change operation
+function funcChangeOperation() {
+
+    $('.OperationName').focusin(SetDefaultText);
+    $('.OperationValue').focusin(SetDefaultText);
+    $('.OperationName').focusout({ type: "name" }, funcChangeFocusout);
+    $('.OperationValue').focusout({ type: "value" }, funcChangeFocusout);
+    $('.OperationName').keypress(function (e) {
+        if (e.which == 13) {
+            funcChangeOperationWork("name", $(this));
+        }
+    });
+    $('.OperationValue').keypress(function (e) {
+        if (e.which == 13) {
+            funcChangeOperationWork("value", $(this));
+        }
+    });
+}
+
+function funcChangeFocusout(eventObject) {
+    funcChangeOperationWork(eventObject.data.type, $(this));
+}
+
+var temp = "";
+function funcChangeOperationWork(type, object) {
+    var newName;
+    var newValue;
+    var current = object.prop('value');
+    if (current != temp) {
+        var id = object.parent().parent().prop('id');
+        if (type == "name") {
+            newName = current;
+            newValue = object.parent().next().children('.OperationValue').prop('value');
+        } else {
+            newValue = current;
+            newName = object.parent().prev().children('.OperationName').prop('value');
+        }
+        $.post("/Purse/ChangeOperation", { id: id, newName: newName, newValue: newValue });
+    }
+}
+
+function SetDefaultText() {
+    temp = $(this).prop('value');
+}
+// /Change operation

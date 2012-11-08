@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Domain.Abstract;
 using Domain.Adapter;
+using Domain.Purse;
 using Domain.Repository;
 
 namespace WebUI.Controllers
@@ -45,7 +46,11 @@ namespace WebUI.Controllers
             _adapter = new AdapterEFURepoToPrevMod(_operationRepository, GetUserID());
             return View();
         }
-
+        public ActionResult ChangeOperation(int id, string newName, int newValue)
+        {
+            _operationRepository.ChangeOperation(new SingleOperation {Id = id, OperationName = newName, Value = newValue}, GetUserID());
+            return View("Index");
+        }
         private int GetUserID()
         {
             string userName = User == null ? null : User.Identity.Name;

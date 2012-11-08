@@ -8,7 +8,7 @@ namespace Domain.Abstract
     {
         IQueryable<RepositoryOperation> Repository(int userID);
         int AddOperation(RepositoryOperation repositoryOperation, int userID);
-        void ChangeOperation(int id, SingleOperation operation, int userID);
+        void ChangeOperation(SingleOperation operation, int userID);
         void RemoveOperation(int id, int userID);
 
     }

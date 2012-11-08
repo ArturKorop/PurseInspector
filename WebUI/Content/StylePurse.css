@@ -41,7 +41,25 @@
     margin: 0 0 0 0;
     width: 100px;
 }
-.Operation 
+.Operation
+{
+    border: none;
+    background-color: rgb(244, 105, 126);
+    color: white;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    width: 100px;
+}
+.OperationName 
+{
+    border: none;
+    background-color: rgb(244, 105, 126);
+    color: white;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    width: 100px;
+}
+.OperationValue
 {
     border: none;
     background-color: rgb(244, 105, 126);
