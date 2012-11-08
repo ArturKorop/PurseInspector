@@ -31,7 +31,7 @@ namespace WebUI.Models
     public class RegisterExternalLoginModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "UserInformation name")]
         public string UserName { get; set; }
 
         public string ExternalLoginData { get; set; }
@@ -59,7 +59,7 @@ namespace WebUI.Models
     public class LoginModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "UserInformation name")]
         public string UserName { get; set; }
 
         [Required]
@@ -74,7 +74,7 @@ namespace WebUI.Models
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "UserInformation name")]
         public string UserName { get; set; }
 
         [Required]

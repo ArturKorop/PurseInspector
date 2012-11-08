@@ -10,14 +10,13 @@ namespace Domain.Adapter
         private IQueryable<RepositoryOperation> _repository;
         private PreviewModel _model;
 
-        public AdapterEFURepoToPrevMod(IUserRepository repository, int userID)
+        public AdapterEFURepoToPrevMod(IOperationRepository repository, int userID)
         {
             _repository = repository.Repository(userID);
 
         }
         public PreviewModel GetModel()
         {
-            var r = _repository.Count();
             var maxYear = _repository.Max(x => x.Year);
             var minYear = _repository.Min(x => x.Year);
             _model = new PreviewModel(minYear, maxYear);

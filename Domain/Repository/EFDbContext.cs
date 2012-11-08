@@ -1,12 +1,11 @@
 ﻿using System.Data.Entity;
-using System.Linq;
-using Domain.Abstract;
-using Domain.Purse;
+using Domain.User;
 
 namespace Domain.Repository
 {
     public class EFDbContext : DbContext   
     {
         public DbSet<RepositoryOperation> RepositoryOperations { get; set; }
+        public DbSet<UserInformation> UserProfile { get; set; }
     }
 }

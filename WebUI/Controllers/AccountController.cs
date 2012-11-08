@@ -174,7 +174,7 @@ namespace WebUI.Controllers
             }
             else
             {
-                // User does not have a local password so remove any validation errors caused by a missing
+                // UserInformation does not have a local password so remove any validation errors caused by a missing
                 // OldPassword field
                 ModelState state = ModelState["OldPassword"];
                 if (state != null)
@@ -236,7 +236,7 @@ namespace WebUI.Controllers
             }
             else
             {
-                // User is new, ask for their desired membership name
+                // UserInformation is new, ask for their desired membership name
                 string loginData = OAuthWebSecurity.SerializeProviderUserId(result.Provider, result.ProviderUserId);
                 ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(result.Provider).DisplayName;
                 ViewBag.ReturnUrl = returnUrl;
@@ -280,7 +280,7 @@ namespace WebUI.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
+                        ModelState.AddModelError("UserName", "UserInformation name already exists. Please enter a different user name.");
                     }
                 }
             }
@@ -372,7 +372,7 @@ namespace WebUI.Controllers
             switch (createStatus)
             {
                 case MembershipCreateStatus.DuplicateUserName:
-                    return "User name already exists. Please enter a different user name.";
+                    return "UserInformation name already exists. Please enter a different user name.";
 
                 case MembershipCreateStatus.DuplicateEmail:
                     return "A user name for that e-mail address already exists. Please enter a different e-mail address.";
