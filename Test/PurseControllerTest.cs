@@ -21,7 +21,7 @@ namespace Test
         [TestMethod]
         public void AddOperationTest()
         {
-            Mock<IOperationRepository> mock = CreateRepository();
+            Mock<IOperationRepository> mock = new Mock<IOperationRepository>();
             Mock<IUserRepository> mockUser = CreateUserRepository();
 
             PurseController controller = new PurseController(mock.Object, mockUser.Object);
@@ -31,7 +31,7 @@ namespace Test
         [TestMethod]
         public void DeleteOperationTest()
         {
-            Mock<IOperationRepository> mock = CreateRepository();
+            Mock<IOperationRepository> mock = new Mock<IOperationRepository>();
             Mock<IUserRepository> mockUser = CreateUserRepository();
 
             PurseController controller = new PurseController(mock.Object, mockUser.Object);
@@ -54,64 +54,19 @@ namespace Test
         private Mock<IOperationRepository> CreateRepository()
         {
             Mock<IOperationRepository> mock = new Mock<IOperationRepository>();
-            mock.Setup(x => x.Repository(1)).Returns(new[]
-                {
-                    new RepositoryOperation
-                        {
-                            ID = 0,
-                            Day = 1,
-                            Month = 1,
-                            OperationName = "Novus",
-                            OperationType = "span",
-                            OperationValue = 40,
-                            UserID = 1,
-                            UserName = "akorop",
-                            Year = 2012
-                        },
-                    new RepositoryOperation
-                        {
-                            ID = 1,
-                            Day = 1,
-                            Month = 1,
-                            OperationName = "MacDonalds",
-                            OperationType = "span",
-                            OperationValue = 36,
-                            UserID = 1,
-                            UserName = "akorop",
-                            Year = 2012
-                        },
-                    new RepositoryOperation
-                        {
-                            ID = 2,
-                            Day = 5,
-                            Month = 1,
-                            OperationName = "Mouse",
-                            OperationType = "span",
-                            OperationValue = 80,
-                            UserID = 1,
-                            UserName = "akorop",
-                            Year = 2012
-                        }
-                }.AsQueryable());
+            var model = new PreviewModel();
+            model.AddDaySpanOperation(2012,1,1,new SingleOperation{Id = 0,OperationName = "Novus", Value = 40});
+            model.AddDaySpanOperation(2012,1,1,new SingleOperation{Id = 1,OperationName = "MacDonalds", Value = 40});
+            model.AddDaySpanOperation(2012,1,5,new SingleOperation{Id = 2,OperationName = "Mouse", Value = 40});
+            mock.Setup(x => x.Model(It.IsAny<int>())).Returns(model);
             return mock;
         }
         private Mock<IUserRepository> CreateUserRepository()
         {
             Mock<IUserRepository> mock = new Mock<IUserRepository>();
-            mock.Setup(x => x.Repository()).Returns(new[]
-                {
-                    new UserInformation
-                        {
-                            UserId = 1,
-                            UserName = "akorop"
-                        },
-                    new UserInformation
-                        {
-                            UserId = 2,
-                            UserName = "root"
-                        }
-                }.AsQueryable());
+            
             mock.Setup(x => x.GetUserID(null)).Returns(1);
+            mock.Setup(x => x.GetUserName(It.IsAny<int>())).Returns("akorop");
             return mock;
         }
     }

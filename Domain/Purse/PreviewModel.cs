@@ -11,20 +11,11 @@ namespace Domain.Purse
         private readonly Collection<Year> _years = new Collection<Year>();
         private Month _currentMonth;
 
-        public PreviewModel(int beginYear, int endYear)
-        {
-            if (endYear < 2012 && beginYear > 2020)
-                beginYear = 2012;
-            if (endYear < 2012 && endYear > 2030)
-                endYear = 2030;
-            for (int i = beginYear; i <= endYear; i++)
-            {
-                _years.Add(new Year(i));
-            }
-        }
         public void AddDaySpanOperation(int year, int month, int day, SingleOperation operation)
         {
-            _years.First(x => x.Name == year).GetMonth(month).GetDay(day).AddSpanOperation(operation);
+            if(_years.SingleOrDefault(x=>x.Name == year) == null)
+                _years.Add(new Year(year));
+            _years.Single(x => x.Name == year).GetMonth(month).GetDay(day).AddSpanOperation(operation);
         }
         public Month CurrentMonth()
         {
@@ -41,51 +32,46 @@ namespace Domain.Purse
             }
             return _currentMonth;
         }
-        public Month NextMonth()
+        public Month NextMonth(int month, int year)
         {
-            if (_currentMonth != null)
+            SetCurrentMonth(month, year);
+            Year currentYear;
+            if (_currentMonth.GetThisMonth() != 12)
             {
-                Year currentYear;
-                if (_currentMonth.GetThisMonth() != 12)
-                {
-                    currentYear = GetYear(_currentMonth.GetThisYear());
-                    _currentMonth = currentYear.GetMonth(_currentMonth.GetThisMonth() + 1);
-                    return _currentMonth;
-                }
-                currentYear = GetYear(_currentMonth.GetThisYear() + 1);
-                if (currentYear != null)
-                    _currentMonth = currentYear.GetMonth(1);
-                else
-                {
-                    _years.Add(new Year(_currentMonth.GetThisYear() + 1));
-                    _currentMonth = new Month(1, _currentMonth.GetThisYear() + 1);
-                }
+                currentYear = GetYear(_currentMonth.GetThisYear());
+                _currentMonth = currentYear.GetMonth(_currentMonth.GetThisMonth() + 1);
                 return _currentMonth;
             }
-            return CurrentMonth();
+            currentYear = GetYear(_currentMonth.GetThisYear() + 1);
+            if (currentYear != null)
+                _currentMonth = currentYear.GetMonth(1);
+            else
+            {
+                _years.Add(new Year(_currentMonth.GetThisYear() + 1));
+                _currentMonth = new Month(1, _currentMonth.GetThisYear() + 1);
+            }
+            return _currentMonth;
         }
-        public Month PrevMonth()
+        public Month PrevMonth(int month, int year)
         {
-            if (_currentMonth != null)
+            SetCurrentMonth(month, year);
+
+            Year currentYear;
+            if (_currentMonth.GetThisMonth() != 1)
             {
-                Year currentYear;
-                if (_currentMonth.GetThisMonth() != 1)
-                {
-                    currentYear = GetYear(_currentMonth.GetThisYear());
-                    _currentMonth = currentYear.GetMonth(_currentMonth.GetThisMonth() - 1);
-                    return _currentMonth;
-                }
-                currentYear = GetYear(_currentMonth.GetThisYear() - 1);
-                if (currentYear != null)
-                    _currentMonth = currentYear.GetMonth(1);
-                else
-                {
-                    _years.Add(new Year(_currentMonth.GetThisYear() - 1));
-                    _currentMonth = new Month(12, _currentMonth.GetThisYear() - 1);
-                }
+                currentYear = GetYear(_currentMonth.GetThisYear());
+                _currentMonth = currentYear.GetMonth(_currentMonth.GetThisMonth() - 1);
                 return _currentMonth;
             }
-            return CurrentMonth();
+            currentYear = GetYear(_currentMonth.GetThisYear() - 1);
+            if (currentYear != null)
+                _currentMonth = currentYear.GetMonth(12);
+            else
+            {
+                _years.Add(new Year(_currentMonth.GetThisYear() - 1));
+                _currentMonth = new Month(12, _currentMonth.GetThisYear() - 1);
+            }
+            return _currentMonth;
         }
         public void SetCurrentMonth(int month, int year)
         {
@@ -94,7 +80,10 @@ namespace Domain.Purse
         }
         public Year GetYear(int name)
         {
-            return _years.FirstOrDefault(x => x.Name == name);
+            var year = _years.SingleOrDefault(x => x.Name == name);
+            if(year == null)
+                _years.Add(new Year(name));
+            return _years.Single(x => x.Name == name);
         }
     }
 
@@ -154,6 +143,22 @@ namespace Domain.Purse
         {
             return _thisMonth;
         }
+        public MonthJSON ToJSON()
+        {
+            Collection<DayJSON> daysJson = new Collection<DayJSON>();
+            foreach (var day in _days)
+            {
+                daysJson.Add(day.ToJSON());
+            }
+            MonthJSON temp = new MonthJSON
+                {
+                    Days = daysJson,
+                    Name = Name,
+                    ThisMonth = _thisMonth,
+                    ThisYear = _thisYear
+                };
+            return temp;
+        }
     }
 
     public class Day
@@ -192,6 +197,18 @@ namespace Domain.Purse
         {
             return _sumSpan;
         }
+        public DayJSON ToJSON()
+        {
+            return new DayJSON
+                {
+                    Name = Name,
+                    Number = Number,
+                    RentDaysSingleOperations = RentDaysSingleOperations,
+                    SpanDaysSingleOperations = SpanDaysSingleOperations,
+                    SumRent = _sumRent,
+                    SumSpan = _sumSpan
+                };
+        }
     }
 
     public class SingleOperation
@@ -199,5 +216,23 @@ namespace Domain.Purse
         public int Id { get; set; }
         public string OperationName { get; set; }
         public int Value { get; set; }
+    }
+
+    public class MonthJSON
+    {
+        public Collection<DayJSON> Days = new Collection<DayJSON>();
+        public int ThisMonth;
+        public int ThisYear;
+        public string Name;
+    }
+
+    public class DayJSON
+    {
+        public int SumRent;
+        public int SumSpan;
+        public int Number { get; set; }
+        public string Name { get; set; }
+        public Collection<SingleOperation> RentDaysSingleOperations;
+        public Collection<SingleOperation> SpanDaysSingleOperations;
     }
 }

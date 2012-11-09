@@ -5,7 +5,7 @@ namespace Domain.Abstract
 {
     public interface IUserRepository
     {
-        IQueryable<UserInformation> Repository();
         int GetUserID(string userName);
+        string GetUserName(int userID);
     }
 }

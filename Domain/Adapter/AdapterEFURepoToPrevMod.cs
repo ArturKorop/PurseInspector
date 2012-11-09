@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Domain.Abstract;
 using Domain.Purse;
 using Domain.Repository;
 
@@ -10,16 +9,13 @@ namespace Domain.Adapter
         private IQueryable<RepositoryOperation> _repository;
         private PreviewModel _model;
 
-        public AdapterEFURepoToPrevMod(IOperationRepository repository, int userID)
+        public AdapterEFURepoToPrevMod(IQueryable<RepositoryOperation> repository)
         {
-            _repository = repository.Repository(userID);
-
+            _repository = repository;
         }
         public PreviewModel GetModel()
         {
-            var maxYear = _repository.Max(x => x.Year);
-            var minYear = _repository.Min(x => x.Year);
-            _model = new PreviewModel(minYear, maxYear);
+            _model = new PreviewModel();
 
             foreach (var item in _repository)
             {

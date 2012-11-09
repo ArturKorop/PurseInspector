@@ -11,9 +11,7 @@ namespace WebUI.Controllers
     {
         private readonly IOperationRepository _operationRepository;
         private readonly IUserRepository _userRepository;
-        private AdapterEFURepoToPrevMod _adapter;
-        
-
+     
         public PurseController(IOperationRepository operationRepository, IUserRepository userRepository)
         {
             _operationRepository = operationRepository;
@@ -21,8 +19,7 @@ namespace WebUI.Controllers
         }
         public ViewResult Index()
         {
-            _adapter = new AdapterEFURepoToPrevMod(_operationRepository, GetUserID());
-            return View(_adapter.GetModel());
+            return View(_operationRepository.Model(GetUserID()));
         }
         public ActionResult AddOperation(int year,int month,int day,string operationType, string operationName, int operationValue)
         {
@@ -35,23 +32,30 @@ namespace WebUI.Controllers
                     OperationValue = operationValue,
                     OperationType = operationType,
                     UserID = GetUserID(),
-                    UserName = User.Identity.Name
+                    UserName = _userRepository.GetUserName(GetUserID())
                 });
             if (Request != null && Request.IsAjaxRequest())
                 return Json(itemID);
-            _adapter = new AdapterEFURepoToPrevMod(_operationRepository, GetUserID());
-            return  View("Index",_adapter.GetModel());
+            return View("Index", _operationRepository.Model(GetUserID()));
         }
         public ActionResult DeleteOperation(int id)
         {
             _operationRepository.RemoveOperation(id, GetUserID());
-            _adapter = new AdapterEFURepoToPrevMod(_operationRepository, GetUserID());
             return View();
         }
         public ActionResult ChangeOperation(int id, string newName, int newValue)
         {
             _operationRepository.ChangeOperation(new SingleOperation {Id = id, OperationName = newName, Value = newValue}, GetUserID());
             return View("Index");
+        }
+        public ActionResult NextMonth(int currentMonth, int currentYear)
+        {
+            if(Request.IsAjaxRequest())
+            {
+                var temp = _operationRepository.Model(GetUserID()).NextMonth(currentMonth, currentYear).ToJSON();
+                return Json(temp);
+            }
+            return View("Index", _operationRepository.Model(GetUserID()));
         }
         private int GetUserID()
         {
