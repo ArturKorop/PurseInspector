@@ -33,8 +33,10 @@ namespace WebUI.Controllers
                     Year = year,
                     OperationName = operationName,
                     OperationValue = operationValue,
-                    OperationType = operationType
-                }, GetUserID());
+                    OperationType = operationType,
+                    UserID = GetUserID(),
+                    UserName = User.Identity.Name
+                });
             if (Request != null && Request.IsAjaxRequest())
                 return Json(itemID);
             _adapter = new AdapterEFURepoToPrevMod(_operationRepository, GetUserID());

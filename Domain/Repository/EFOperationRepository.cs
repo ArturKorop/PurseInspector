@@ -12,7 +12,7 @@ namespace Domain.Repository
             return _context.RepositoryOperations.Where(x => x.UserID == userID);
         }
 
-        public int AddOperation(RepositoryOperation repositoryOperation, int userID)
+        public int AddOperation(RepositoryOperation repositoryOperation)
         {
             var operation = new RepositoryOperation
                 {
@@ -21,13 +21,13 @@ namespace Domain.Repository
                     Year = repositoryOperation.Year,
                     OperationName = repositoryOperation.OperationName,
                     OperationValue = repositoryOperation.OperationValue,
-                    OperationType = repositoryOperation.OperationName,
-                    UserName = "akorop",
-                    UserID = userID
+                    OperationType = repositoryOperation.OperationType,
+                    UserName = repositoryOperation.UserName,
+                    UserID = repositoryOperation.UserID
                 };
             _context.RepositoryOperations.Add(operation);
             _context.SaveChanges();
-            return _context.RepositoryOperations.Where(y => y.UserID == userID).Max(x => x.ID);
+            return _context.RepositoryOperations.Where(y => y.UserID == repositoryOperation.UserID).Max(x => x.ID);
         }
 
         public void ChangeOperation(SingleOperation operation, int userID)

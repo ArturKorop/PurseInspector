@@ -120,17 +120,22 @@ namespace Domain.Purse
     {
         private readonly DateTime _date;
         private readonly Collection<Day> _days = new Collection<Day>();
+        private readonly int _thisMonth;
+        private readonly int _thisYear;
 
         public string Name;
         
         public Month(int numMonth,int numYear)
         {
+            _thisMonth = numMonth;
+            _thisYear = numYear;
             _date = new DateTime(numYear, numMonth, 1);
             for (int i = 0; i < DateTime.DaysInMonth(numYear,numMonth); i++)
             {
                 _days.Add(new Day(_date.Day, CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(_date.DayOfWeek)));
                 _date = _date.AddDays(1);
             }
+            _date = _date.AddDays(-1);
             Name = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(numMonth);
         }
         public Day GetDay(int date)
@@ -143,11 +148,11 @@ namespace Domain.Purse
         }
         public int GetThisYear()
         {
-            return _date.Year;
+            return _thisYear;
         }
         public int GetThisMonth()
         {
-            return _date.Month;
+            return _thisMonth;
         }
     }
 

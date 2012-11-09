@@ -5,14 +5,24 @@
     <link href="@Url.Content("~/Content/StylePurse.css")" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="../../Scripts/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="../../UserScripts/ViewPurseScripts.js"></script>}
-    <script type="text/javascript">
-        $(document).ready(function () {
-            SetScripts();
+<script type="text/javascript">
+    $(document).ready(function () {
+        SetScripts();
+        funcNext();
+    });
+    function funcNext() {
+        $('#Next').click(function () {
+            $.post("/Purse/NextMonth", { currentMonth : 11 }, function(data) {
+            });
         });
-    </script>
+    }
+       
+</script>
+
 <div id="main">
-<h2>Purse Index</h2>
-<h3>@Model.CurrentMonth().Name</h3>
+    <h2 id="Year">@Model.CurrentMonth().GetThisYear()</h2>
+    <h2 id="MonthNumber">@Model.CurrentMonth().GetThisMonth()</h2>
+    <h3>@Model.CurrentMonth().Name</h3>
     <table id="tablePurse">
         @foreach (var item in Model.CurrentMonth().GetDays())
         {

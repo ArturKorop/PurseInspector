@@ -1,7 +1,16 @@
-﻿function SetScripts() {
+﻿var thisYear;
+var thisMonth;
+
+function SetScripts() {
     funcAddNewOperation();
     funcDeleteOperation();
     funcChangeOperation();
+    funcSetCurrentDate();
+}
+
+function funcSetCurrentDate() {
+    thisYear = $('#Year').text();
+    thisMonth = $('#MonthNumber').text();
 }
 // Add operation
 function funcAddNewOperation() {
@@ -37,7 +46,7 @@ function funcOperationAdd(type, object) {
     }
     var day = item.parent().parent().prev().children().first().text();
     if (operationName != '' && operationValue != '') {
-        $.post("/Purse/AddOperation", { year: 2012, month: 1, day: day, operationName: operationName, operationValue: operationValue, operationType: 'span' }, function (data) {
+        $.post("/Purse/AddOperation", { year: thisYear, month: thisMonth, day: day, operationName: operationName, operationValue: operationValue, operationType: 'span' }, function (data) {
             funcClear(item, type);
             var dayRow = item.parent().parent().prevAll('.Day').first();
             var newRowAddSpan = dayRow.children().first().prop('rowspan') + 1;
