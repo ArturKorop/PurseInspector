@@ -19,7 +19,7 @@ namespace WebUI.Controllers
         }
         public ViewResult Index()
         {
-            return View(_operationRepository.Model(GetUserID()));
+            return View(_operationRepository.Model(GetUserID()).CurrentMonth());
         }
         public ActionResult AddOperation(int year,int month,int day,string operationType, string operationName, int operationValue)
         {
@@ -53,6 +53,15 @@ namespace WebUI.Controllers
             if(Request.IsAjaxRequest())
             {
                 var temp = _operationRepository.Model(GetUserID()).NextMonth(currentMonth, currentYear).ToJSON();
+                return Json(temp);
+            }
+            return View("Index", _operationRepository.Model(GetUserID()));
+        }
+        public ActionResult PrevMonth(int currentMonth, int currentYear)
+        {
+            if (Request.IsAjaxRequest())
+            {
+                var temp = _operationRepository.Model(GetUserID()).PrevMonth(currentMonth, currentYear).ToJSON();
                 return Json(temp);
             }
             return View("Index", _operationRepository.Model(GetUserID()));

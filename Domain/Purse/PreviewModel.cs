@@ -143,6 +143,10 @@ namespace Domain.Purse
         {
             return _thisMonth;
         }
+        public int MonthSpanSum()
+        {
+            return _days.Sum(x => x.GetSumSpan());
+        }
         public MonthJSON ToJSON()
         {
             Collection<DayJSON> daysJson = new Collection<DayJSON>();
@@ -155,7 +159,8 @@ namespace Domain.Purse
                     Days = daysJson,
                     Name = Name,
                     ThisMonth = _thisMonth,
-                    ThisYear = _thisYear
+                    ThisYear = _thisYear,
+                    MonthSumSpan = MonthSpanSum()
                 };
             return temp;
         }
@@ -224,6 +229,7 @@ namespace Domain.Purse
         public int ThisMonth;
         public int ThisYear;
         public string Name;
+        public int MonthSumSpan;
     }
 
     public class DayJSON

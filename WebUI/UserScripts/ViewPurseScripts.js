@@ -146,3 +146,129 @@ function SetDefaultText() {
     temp = $(this).prop('value');
 }
 // /Change operation
+// NextMonth
+function funcNext() {
+    $('#Next').click(function () {
+        thisYear = $('#Year').text();
+        thisMonth = $('#MonthNumber').text();
+        $.post("/Purse/NextMonth", { currentMonth: thisMonth, currentYear: thisYear }, function (data) {
+            $('#tablePurse').remove();
+            $('#Year').text(data.ThisYear);
+            $('#MonthNumber').text(data.ThisMonth);
+            $('#MonthName').text(data.Name);
+            $('#MonthName').after(function () {
+                var table = '';
+                var tr = '';
+                $.each(data.Days, function (k, val) {
+                    var rowspan = val.SpanDaysSingleOperations.length + 2;
+                    tr = '<tr class="Day">' +
+                            '<td rowspan="' + rowspan + '">' + val.Number + '</td>' +
+                            '<td rowspan="' + rowspan + '">' + val.Name + '</td>' +
+                            '<td colspan="3" id="SpanDaysSingleOperations"></td>' +
+                            '<td rowspan="' + rowspan + '" class="Sum">' + val.SumSpan + '</td>' +
+                            '</tr>';
+                    var trNewOperation = '<tr class="NewOperation">' +
+                        '<td>' +
+                        '<input id="NewOperationName" class="NewOperationName" type="text" value="" name="OperationName">' +
+                        '</td>' +
+                        '<td>' +
+                        '<input id="NewOperationValue" class="NewOperationValue" type="text" value="" name="OperationValue">' +
+                        '</td>' +
+                        '</tr>';
+                    tr = tr + trNewOperation;
+                    var trOperation = '';
+                    $.each(val.SpanDaysSingleOperations, function (l, item) {
+                        trOperation = trOperation +
+                                '<tr class="Operation" id="' + item.Id + '">' +
+                                '<td>' +
+                                '<input id="OperationName" class="OperationName" type="text" value="' + item.OperationName + '" name="OperationName">' +
+                                '</td>' +
+                                '<td>' +
+                                '<input id="OperationValue" class="OperationValue" type="text" value="' + item.Value + '" name="OperationValue">' +
+                                '</td>' +
+                                '<td class="ButtonDelete">X</td>' +
+                                '</tr>';
+                    });
+                    tr = tr + trOperation;
+                    table = table + tr;
+                });
+                var trAllSumSpan = '<tr id="MonthSumSpan">' +
+                        '<td></td>' +
+                        '<td></td>' +
+                        '<td></td>' +
+                        '<td></td>' +
+                        '<td></td>' +
+                        '<td>' + data.MonthSumSpan + '</td></tr>';
+                table = table + trAllSumSpan;
+                return '<table id="tablePurse">' +
+                        table +
+                        '</table>';
+            });
+            SetScripts();
+        });
+    });
+}
+// \NextMonth
+// PrevMonth
+function funcPrev() {
+    $('#Prev').click(function () {
+        thisYear = $('#Year').text();
+        thisMonth = $('#MonthNumber').text();
+        $.post("/Purse/PrevMonth", { currentMonth: thisMonth, currentYear: thisYear }, function (data) {
+            $('#tablePurse').remove();
+            $('#Year').text(data.ThisYear);
+            $('#MonthNumber').text(data.ThisMonth);
+            $('#MonthName').text(data.Name);
+            $('#MonthName').after(function () {
+                var table = '';
+                var tr = '';
+                $.each(data.Days, function (k, val) {
+                    var rowspan = val.SpanDaysSingleOperations.length + 2;
+                    tr = '<tr class="Day">' +
+                            '<td rowspan="' + rowspan + '">' + val.Number + '</td>' +
+                            '<td rowspan="' + rowspan + '">' + val.Name + '</td>' +
+                            '<td colspan="3" id="SpanDaysSingleOperations"></td>' +
+                            '<td rowspan="' + rowspan + '" class="Sum">' + val.SumSpan + '</td>' +
+                            '</tr>';
+                    var trNewOperation = '<tr class="NewOperation">' +
+                        '<td>' +
+                        '<input id="NewOperationName" class="NewOperationName" type="text" value="" name="OperationName">' +
+                        '</td>' +
+                        '<td>' +
+                        '<input id="NewOperationValue" class="NewOperationValue" type="text" value="" name="OperationValue">' +
+                        '</td>' +
+                        '</tr>';
+                    tr = tr + trNewOperation;
+                    var trOperation = '';
+                    $.each(val.SpanDaysSingleOperations, function (l, item) {
+                        trOperation = trOperation +
+                                '<tr class="Operation" id="' + item.Id + '">' +
+                                '<td>' +
+                                '<input id="OperationName" class="OperationName" type="text" value="' + item.OperationName + '" name="OperationName">' +
+                                '</td>' +
+                                '<td>' +
+                                '<input id="OperationValue" class="OperationValue" type="text" value="' + item.Value + '" name="OperationValue">' +
+                                '</td>' +
+                                '<td class="ButtonDelete">X</td>' +
+                                '</tr>';
+                    });
+                    tr = tr + trOperation;
+                    table = table + tr;
+                });
+                var trAllSumSpan = '<tr id="MonthSumSpan">' +
+                        '<td></td>' +
+                        '<td></td>' +
+                        '<td></td>' +
+                        '<td></td>' +
+                        '<td></td>' +
+                        '<td>' + data.MonthSumSpan + '</td></tr>';
+                table = table + trAllSumSpan;
+                return '<table id="tablePurse">' +
+                        table +
+                        '</table>';
+            });
+            SetScripts();
+        });
+    });
+}
+// \PrevMonth

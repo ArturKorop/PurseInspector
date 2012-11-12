@@ -1,5 +1,5 @@
 ﻿@using Domain.Purse
-@model PreviewModel
+@model Month
 @{
     ViewBag.Title = "Index";
     <link href="@Url.Content("~/Content/StylePurse.css")" rel="stylesheet" type="text/css"/>
@@ -11,69 +11,18 @@
     $(document).ready(function () {
         SetScripts();
         funcNext();
+        funcPrev();
     });
-    function funcNext() {
-        $('#Next').click(function () {
-            thisYear = $('#Year').text();
-            thisMonth = $('#MonthNumber').text();
-            $.post("/Purse/NextMonth", { currentMonth: thisMonth, currentYear: thisYear }, function (data) {
-                $('#tablePurse').remove();
-                $('#Year').text(data.ThisYear);
-                $('#MonthNumber').text(data.ThisMonth);
-                $('#MonthName').text(data.Name);
-                $('#MonthName').after(function () {
-                    var table = '';
-                    var tr = '';
-                    $.each(data.Days, function (k, val) {
-                        var rowspan = val.SpanDaysSingleOperations.length + 2;
-                        tr = '<tr class="Day">' +
-                            '<td rowspan="' + rowspan + '">' + val.Number + '</td>' +
-                            '<td rowspan="' + rowspan + '">' + val.Name + '</td>' +
-                            '<td colspan="3" id="SpanDaysSingleOperations"></td>' +
-                            '<td rowspan="' + rowspan + '" class="Sum">' + val.SumSpan + '</td>' +
-                            '</tr>';
-                        var trNewOperation = '<tr class="NewOperation">' +
-                        '<td>' +
-                        '<input id="NewOperationName" class="NewOperationName" type="text" value="" name="OperationName">' +
-                        '</td>' +
-                        '<td>' +
-                        '<input id="NewOperationValue" class="NewOperationValue" type="text" value="" name="OperationValue">' +
-                        '</td>' +
-                        '</tr>';
-                        tr = tr + trNewOperation;
-                        var trOperation = '';
-                        $.each(val.SpanDaysSingleOperations, function (l, item) {
-                            trOperation = trOperation + 
-                                '<tr class="Operation" id="' + item.Id + '">' +
-                                '<td>' +
-                                '<input id="OperationName" class="OperationName" type="text" value="' + item.OperationName + '" name="OperationName">' +
-                                '</td>' +
-                                '<td>' +
-                                '<input id="OperationValue" class="OperationValue" type="text" value="' + item.Value + '" name="OperationValue">' +
-                                '</td>' +
-                                '<td class="ButtonDelete">X</td>' +
-                                '</tr>';
-                        });
-                        tr = tr + trOperation;
-                        table = table + tr;
-                    });
-                    return '<table id="tablePurse">' +
-                        table +
-                        '</table>';
-                });
-                SetScripts();
-            });
-        });
-    }
+    
 
 </script>
 
 <div id="main">
-    <h2 id="Year">@Model.CurrentMonth().GetThisYear()</h2>
-    <h2 id="MonthNumber">@Model.CurrentMonth().GetThisMonth()</h2>
-    <h3 id="MonthName">@Model.CurrentMonth().Name</h3>
+    <h2 id="Year">@Model.GetThisYear()</h2>
+    <h2 id="MonthNumber">@Model.GetThisMonth()</h2>
+    <h3 id="MonthName">@Model.Name</h3>
     <table id="tablePurse">
-        @foreach (var item in Model.CurrentMonth().GetDays())
+        @foreach (var item in Model.GetDays())
         {
             var rowspan = item.SpanDaysSingleOperations.Count + 2;
             <tr class="Day">
@@ -95,6 +44,14 @@
                 </tr>
             }
         }
+        <tr id="MonthSumSpan">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@Model.MonthSpanSum()</td>
+        </tr>
     </table>
     <input type="button" value="Prev" id="Prev" align="left"/>
     <input type="button" value="Next" id="Next" align="right"/>
