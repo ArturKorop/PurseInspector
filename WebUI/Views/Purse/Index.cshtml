@@ -2,25 +2,39 @@
 @model Month
 @{
     ViewBag.Title = "Index";
-    <link href="@Url.Content("~/Content/StylePurse.css")" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../../Scripts/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="../../UserScripts/ViewPurseScripts.js"></script>}
-<script type="text/javascript">
-    var thisYear;
-    var thisMonth;
-    $(document).ready(function () {
-        SetScripts();
-        funcNext();
-        funcPrev();
-    });
-    
-
-</script>
-
+    @Scripts.Render("~/bundles/viewpursescripts")
+    @Styles.Render("~/Content/stylepurse")
+}
+@section scripts
+{
+    <script type="text/javascript">
+        var thisYear;
+        var thisMonth;
+        $(document).ready(function () {
+            SetScripts();
+            funcNext();
+            funcPrev();
+            $('#ButtonSet').buttonset();
+            $('.Operation').hide();
+            $('.Day').children().each(function () {
+                if ($(this).prop('id') != 'SpanDaysSingleOperations') {
+                    $(this).prop('rowspan', '2');
+                }
+            });
+        });
+    </script>
+}
 <div id="main">
+    <div id="MainDir">
     <h2 id="Year">@Model.GetThisYear()</h2>
     <h2 id="MonthNumber">@Model.GetThisMonth()</h2>
-    <h3 id="MonthName">@Model.Name</h3>
+    <h2 id="MonthName">@Model.Name</h2>
+        <div id="ButtonSet">
+            <input type="checkbox" id="check1" /><label id="label1" for="check1">B</label>
+            <input type="checkbox" id="check2" /><label for="check2">I</label>
+            <input type="checkbox" id="check3" /><label for="check3">U</label>
+        </div>
+    </div>
     <table id="tablePurse">
         @foreach (var item in Model.GetDays())
         {
@@ -44,13 +58,13 @@
                 </tr>
             }
         }
-        <tr id="MonthSumSpan">
+        <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td>@Model.MonthSpanSum()</td>
+            <td id="MonthSumSpan">@Model.MonthSpanSum()</td>
         </tr>
     </table>
     <input type="button" value="Prev" id="Prev" align="left"/>

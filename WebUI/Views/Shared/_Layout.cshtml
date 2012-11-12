@@ -32,9 +32,9 @@
                 @RenderBody()
             </section>
         </div>
-        
-
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/Content/themes/base/css")
         @RenderSection("scripts", required: false)
     </body>
 </html>

@@ -36,7 +36,7 @@ namespace WebUI.Controllers
                 });
             if (Request != null && Request.IsAjaxRequest())
                 return Json(itemID);
-            return View("Index", _operationRepository.Model(GetUserID()));
+            return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
         }
         public ActionResult DeleteOperation(int id)
         {
@@ -46,7 +46,7 @@ namespace WebUI.Controllers
         public ActionResult ChangeOperation(int id, string newName, int newValue)
         {
             _operationRepository.ChangeOperation(new SingleOperation {Id = id, OperationName = newName, Value = newValue}, GetUserID());
-            return View("Index");
+            return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
         }
         public ActionResult NextMonth(int currentMonth, int currentYear)
         {
@@ -55,7 +55,7 @@ namespace WebUI.Controllers
                 var temp = _operationRepository.Model(GetUserID()).NextMonth(currentMonth, currentYear).ToJSON();
                 return Json(temp);
             }
-            return View("Index", _operationRepository.Model(GetUserID()));
+            return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
         }
         public ActionResult PrevMonth(int currentMonth, int currentYear)
         {
@@ -64,7 +64,7 @@ namespace WebUI.Controllers
                 var temp = _operationRepository.Model(GetUserID()).PrevMonth(currentMonth, currentYear).ToJSON();
                 return Json(temp);
             }
-            return View("Index", _operationRepository.Model(GetUserID()));
+            return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
         }
         private int GetUserID()
         {

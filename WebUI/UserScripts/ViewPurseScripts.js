@@ -66,6 +66,7 @@ function funcOperationAdd(type, object) {
                         '</tr>');
             var newSum = parseInt(dayRow.children('.Sum').text()) + parseInt(operationValue);
             dayRow.children('.Sum').text(newSum);
+            $('#MonthSumSpan').text(parseInt($('#MonthSumSpan').text()) + parseInt(operationValue));
         });
     }
 }
@@ -97,6 +98,7 @@ function funcDeleteOperation() {
             currentRow.remove();
             var newSum = parseInt(dayRow.children('.Sum').text()) - parseInt(operationValue);
             dayRow.children('.Sum').text(newSum);
+            $('#MonthSumSpan').text(parseInt($('#MonthSumSpan').text()) - parseInt(operationValue));
         });
     });
 }
@@ -129,6 +131,7 @@ function funcChangeOperationWork(type, object) {
     var newName;
     var newValue;
     var current = object.prop('value');
+    var currentRow = object.parent().parent();
     if (current != temp) {
         var id = object.parent().parent().prop('id');
         if (type == "name") {
@@ -138,7 +141,14 @@ function funcChangeOperationWork(type, object) {
             newValue = current;
             newName = object.parent().prev().children('.OperationName').prop('value');
         }
-        $.post("/Purse/ChangeOperation", { id: id, newName: newName, newValue: newValue });
+        $.post("/Purse/ChangeOperation", { id: id, newName: newName, newValue: newValue }, function () {
+            var dayRow = currentRow.prevAll('.Day').first();
+            if (type != "name") {
+                $('#MonthSumSpan').text(parseInt($('#MonthSumSpan').text()) - parseInt(temp) + parseInt(newValue));
+                dayRow.children('.Sum').text(dayRow.children('.Sum').text() - parseInt(temp) + parseInt(newValue));
+                temp = current;
+            }
+        });
     }
 }
 
@@ -156,7 +166,7 @@ function funcNext() {
             $('#Year').text(data.ThisYear);
             $('#MonthNumber').text(data.ThisMonth);
             $('#MonthName').text(data.Name);
-            $('#MonthName').after(function () {
+            $('#MainDir').after(function () {
                 var table = '';
                 var tr = '';
                 $.each(data.Days, function (k, val) {
@@ -192,13 +202,13 @@ function funcNext() {
                     tr = tr + trOperation;
                     table = table + tr;
                 });
-                var trAllSumSpan = '<tr id="MonthSumSpan">' +
+                var trAllSumSpan = '<tr>' +
                         '<td></td>' +
                         '<td></td>' +
                         '<td></td>' +
                         '<td></td>' +
                         '<td></td>' +
-                        '<td>' + data.MonthSumSpan + '</td></tr>';
+                        '<td id="MonthSumSpan">' + data.MonthSumSpan + '</td></tr>';
                 table = table + trAllSumSpan;
                 return '<table id="tablePurse">' +
                         table +
@@ -219,7 +229,7 @@ function funcPrev() {
             $('#Year').text(data.ThisYear);
             $('#MonthNumber').text(data.ThisMonth);
             $('#MonthName').text(data.Name);
-            $('#MonthName').after(function () {
+            $('#MainDir').after(function () {
                 var table = '';
                 var tr = '';
                 $.each(data.Days, function (k, val) {
@@ -255,13 +265,13 @@ function funcPrev() {
                     tr = tr + trOperation;
                     table = table + tr;
                 });
-                var trAllSumSpan = '<tr id="MonthSumSpan">' +
+                var trAllSumSpan = '<tr>' +
                         '<td></td>' +
                         '<td></td>' +
                         '<td></td>' +
                         '<td></td>' +
                         '<td></td>' +
-                        '<td>' + data.MonthSumSpan + '</td></tr>';
+                        '<td id="MonthSumSpan">' + data.MonthSumSpan + '</td></tr>';
                 table = table + trAllSumSpan;
                 return '<table id="tablePurse">' +
                         table +

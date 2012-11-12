@@ -12,7 +12,10 @@ namespace WebUI
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui-{version}.js"));
+                        "~/Scripts/jquery-ui-1.9.1.custom.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/viewpursescripts").Include(
+                        "~/UserScripts/ViewPurseScripts.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
@@ -25,7 +28,11 @@ namespace WebUI
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/stylepurse").Include("~/Content/StylePurse.css"));
+
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+                        "~/Content/themes/base/jquery-ui-1.9.1.custom.css",
+                        "~/Content/themes/base/jquery-ui-1.9.1.custom.min.css",
                         "~/Content/themes/base/jquery.ui.core.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",
                         "~/Content/themes/base/jquery.ui.selectable.css",
