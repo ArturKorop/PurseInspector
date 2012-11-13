@@ -8,19 +8,11 @@
 @section scripts
 {
     <script type="text/javascript">
-        var thisYear;
-        var thisMonth;
         $(document).ready(function () {
             SetScripts();
             funcNext();
             funcPrev();
-            $('#ButtonSet').buttonset();
-            $('.Operation').hide();
-            $('.Day').children().each(function () {
-                if ($(this).prop('id') != 'SpanDaysSingleOperations') {
-                    $(this).prop('rowspan', '2');
-                }
-            });
+            funcSHOperation();
         });
     </script>
 }
@@ -30,8 +22,8 @@
     <h2 id="MonthNumber">@Model.GetThisMonth()</h2>
     <h2 id="MonthName">@Model.Name</h2>
         <div id="ButtonSet">
-            <input type="checkbox" id="check1" /><label id="label1" for="check1">B</label>
-            <input type="checkbox" id="check2" /><label for="check2">I</label>
+            <input type="button" value="Hide" class="ButtonShow" id="labelCheckSHOperation">
+            <input type="checkbox" id="check2" value="qwe" title="sss"/>
             <input type="checkbox" id="check3" /><label for="check3">U</label>
         </div>
     </div>

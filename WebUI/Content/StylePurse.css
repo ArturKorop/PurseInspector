@@ -95,12 +95,6 @@
 #MonthSumSpan {
     border: none;
 }
-#label1.ui-state-default { 
-    background: #E0241F;
-}
-#label1.ui-state-active { 
-    background: greenyellow; 
-}
  #Year 
  {
      margin: 0 2% 2% 30%;

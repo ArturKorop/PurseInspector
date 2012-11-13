@@ -6,6 +6,7 @@ function SetScripts() {
     funcDeleteOperation();
     funcChangeOperation();
     funcSetCurrentDate();
+    funcLiveSHOperation();
 }
 
 function funcSetCurrentDate() {
@@ -53,6 +54,7 @@ function funcOperationAdd(type, object) {
             dayRow.children().each(function () {
                 if ($(this).prop('id') != 'SpanDaysSingleOperations') {
                     $(this).prop('rowspan', newRowAddSpan);
+                    $(this).prop('rowspan2', $(this).prop('rowspan2') + 1);
                 }
             });
             dayRow.nextAll('.Day').first().before('<tr class="Operation" id="' + data + '">' +
@@ -81,6 +83,7 @@ function funcClear(item, type) {
     item.prop('value', '');
 }
 // /Add operation
+
 // Delete operation
 function funcDeleteOperation() {
     $('.ButtonDelete').live('click', function () {
@@ -103,6 +106,7 @@ function funcDeleteOperation() {
     });
 }
 // /Delete operation
+
 // Change operation
 function funcChangeOperation() {
 
@@ -156,6 +160,7 @@ function SetDefaultText() {
     temp = $(this).prop('value');
 }
 // /Change operation
+
 // NextMonth
 function funcNext() {
     $('#Next').click(function () {
@@ -219,6 +224,7 @@ function funcNext() {
     });
 }
 // \NextMonth
+
 // PrevMonth
 function funcPrev() {
     $('#Prev').click(function () {
@@ -282,3 +288,47 @@ function funcPrev() {
     });
 }
 // \PrevMonth
+
+// Hide and show operation
+function funcSHOperation() {
+    $('#ButtonSet').buttonset();
+    $('#labelCheckSHOperation').mousedown(funcAddSHOperation);
+}
+
+function funcAddSHOperation() {
+    if (!$(this).prop("checked")) {
+        funcHideOperation();
+        $(this).prop("checked", true);
+        $(this).prop('value', 'Show');
+        $(this).css('color', 'green');
+    } else {
+        funcShowOperation();
+        $(this).prop("checked", false);
+        $(this).prop('value', 'Hide');
+        $(this).css('color', 'red');
+    }
+}
+function funcHideOperation() {
+    $('.Operation').hide();
+    $('.Day').children().each(function () {
+        if ($(this).prop('id') != 'SpanDaysSingleOperations') {
+            $(this).prop('rowspan2', $(this).prop('rowspan'));
+            $(this).prop('rowspan', '2');
+        }
+    });
+}
+function funcShowOperation() {
+    $('.Operation').show();
+    $('.Day').children().each(function () {
+        if ($(this).prop('id') != 'SpanDaysSingleOperations') {
+            $(this).prop('rowspan', $(this).prop('rowspan2'));
+        }
+    });
+}
+
+function funcLiveSHOperation() {
+    if ($('#labelCheckSHOperation').prop('checked')) {
+        funcHideOperation();
+    } 
+}
+// \\Hide and show operation
