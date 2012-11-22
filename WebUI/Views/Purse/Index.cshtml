@@ -13,17 +13,46 @@
             funcNext();
             funcPrev();
             funcSHOperation();
+            funcDiagram();
         });
+
+        function funcDiagram() {
+            alert('s1s');
+            var myvalues = [10, 8, 5, 7, 4, 4, 1];
+            $('.inlinesparkline').sparkline(myvalues, {
+                type: 'pie',
+                width: '200px',
+                height: '200px',
+               // sliceColors: ['#5d3092', '#4dc9ec', '#9de49d', '#9074b1', '#66aa00', '#dd4477', '#0099c6', '#990099'],
+                borderWidth: 7,
+                borderColor: '#f5f5f5',
+                tooltipFormat: '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)',
+                tooltipValueLookups: {
+                    names: {
+                        0: 'Automotive',
+                        1: 'Locomotive',
+                        2: 'Unmotivated',
+                        3: 'Three',
+                        4: 'Four',
+                        5: 'Five'
+                        // Add more here
+                    }
+                }
+            });
+            alert('ss');
+        }
+        
     </script>
 }
 <div id="main">
+<p>Inline Sparkline: <span class="inlinesparkline">1,4,4,7,5,9,10</span></p>
     <div id="MainDir">
-    <h2 id="Year">@Model.GetThisYear()</h2>
-    <h2 id="MonthNumber">@Model.GetThisMonth()</h2>
-    <h2 id="MonthName">@Model.Name</h2>
+        <h2 id="Year">@Model.GetThisYear()</h2>
+        <h2 id="MonthNumber">@Model.GetThisMonth()</h2>
+        <h2 id="MonthName">@Model.Name</h2>
         <div id="ButtonSet">
-            <input type="button" value="Hide" class="ButtonShow" id="labelCheckSHOperation">
-            <input type="checkbox" id="check2" value="qwe" title="sss"/>
+            <input type="button" value="Hide" class="ButtonShow" id="ButtonCheckSHOperation">
+            <input type="button" value="Hide" class="ButtonShow" id="ButtonDiagram">
             <input type="checkbox" id="check3" /><label for="check3">U</label>
         </div>
     </div>

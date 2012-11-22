@@ -292,7 +292,7 @@ function funcPrev() {
 // Hide and show operation
 function funcSHOperation() {
     $('#ButtonSet').buttonset();
-    $('#labelCheckSHOperation').mousedown(funcAddSHOperation);
+    $('#ButtonCheckSHOperation').mousedown(funcAddSHOperation);
 }
 
 function funcAddSHOperation() {
@@ -327,7 +327,7 @@ function funcShowOperation() {
 }
 
 function funcLiveSHOperation() {
-    if ($('#labelCheckSHOperation').prop('checked')) {
+    if ($('#ButtonCheckSHOperation').prop('checked')) {
         funcHideOperation();
     } 
 }

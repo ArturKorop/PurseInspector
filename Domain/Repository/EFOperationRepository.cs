@@ -5,6 +5,9 @@ using Domain.Purse;
 
 namespace Domain.Repository
 {
+    /// <summary>
+    /// Class that implement <see cref="IOperationRepository"/>
+    /// </summary>
     public class EFOperationRepository : IOperationRepository
     {
         private readonly EFDbContext _context = new EFDbContext();

@@ -4,15 +4,26 @@ using Domain.Repository;
 
 namespace Domain.Adapter
 {
-    public class AdapterEFURepoToPrevMod
+    /// <summary>
+    /// Adapter for conversion IQueryable to <see cref="PreviewModel"/>
+    /// </summary>
+    public class AdapterEFURepoToPrevMod 
     {
         private IQueryable<RepositoryOperation> _repository;
         private PreviewModel _model;
 
+        /// <summary>
+        /// Constructor for adapter
+        /// </summary>
+        /// <param name="repository">IQueryable repository for conversion</param>
         public AdapterEFURepoToPrevMod(IQueryable<RepositoryOperation> repository)
         {
             _repository = repository;
         }
+        /// <summary>
+        /// Returns <see cref="PreviewModel"/> object
+        /// </summary>
+        /// <Returns></Returns>
         public PreviewModel GetModel()
         {
             _model = new PreviewModel();
