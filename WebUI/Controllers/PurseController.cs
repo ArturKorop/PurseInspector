@@ -66,10 +66,19 @@ namespace WebUI.Controllers
             }
             return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
         }
+        public ActionResult SpanStatistics()
+        {
+            if (Request.IsAjaxRequest())
+            {
+                return Json(_operationRepository.Model(GetUserID()).CurrentMonth().SpanStatistics());
+            }
+            return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
+        }
+
         private int GetUserID()
         {
             string userName = User == null ? null : User.Identity.Name;
             return _userRepository.GetUserID(userName);
-        }
+        }  
     }
 }

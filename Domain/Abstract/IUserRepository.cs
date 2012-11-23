@@ -4,7 +4,7 @@ using Domain.User;
 namespace Domain.Abstract
 {
     /// <summary>
-    /// Interface for users database
+    /// Interface for connection to users database
     /// </summary>
     public interface IUserRepository
     {

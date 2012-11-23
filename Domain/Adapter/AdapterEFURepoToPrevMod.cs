@@ -21,9 +21,9 @@ namespace Domain.Adapter
             _repository = repository;
         }
         /// <summary>
-        /// Returns <see cref="PreviewModel"/> object
+        /// Converts IQueryable<see cref="RepositoryOperation"/> to <see cref="PreviewModel"/> object
         /// </summary>
-        /// <Returns></Returns>
+        /// <Returns><see cref="PreviewModel"/> object</Returns>
         public PreviewModel GetModel()
         {
             _model = new PreviewModel();

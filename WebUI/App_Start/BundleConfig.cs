@@ -9,17 +9,20 @@ namespace WebUI
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery.sparkline.js"));
+                        "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-1.9.1.custom.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/viewpursescripts").Include(
-                        "~/UserScripts/ViewPurseScripts.js"));
+                "~/UserScripts/ViewPurseScripts.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/sparkline").Include(
-                        "~/Scripts/jquery.sparkline.js"));
+            bundles.Add(new ScriptBundle("~/bundles/diagram").Include(
+                "~/Scripts/jquery.sparkline.js",
+                "~/Scripts/jqPlot/jquery.jqplot.js",
+                "~/Scripts/jqPlot/excanvas.js",
+                "~/Scripts/jqPlot/Plugins/jqplot.pieRenderer.js",
+                "~/UserScripts/DiagramScripts.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
@@ -32,7 +35,9 @@ namespace WebUI
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
-            bundles.Add(new StyleBundle("~/Content/stylepurse").Include("~/Content/StylePurse.css"));
+            bundles.Add(new StyleBundle("~/Content/stylepurse").Include(
+                "~/Content/StylePurse.css",
+                "~/Scripts/jqPlot/jquery.jqplot.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery-ui-1.9.1.custom.css",

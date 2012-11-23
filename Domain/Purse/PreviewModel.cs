@@ -162,6 +162,7 @@ namespace Domain.Purse
         private readonly Collection<Day> _days = new Collection<Day>();
         private readonly int _thisMonth;
         private readonly int _thisYear;
+        private readonly Collection<SingleOperation> _monthSpanStatistics = new Collection<SingleOperation>(); 
         /// <summary>
         /// String name of the month
         /// </summary>
@@ -224,6 +225,29 @@ namespace Domain.Purse
         public int MonthSpanSum()
         {
             return _days.Sum(x => x.GetSumSpan());
+        }
+        /// <summary>
+        /// Calculate statistics of month span operation
+        /// </summary>
+        /// <returns>Collection <see cref="SingleOperation"/> object</returns>
+        public Collection<SingleOperation> SpanStatistics()
+        {
+            foreach (var day in _days)
+            {
+                foreach (var item in day.SpanDaysSingleOperations)
+                {
+                    var y = _monthSpanStatistics.Where(x => x.OperationName == item.OperationName).Select(x => x);
+                    if (!y.Any())
+                        _monthSpanStatistics.Add(new SingleOperation
+                            {
+                                OperationName = item.OperationName,
+                                Value = item.Value
+                            });
+                    else
+                        _monthSpanStatistics.Single(x => x.OperationName == item.OperationName).Value += item.Value;
+                }
+            }
+            return _monthSpanStatistics;
         }
         /// <summary>
         /// Converts this month to Json(<see cref="MonthJSON"/>)

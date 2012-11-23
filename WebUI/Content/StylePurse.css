@@ -5,6 +5,7 @@
     border-width: 1px;
     margin-left:auto; 
     margin-right:auto;
+    float: left;
 }
 #tablePurse tr {
     border: black;
@@ -87,10 +88,10 @@
     width: 10px;
 }
 #Prev {
-    
+    float: left;
+    margin-left: 200px;
 }
-#Next{
-    
+#Next {
 }
 #MonthSumSpan {
     border: none;
@@ -117,5 +118,8 @@
  #MainDir {
      margin-left: auto;
      margin-right: auto;
+ }
+ #DiagramMonth {
+     float: left;
  }
     

@@ -1,5 +1,14 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    @Scripts.Render("~/bundles/jquery")
 }
-<h2>Home Index</h2>
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Title").text('Hello guest:)');
+        })
+    </script> 
+}
+<h2 id="Title">If you read this Text - in your browser @Request.Browser.Browser disabled JavaScript</h2>
 

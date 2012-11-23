@@ -1,7 +1,7 @@
 ﻿var thisYear;
 var thisMonth;
 
-function SetScripts() {
+function funcSetScripts() {
     funcAddNewOperation();
     funcDeleteOperation();
     funcChangeOperation();
@@ -171,7 +171,7 @@ function funcNext() {
             $('#Year').text(data.ThisYear);
             $('#MonthNumber').text(data.ThisMonth);
             $('#MonthName').text(data.Name);
-            $('#MainDir').after(function () {
+            $('#ButtonDir').after(function () {
                 var table = '';
                 var tr = '';
                 $.each(data.Days, function (k, val) {
@@ -219,8 +219,9 @@ function funcNext() {
                         table +
                         '</table>';
             });
-            SetScripts();
+            funcSetScripts();
         });
+        funcSetDiagram();
     });
 }
 // \NextMonth
@@ -235,7 +236,7 @@ function funcPrev() {
             $('#Year').text(data.ThisYear);
             $('#MonthNumber').text(data.ThisMonth);
             $('#MonthName').text(data.Name);
-            $('#MainDir').after(function () {
+            $('#ButtonDir').after(function () {
                 var table = '';
                 var tr = '';
                 $.each(data.Days, function (k, val) {
@@ -283,7 +284,7 @@ function funcPrev() {
                         table +
                         '</table>';
             });
-            SetScripts();
+            funcSetScripts();
         });
     });
 }
@@ -293,6 +294,7 @@ function funcPrev() {
 function funcSHOperation() {
     $('#ButtonSet').buttonset();
     $('#ButtonCheckSHOperation').mousedown(funcAddSHOperation);
+    $('#ButtonDiagram').mousedown(funcAddSHDiagram);
 }
 
 function funcAddSHOperation() {
@@ -332,3 +334,27 @@ function funcLiveSHOperation() {
     } 
 }
 // \\Hide and show operation
+// Hide and show diagram
+
+function funcAddSHDiagram() {
+    if (!$(this).prop("checked")) {
+        funcHideDiagram();
+        $(this).prop("checked", true);
+        $(this).prop('value', 'Diagram');
+        $(this).css('color', 'green');
+    } else {
+        funcShowDiagram();
+        $(this).prop("checked", false);
+        $(this).prop('value', 'Diagram');
+        $(this).css('color', 'red');
+    }
+}
+
+function funcHideDiagram() {
+    $("#DiagramMonth").hide();
+}
+
+function funcShowDiagram() {
+    $("#DiagramMonth").show();
+}
+// \\Hide and show diagram

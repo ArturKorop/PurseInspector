@@ -5,7 +5,7 @@ using Domain.Repository;
 namespace Domain.Abstract
 {
     /// <summary>
-    /// Interface for connection to database
+    /// Interface for connection to operation database
     /// </summary>
     public interface IOperationRepository
     {

@@ -2,92 +2,69 @@
 @model Month
 @{
     ViewBag.Title = "Index";
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/viewpursescripts")
+    @Scripts.Render("~/bundles/diagram")
     @Styles.Render("~/Content/stylepurse")
 }
 @section scripts
 {
     <script type="text/javascript">
         $(document).ready(function () {
-            SetScripts();
+            funcSetScripts();
             funcNext();
             funcPrev();
             funcSHOperation();
-            funcDiagram();
+            funcSetDiagram();
         });
-
-        function funcDiagram() {
-            alert('s1s');
-            var myvalues = [10, 8, 5, 7, 4, 4, 1];
-            $('.inlinesparkline').sparkline(myvalues, {
-                type: 'pie',
-                width: '200px',
-                height: '200px',
-               // sliceColors: ['#5d3092', '#4dc9ec', '#9de49d', '#9074b1', '#66aa00', '#dd4477', '#0099c6', '#990099'],
-                borderWidth: 7,
-                borderColor: '#f5f5f5',
-                tooltipFormat: '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)',
-                tooltipValueLookups: {
-                    names: {
-                        0: 'Automotive',
-                        1: 'Locomotive',
-                        2: 'Unmotivated',
-                        3: 'Three',
-                        4: 'Four',
-                        5: 'Five'
-                        // Add more here
-                    }
-                }
-            });
-            alert('ss');
-        }
-        
     </script>
 }
 <div id="main">
-<p>Inline Sparkline: <span class="inlinesparkline">1,4,4,7,5,9,10</span></p>
+    <!--<p>Inline Sparkline: <span class="inlinesparkline">1,4,4,7,5,9,10</span></p>-->
     <div id="MainDir">
         <h2 id="Year">@Model.GetThisYear()</h2>
         <h2 id="MonthNumber">@Model.GetThisMonth()</h2>
         <h2 id="MonthName">@Model.Name</h2>
         <div id="ButtonSet">
-            <input type="button" value="Hide" class="ButtonShow" id="ButtonCheckSHOperation">
-            <input type="button" value="Hide" class="ButtonShow" id="ButtonDiagram">
-            <input type="checkbox" id="check3" /><label for="check3">U</label>
+            <input type="button" value="Operation" class="ButtonShow" id="ButtonCheckSHOperation">
+            <input type="button" value="Diagram" class="ButtonShow" id="ButtonDiagram">
         </div>
     </div>
-    <table id="tablePurse">
-        @foreach (var item in Model.GetDays())
-        {
-            var rowspan = item.SpanDaysSingleOperations.Count + 2;
-            <tr class="Day">
-                <td rowspan="@rowspan">@item.Number</td>
-                <td rowspan="@rowspan">@item.Name</td>
-                <td colspan="3" id="SpanDaysSingleOperations"></td>
-                <td rowspan="@rowspan" class="Sum">@item.GetSumSpan()</td>
-            </tr>
-            <tr class="NewOperation">
-                <td>@Html.TextBox("NewOperationName", null, new { Class = "NewOperationName" })</td>
-                <td>@Html.TextBox("NewOperationValue", null, new { Class = "NewOperationValue" })</td>
-            </tr>
-            foreach (var operation in item.SpanDaysSingleOperations)
+    <div id="ButtonDir">
+        <input type="button" value="Prev" id="Prev"/>
+        <input type="button" value="Next" id="Next"/>
+    </div>
+        <table id="tablePurse">
+            @foreach (var item in Model.GetDays())
             {
-                <tr class="Operation" id="@operation.Id">
-                    <td>@Html.TextBox("OperationName", operation.OperationName, new { Class = "OperationName" })</td>
-                    <td>@Html.TextBox("OperationValue", operation.Value, new { Class = "OperationValue" })</td>
-                    <td class="ButtonDelete">X</td>
+                var rowspan = item.SpanDaysSingleOperations.Count + 2;
+                <tr class="Day">
+                    <td rowspan="@rowspan">@item.Number</td>
+                    <td rowspan="@rowspan">@item.Name</td>
+                    <td colspan="3" id="SpanDaysSingleOperations"></td>
+                    <td rowspan="@rowspan" class="Sum">@item.GetSumSpan()</td>
                 </tr>
+                <tr class="NewOperation">
+                    <td>@Html.TextBox("NewOperationName", null, new { Class = "NewOperationName" })</td>
+                    <td>@Html.TextBox("NewOperationValue", null, new { Class = "NewOperationValue" })</td>
+                </tr>
+                foreach (var operation in item.SpanDaysSingleOperations)
+                {
+                    <tr class="Operation" id="@operation.Id">
+                        <td>@Html.TextBox("OperationName", operation.OperationName, new { Class = "OperationName" })</td>
+                        <td>@Html.TextBox("OperationValue", operation.Value, new { Class = "OperationValue" })</td>
+                        <td class="ButtonDelete">X</td>
+                    </tr>
+                }
             }
-        }
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td id="MonthSumSpan">@Model.MonthSpanSum()</td>
-        </tr>
-    </table>
-    <input type="button" value="Prev" id="Prev" align="left"/>
-    <input type="button" value="Next" id="Next" align="right"/>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="MonthSumSpan">@Model.MonthSpanSum()</td>
+            </tr>
+        </table>
+        <div id="DiagramMonth"style="margin-top:20px; margin-left:20px; width:500px; height:500px;"></div>
 </div>
