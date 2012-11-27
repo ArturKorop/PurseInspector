@@ -52,7 +52,8 @@ namespace Domain.Repository
         public void RemoveOperation(int id, int userID)
         {
             var temp = _context.RepositoryOperations.FirstOrDefault(x => x.ID == id && x.UserID == userID);
-            _context.RepositoryOperations.Remove(temp);
+            if(temp != null)
+                _context.RepositoryOperations.Remove(temp);
             _context.SaveChanges();
         }
     }

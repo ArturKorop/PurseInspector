@@ -66,11 +66,13 @@ namespace WebUI.Controllers
             }
             return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
         }
-        public ActionResult SpanStatistics()
+        public ActionResult SpanStatistics(int currentMonth, int currentYear)
         {
+            var temp = _operationRepository.Model(GetUserID());
+            temp.SetCurrentMonth(currentMonth, currentYear);
             if (Request.IsAjaxRequest())
             {
-                return Json(_operationRepository.Model(GetUserID()).CurrentMonth().SpanStatistics());
+                return Json(temp.CurrentMonth().SpanStatistics());
             }
             return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
         }

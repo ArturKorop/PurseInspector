@@ -69,6 +69,7 @@ function funcOperationAdd(type, object) {
             var newSum = parseInt(dayRow.children('.Sum').text()) + parseInt(operationValue);
             dayRow.children('.Sum').text(newSum);
             $('#MonthSumSpan').text(parseInt($('#MonthSumSpan').text()) + parseInt(operationValue));
+            funcSetDiagram();
         });
     }
 }
@@ -102,6 +103,7 @@ function funcDeleteOperation() {
             var newSum = parseInt(dayRow.children('.Sum').text()) - parseInt(operationValue);
             dayRow.children('.Sum').text(newSum);
             $('#MonthSumSpan').text(parseInt($('#MonthSumSpan').text()) - parseInt(operationValue));
+            funcSetDiagram();
         });
     });
 }
@@ -152,6 +154,7 @@ function funcChangeOperationWork(type, object) {
                 dayRow.children('.Sum').text(dayRow.children('.Sum').text() - parseInt(temp) + parseInt(newValue));
                 temp = current;
             }
+            funcSetDiagram();
         });
     }
 }
@@ -220,8 +223,8 @@ function funcNext() {
                         '</table>';
             });
             funcSetScripts();
+            funcSetDiagram();
         });
-        funcSetDiagram();
     });
 }
 // \NextMonth
@@ -285,6 +288,7 @@ function funcPrev() {
                         '</table>';
             });
             funcSetScripts();
+            funcSetDiagram();
         });
     });
 }
@@ -355,6 +359,7 @@ function funcHideDiagram() {
 }
 
 function funcShowDiagram() {
+    funcSetDiagram();
     $("#DiagramMonth").show();
 }
 // \\Hide and show diagram

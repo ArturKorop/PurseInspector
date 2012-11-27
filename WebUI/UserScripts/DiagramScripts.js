@@ -1,23 +1,24 @@
 ﻿function funcSetDiagram() {
-    alert(thisMonth);
     $.post("/Purse/SpanStatistics", { currentMonth: thisMonth, currentYear: thisYear }, function (data) {
         funcDiagram_jqPlot(data);
     });
 }
 function funcDiagram_jqPlot(dataStat) {
-    var data = [];
+    var dataTemp = [];
     var val = 0;
     $.each(dataStat, function () {
-        data[val] = [this.OperationName, this.Value];
+        dataTemp[val] = [this.OperationName, this.Value];
         val++;
     });
-    $.jqplot('DiagramMonth', [data],
+    if (dataTemp.length == 0)
+        dataTemp[0] = ["Empty",0];
+    $.jqplot('DiagramMonth', [dataTemp],
                 {
                     seriesDefaults: {
                         renderer: jQuery.jqplot.PieRenderer,
                         rendererOptions: {
                             showDataLabels: true,
-                            dataLabels: 'percent'
+                            dataLabels: 'percent' | 'value'
                             //   dataLabelFormatString: '%d%%'
                         }
                     },
