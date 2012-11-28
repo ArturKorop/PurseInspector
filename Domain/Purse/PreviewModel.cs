@@ -12,6 +12,7 @@ namespace Domain.Purse
     {
         private readonly Collection<Year> _years = new Collection<Year>();
         private Month _currentMonth;
+        private Collection<string> _autocompleteTags = new Collection<string>(); 
 
         /// <summary>
         /// Add a new operation
@@ -25,6 +26,16 @@ namespace Domain.Purse
             if(_years.SingleOrDefault(x=>x.Name == year) == null)
                 _years.Add(new Year(year));
             _years.Single(x => x.Name == year).GetMonth(month).GetDay(day).AddSpanOperation(operation);
+            if(!_autocompleteTags.Contains(operation.OperationName))
+                _autocompleteTags.Add(operation.OperationName);
+        }
+        /// <summary>
+        /// Return tags for autocomplete
+        /// </summary>
+        /// <returns>Collection string</returns>
+        public Collection<string> GetAutocompleteTags()
+        {
+            return _autocompleteTags;
         }
         /// <summary>
         /// Returns object <see cref="Month"/> of current month (for time if not usage <see cref="SetCurrentMonth"/>)
@@ -162,7 +173,8 @@ namespace Domain.Purse
         private readonly Collection<Day> _days = new Collection<Day>();
         private readonly int _thisMonth;
         private readonly int _thisYear;
-        private readonly Collection<SingleOperation> _monthSpanStatistics = new Collection<SingleOperation>(); 
+        private readonly Collection<SingleOperation> _monthSpanStatistics = new Collection<SingleOperation>();
+        private Collection<string> _autocompleteTags = null; 
         /// <summary>
         /// String name of the month
         /// </summary>
@@ -236,7 +248,8 @@ namespace Domain.Purse
             {
                 foreach (var item in day.SpanDaysSingleOperations)
                 {
-                    var y = _monthSpanStatistics.Where(x => x.OperationName == item.OperationName).Select(x => x);
+                    SingleOperation item1 = item;
+                    var y = _monthSpanStatistics.Where(x => item1 != null && x.OperationName == item1.OperationName).Select(x => x);
                     if (!y.Any())
                         _monthSpanStatistics.Add(new SingleOperation
                             {

@@ -224,6 +224,7 @@ function funcNext() {
             });
             funcSetScripts();
             funcSetDiagram();
+            funcSetAutocomplete();
         });
     });
 }

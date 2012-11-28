@@ -12,10 +12,11 @@ namespace WebUI
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui-1.9.1.custom.js"));
+                        "~/Scripts/jquery-ui-1.9.2.custom.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/viewpursescripts").Include(
-                "~/UserScripts/ViewPurseScripts.js"));
+                "~/UserScripts/ViewPurseScripts.js",
+                "~/UserScripts/AutoCompleateScript.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/diagram").Include(
                 "~/Scripts/jquery.sparkline.js",

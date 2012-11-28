@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using Domain.User;
-
-namespace Domain.Abstract
+﻿namespace Domain.Abstract
 {
     /// <summary>
     /// Interface for connection to users database

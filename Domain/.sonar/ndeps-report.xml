@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dependencies name="Domain" version="1.0.0.0">
+  <Assembly name="Domain" version="1.0.0.0">
+    <References>
+      <Reference name="mscorlib" fullName="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="4.0.0.0" />
+      <Reference name="EntityFramework" fullName="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="4.4.0.0" />
+      <Reference name="System.Core" fullName="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="4.0.0.0" />
+      <Reference name="System.ComponentModel.DataAnnotations" fullName="System.ComponentModel.DataAnnotations, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" version="4.0.0.0" />
+    </References>
+    <TypeReferences>
+      <From fullname="Domain.Abstract.IOperationRepository">
+        <To fullname="Domain.Purse.PreviewModel" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Repository.RepositoryOperation" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Purse.SingleOperation" assemblyname="Domain" assemblyversion="1.0.0.0" />
+      </From>
+      <From fullname="Domain.Repository.EFOperationRepository">
+        <To fullname="Domain.Abstract.IOperationRepository" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Repository.EFDbContext" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Adapter.AdapterEFURepoToPrevMod" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Repository.RepositoryOperation" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Purse.PreviewModel" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Purse.SingleOperation" assemblyname="Domain" assemblyversion="1.0.0.0" />
+      </From>
+      <From fullname="Domain.Repository.EFDbContext">
+        <To fullname="System.Data.Entity.DbContext" assemblyname="EntityFramework" assemblyversion="4.4.0.0" />
+        <To fullname="Domain.Repository.RepositoryOperation" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="System.Data.Entity.DbSet`1" assemblyname="EntityFramework" assemblyversion="4.4.0.0" />
+        <To fullname="Domain.User.UserInformation" assemblyname="Domain" assemblyversion="1.0.0.0" />
+      </From>
+      <From fullname="Domain.Adapter.AdapterEFURepoToPrevMod">
+        <To fullname="Domain.Repository.RepositoryOperation" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Purse.PreviewModel" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Purse.SingleOperation" assemblyname="Domain" assemblyversion="1.0.0.0" />
+      </From>
+      <From fullname="Domain.User.UserInformation">
+        <To fullname="System.ComponentModel.DataAnnotations.Schema.TableAttribute" assemblyname="EntityFramework" assemblyversion="4.4.0.0" />
+      </From>
+      <From fullname="Domain.Purse.PreviewModel">
+        <To fullname="Domain.Purse.Year" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Purse.Month" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Purse.SingleOperation" assemblyname="Domain" assemblyversion="1.0.0.0" />
+      </From>
+      <From fullname="Domain.Purse.Year">
+        <To fullname="Domain.Purse.Month" assemblyname="Domain" assemblyversion="1.0.0.0" />
+      </From>
+      <From fullname="Domain.Purse.Month">
+        <To fullname="Domain.Purse.Day" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Purse.SingleOperation" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Purse.MonthJSON" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Purse.DayJSON" assemblyname="Domain" assemblyversion="1.0.0.0" />
+      </From>
+      <From fullname="Domain.Purse.Day">
+        <To fullname="Domain.Purse.SingleOperation" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Purse.DayJSON" assemblyname="Domain" assemblyversion="1.0.0.0" />
+      </From>
+      <From fullname="Domain.Purse.SingleOperation" />
+      <From fullname="Domain.Purse.MonthJSON">
+        <To fullname="Domain.Purse.DayJSON" assemblyname="Domain" assemblyversion="1.0.0.0" />
+      </From>
+      <From fullname="Domain.Purse.DayJSON">
+        <To fullname="Domain.Purse.SingleOperation" assemblyname="Domain" assemblyversion="1.0.0.0" />
+      </From>
+      <From fullname="Domain.Repository.RepositoryOperation" />
+      <From fullname="Domain.Abstract.IUserRepository" />
+      <From fullname="Domain.User.EFUserRepository">
+        <To fullname="Domain.Abstract.IUserRepository" assemblyname="Domain" assemblyversion="1.0.0.0" />
+        <To fullname="Domain.Repository.EFDbContext" assemblyname="Domain" assemblyversion="1.0.0.0" />
+      </From>
+    </TypeReferences>
+  </Assembly>
+</Dependencies>

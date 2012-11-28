@@ -3,29 +3,31 @@
         funcDiagram_jqPlot(data);
     });
 }
+
 function funcDiagram_jqPlot(dataStat) {
+    
     var dataTemp = [];
     var val = 0;
-    $.each(dataStat, function () {
+    $.each(dataStat, function() {
         dataTemp[val] = [this.OperationName, this.Value];
         val++;
     });
     if (dataTemp.length == 0)
-        dataTemp[0] = ["Empty",0];
+        dataTemp[0] = ["Empty", 0];
     $.jqplot('DiagramMonth', [dataTemp],
-                {
-                    seriesDefaults: {
-                        renderer: jQuery.jqplot.PieRenderer,
-                        rendererOptions: {
-                            showDataLabels: true,
-                            dataLabels: 'percent' | 'value'
-                            //   dataLabelFormatString: '%d%%'
-                        }
-                    },
-                    legend: { show: true, location: 'e' }
+        {
+            seriesDefaults: {
+                renderer: jQuery.jqplot.PieRenderer,
+                rendererOptions: {
+                    showDataLabels: true,
+                    dataLabels: 'percent'
                 }
-            );
+            },
+            legend: { show: true, location: 'e' },
+        }
+    );
 }
+
 function funcDiagram_Sparkline() {
     var myvalues = [10, 8, 5, 7, 4, 4, 1];
     $('.inlinesparkline').sparkline(myvalues, {

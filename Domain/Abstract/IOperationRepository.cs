@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Domain.Purse;
+﻿using Domain.Purse;
 using Domain.Repository;
 
 namespace Domain.Abstract

@@ -13,15 +13,13 @@ using System.Web.Mvc;
 
 namespace Test
 {
-
-
     [TestClass]
     public class PurseControllerTest
     {
         [TestMethod]
         public void AddOperationTest()
         {
-            Mock<IOperationRepository> mock = new Mock<IOperationRepository>();
+            Mock<IOperationRepository> mock = CreateRepository();
             Mock<IUserRepository> mockUser = CreateUserRepository();
 
             PurseController controller = new PurseController(mock.Object, mockUser.Object);
@@ -45,10 +43,55 @@ namespace Test
             Mock<IUserRepository> mockUser = CreateUserRepository();
 
             PurseController controller = new PurseController(mock.Object, mockUser.Object);
-            PreviewModel result = (PreviewModel)controller.Index().ViewData.Model;
-            Assert.AreEqual(result.GetYear(2012).GetMonth(1).GetDay(1).SpanDaysSingleOperations[0].OperationName,"Novus");
-            Assert.AreEqual(result.GetYear(2012).GetMonth(1).GetDay(1).SpanDaysSingleOperations[1].OperationName, "MacDonalds");
-            Assert.AreEqual(result.GetYear(2012).GetMonth(1).GetDay(5).SpanDaysSingleOperations[0].OperationName, "Mouse");
+            Month result = (Month)controller.Index().ViewData.Model;
+            Assert.AreEqual(result.GetDay(1).SpanDaysSingleOperations[0].OperationName,"Novus");
+            Assert.AreEqual(result.GetDay(1).SpanDaysSingleOperations[1].OperationName, "MacDonalds");
+            Assert.AreEqual(result.GetDay(5).SpanDaysSingleOperations[0].OperationName, "Mouse");
+        }
+        [TestMethod]
+        public void ChangeOperation()
+        {
+            Mock<IOperationRepository> mock = CreateRepository();
+            Mock<IUserRepository> mockUser = CreateUserRepository();
+
+            PurseController controller = new PurseController(mock.Object, mockUser.Object);
+            controller.ChangeOperation(1, "Ticket", 125);
+            mock.Verify(x => x.ChangeOperation(It.IsAny<SingleOperation>(), 1));
+
+        }
+        [TestMethod]
+        public void NextMonth()
+        {
+            Mock<IOperationRepository> mock = CreateRepository();
+            Mock<IUserRepository> mockUser = CreateUserRepository();
+
+            PurseController controller = new PurseController(mock.Object, mockUser.Object);
+            Month result = (Month)((ViewResult)controller.NextMonth(1, 2012)).ViewData.Model;
+            Assert.AreEqual(result.GetThisMonth(), 2);
+            Assert.AreEqual(result.GetThisYear(), 2012);
+            Assert.AreEqual(result.GetDay(1).SpanDaysSingleOperations[0].OperationName, "MacDonalds");
+            Assert.AreEqual(result.GetDay(5).SpanDaysSingleOperations[0].OperationName, "Mouse");
+        }
+        [TestMethod]
+        public void PrevMonth()
+        {
+            Mock<IOperationRepository> mock = CreateRepository();
+            Mock<IUserRepository> mockUser = CreateUserRepository();
+
+            PurseController controller = new PurseController(mock.Object, mockUser.Object);
+            Month result = (Month)((ViewResult)controller.PrevMonth(11, 2012)).ViewData.Model;
+            Assert.AreEqual(result.GetThisMonth(), 10);
+            Assert.AreEqual(result.GetThisYear(), 2012);
+        }
+        [TestMethod]
+        public void SpanStatistics()
+        {
+            Mock<IOperationRepository> mock = CreateRepository();
+            Mock<IUserRepository> mockUser = CreateUserRepository();
+
+            PurseController controller = new PurseController(mock.Object, mockUser.Object);
+            Month result = (Month)((ViewResult)controller.SpanStatistics(1, 2012)).ViewData.Model;
+            Assert.AreEqual(result.SpanStatistics().Sum(x=>x.Value), 120);
         }
 
         private Mock<IOperationRepository> CreateRepository()
@@ -58,6 +101,9 @@ namespace Test
             model.AddDaySpanOperation(2012,1,1,new SingleOperation{Id = 0,OperationName = "Novus", Value = 40});
             model.AddDaySpanOperation(2012,1,1,new SingleOperation{Id = 1,OperationName = "MacDonalds", Value = 40});
             model.AddDaySpanOperation(2012,1,5,new SingleOperation{Id = 2,OperationName = "Mouse", Value = 40});
+            model.AddDaySpanOperation(2012, 2, 1, new SingleOperation { Id = 3, OperationName = "MacDonalds", Value = 40 });
+            model.AddDaySpanOperation(2012, 2, 5, new SingleOperation { Id = 4, OperationName = "Mouse", Value = 40 });
+            model.SetCurrentMonth(1, 2012);
             mock.Setup(x => x.Model(It.IsAny<int>())).Returns(model);
             return mock;
         }

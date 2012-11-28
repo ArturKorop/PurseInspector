@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.ObjectModel;
+using System.Web.Mvc;
 using Domain.Abstract;
 using Domain.Adapter;
 using Domain.Purse;
@@ -50,29 +51,37 @@ namespace WebUI.Controllers
         }
         public ActionResult NextMonth(int currentMonth, int currentYear)
         {
-            if(Request.IsAjaxRequest())
+            if (Request != null && Request.IsAjaxRequest())
             {
                 var temp = _operationRepository.Model(GetUserID()).NextMonth(currentMonth, currentYear).ToJSON();
                 return Json(temp);
             }
-            return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
+            return View("Index", _operationRepository.Model(GetUserID()).NextMonth(currentMonth, currentYear));
         }
         public ActionResult PrevMonth(int currentMonth, int currentYear)
         {
-            if (Request.IsAjaxRequest())
+            if (Request != null && Request.IsAjaxRequest())
             {
                 var temp = _operationRepository.Model(GetUserID()).PrevMonth(currentMonth, currentYear).ToJSON();
                 return Json(temp);
             }
-            return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
+            return View("Index", _operationRepository.Model(GetUserID()).PrevMonth(currentMonth, currentYear));
         }
         public ActionResult SpanStatistics(int currentMonth, int currentYear)
         {
             var temp = _operationRepository.Model(GetUserID());
             temp.SetCurrentMonth(currentMonth, currentYear);
-            if (Request.IsAjaxRequest())
+            if (Request != null && Request.IsAjaxRequest())
             {
                 return Json(temp.CurrentMonth().SpanStatistics());
+            }
+            return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
+        }
+        public ActionResult GetAutocompleteTags()
+        {
+            if (Request != null && Request.IsAjaxRequest())
+            {
+                return Json(_operationRepository.Model(GetUserID()).GetAutocompleteTags());
             }
             return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
         }
