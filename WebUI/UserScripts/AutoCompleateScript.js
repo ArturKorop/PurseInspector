@@ -1,9 +1,9 @@
 ﻿var availableTags = [];
 
 function funcSetAutocomplete() {
-    $.post("/Purse/GetAutocompleteTags", null, function (data) {
+    $.post("/Purse/GetAutocompleteTags", null, function(data) {
         availableTags = data;
-        $(function () {
+        $(function() {
             $(".NewOperationName").autocomplete({
                 source: availableTags
             });

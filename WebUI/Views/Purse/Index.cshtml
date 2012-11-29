@@ -11,7 +11,7 @@
 @section scripts
 {
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             funcSetScripts();
             funcNext();
             funcPrev();
@@ -61,11 +61,13 @@
         <div id="ButtonSet">
             <input type="button" value="Платежи" id="ButtonCheckSHOperation">
             <input type="button" value="График" id="ButtonDiagram">
+            <input type="button" value="Год" id="ButtonYear">
         </div>
     </div>
     <div id="ButtonDir">
         <input type="button" value="Предыдущий" id="Prev"/>
         <input type="button" value="Следуюющий" id="Next"/>
     </div>
-        <div id="DiagramMonth"style="margin-top:20px; margin-left:20px; width:55%; height:450px;"></div>
+    <div id="DiagramMonthLabel"></div>
+    <div id="DiagramMonth"style="margin-left:20px; width:55%; height:450px;"></div>
 </div>

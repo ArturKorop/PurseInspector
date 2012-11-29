@@ -15,8 +15,14 @@ namespace WebUI
                         "~/Scripts/jquery-ui-1.9.2.custom.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/viewpursescripts").Include(
+                "~/UserScripts/AddOperationScripts.js",
+                "~/UserScripts/AutoCompleateScript.js",
+                "~/UserScripts/ChangeOperationScripts.js",
+                "~/UserScripts/DeleteOperationScripts.js",
+                "~/UserScripts/MonthNavigationScripts.js",
+                "~/UserScripts/SetButtonScripts.js",
                 "~/UserScripts/ViewPurseScripts.js",
-                "~/UserScripts/AutoCompleateScript.js"));
+                "~/UserScripts/ViewYearsScripts.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/diagram").Include(
                 "~/Scripts/jquery.sparkline.js",

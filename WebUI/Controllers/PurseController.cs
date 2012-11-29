@@ -84,6 +84,10 @@ namespace WebUI.Controllers
             }
             return Json(_operationRepository.Model(GetUserID()).GetAutocompleteTags());
         }
+        public ActionResult ViewYear()
+        {
+            return null;
+        }
 
         private int GetUserID()
         {
