@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Domain.Purse;
 using Domain.Repository;
@@ -92,6 +93,17 @@ namespace Test
             PurseController controller = new PurseController(mock.Object, mockUser.Object);
             Month result = (Month)((ViewResult)controller.SpanStatistics(1, 2012)).ViewData.Model;
             Assert.AreEqual(result.SpanStatistics().Sum(x=>x.Value), 120);
+        }
+        [TestMethod]
+        public void GetAutocompleteTags()
+        {
+            Mock<IOperationRepository> mock = CreateRepository();
+            Mock<IUserRepository> mockUser = CreateUserRepository();
+
+            PurseController controller = new PurseController(mock.Object, mockUser.Object);
+            var result = (JsonResult)controller.GetAutocompleteTags();
+            Assert.AreEqual(((Collection<string>)result.Data).Count(),3);
+            Assert.AreEqual(((Collection<string>)result.Data)[0], "Novus");
         }
 
         private Mock<IOperationRepository> CreateRepository()

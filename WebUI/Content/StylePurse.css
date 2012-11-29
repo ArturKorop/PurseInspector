@@ -88,8 +88,6 @@
     width: 10px;
 }
 #Prev {
-    float: left;
-    margin-left: 200px;
 }
 #Next {
 }
@@ -98,7 +96,7 @@
 }
  #Year 
  {
-     margin: 0 2% 2% 30%;
+     margin: 0 2% 2% 10%;
      float: left;
  }
  #MonthNumber 
@@ -109,11 +107,16 @@
  #MonthName 
  {
      margin: 0 2% 2% 2%;
-     float: left;
  }
  #ButtonSet 
  {
-     margin: 0 2% 2% 2%;
+     margin: 0 2% 2% 10%;
+     float :left
+ }
+ #ButtonDir 
+ {
+     margin: 0 2% 2% 10%;
+     float :left
  }
  #MainDir {
      margin-left: auto;

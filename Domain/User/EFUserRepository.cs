@@ -16,7 +16,7 @@ namespace Domain.User
         }
         public string GetUserName(int userID)
         {
-            return _context.UserProfile.Where(x => x.UserId == userID).Select(x => x.UserName).FirstOrDefault();
+            return userID == 0 ? "test" : _context.UserProfile.Where(x => x.UserId == userID).Select(x => x.UserName).FirstOrDefault();
         }
     }
 }

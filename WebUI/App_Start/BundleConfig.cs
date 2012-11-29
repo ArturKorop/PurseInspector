@@ -23,6 +23,8 @@ namespace WebUI
                 "~/Scripts/jqPlot/jquery.jqplot.js",
                 "~/Scripts/jqPlot/excanvas.js",
                 "~/Scripts/jqPlot/Plugins/jqplot.pieRenderer.js",
+                "~/Scripts/Flot/jquery.flot.js",
+                "~/Scripts/Flot/jquery.flot.pie.js",
                 "~/UserScripts/DiagramScripts.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

@@ -1,7 +1,47 @@
 ﻿function funcSetDiagram() {
     $.post("/Purse/SpanStatistics", { currentMonth: thisMonth, currentYear: thisYear }, function (data) {
-        funcDiagram_jqPlot(data);
+        //funcDiagram_jqPlot(data);
+        funcDiagram_Flot(data);
     });
+}
+
+function funcDiagram_Flot(dataStat) {
+    var dataTemp = [];
+    var val = 0;
+    $.each(dataStat, function() {
+        dataTemp[val] = { label: this.OperationName, data: this.Value };
+        val++;
+    });
+    if (dataTemp.length == 0)
+        dataTemp[0] = ["Empty", 0];
+    $.plot($("#DiagramMonth"), dataTemp,
+        {
+            series: {
+                pie: {
+                    show: true,
+                    radius: 3 / 4,
+                    label: {
+                        show: true,
+                        radius: 3 / 4,
+                        formatter: function(label, series) {
+                            return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">' + label + '<br/>' + Math.round(series.percent) + '%(' + series.data[0][1] + 'грн.)</div>';
+                        },
+                        threshold: 0.02,
+                        background: {
+                            opacity: 0.5,
+                            color: '#000'
+                        }
+                    }
+                }
+            },
+            legend: {
+                show: false
+            },
+            grid: {
+                hoverable: true,
+                clickable: true
+            }
+        });
 }
 
 function funcDiagram_jqPlot(dataStat) {
@@ -14,16 +54,23 @@ function funcDiagram_jqPlot(dataStat) {
     });
     if (dataTemp.length == 0)
         dataTemp[0] = ["Empty", 0];
+
+    var total = 0;
+    $(dataTemp).map(function () { total += this[1]; });
+    var myLabels = $.makeArray($(dataTemp).map(function () { return this[0] + ": " + Math.round(this[1] / total * 100) + "% (" + this[1] + " грн.)"; }));
+
     $.jqplot('DiagramMonth', [dataTemp],
         {
             seriesDefaults: {
                 renderer: jQuery.jqplot.PieRenderer,
                 rendererOptions: {
                     showDataLabels: true,
-                    dataLabels: 'percent'
+                    dataLabels:myLabels,
+                    dataLabelPositionFactor: 0.8,
+                    dataLabelThreshold: 0
                 }
             },
-            legend: { show: true, location: 'e' },
+            legend: { show: true, location: 'ne' }
         }
     );
 }

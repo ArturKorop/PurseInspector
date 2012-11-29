@@ -7,7 +7,6 @@ using Domain.Repository;
 
 namespace WebUI.Controllers
 {
-    [Authorize]
     public class PurseController : Controller
     {
         private readonly IOperationRepository _operationRepository;
@@ -79,16 +78,18 @@ namespace WebUI.Controllers
         }
         public ActionResult GetAutocompleteTags()
         {
-            if (Request != null && Request.IsAjaxRequest())
+            if (!Request.IsAjaxRequest())
             {
-                return Json(_operationRepository.Model(GetUserID()).GetAutocompleteTags());
+                return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
             }
-            return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
+            return Json(_operationRepository.Model(GetUserID()).GetAutocompleteTags());
         }
 
         private int GetUserID()
         {
             string userName = User == null ? null : User.Identity.Name;
+            if (userName == null)
+                return 0;
             return _userRepository.GetUserID(userName);
         }  
     }
