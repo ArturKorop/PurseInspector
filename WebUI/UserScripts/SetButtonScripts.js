@@ -4,9 +4,11 @@
     $('#ButtonDir').buttonset();
     $('#ButtonCheckSHOperation').mousedown(funcAddSHOperation);
     $('#ButtonDiagram').mousedown(funcAddSHDiagram);
-    $('#ButtonYear').mousedown(funcViewYear);
+    $('#ButtonYear').mousedown(funcAddViewYear);
 }
-
+function funcAddViewYear() {
+    funcViewYear(thisYear);
+}
 function funcAddSHOperation() {
     if (!$(this).prop("checked")) {
         funcHideOperation();

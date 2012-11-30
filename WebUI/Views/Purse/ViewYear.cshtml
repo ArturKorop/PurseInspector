@@ -1,0 +1,28 @@
+﻿@model Domain.Purse.Year
+@{
+    ViewBag.Title = "ViewYear";
+     @Styles.Render("~/Content/styleviewyear")
+}
+<h2 style="padding-left: 40%;">@Model.Name</h2>
+<table id="YearTable">
+<tr class="LineMonth">
+    <td id="monthJanuary" class="ViewMonth FirstMonth">@Model.GetMonth(1).Name @Model.GetMonth(1).SpanStatistics().Sum(x=>x.Value)</td>
+    <td id="monthFebruary" class="ViewMonth SecondMonth">@Model.GetMonth(2).Name @Model.GetMonth(2).SpanStatistics().Sum(x => x.Value)</td>
+    <td id="monthMarch" class="ViewMonth ThirdMonth">@Model.GetMonth(3).Name @Model.GetMonth(3).SpanStatistics().Sum(x => x.Value)</td>
+</tr>
+<tr class="LineMonth">
+    <td id="monthApril" class="ViewMonth FirstMonth">@Model.GetMonth(4).Name @Model.GetMonth(4).SpanStatistics().Sum(x => x.Value)</td>
+    <td id="monthMay" class="ViewMonth SecondMonth">@Model.GetMonth(5).Name @Model.GetMonth(5).SpanStatistics().Sum(x => x.Value)</td>
+    <td id="monthJune" class="ViewMonth ThirdMonth">@Model.GetMonth(6).Name @Model.GetMonth(6).SpanStatistics().Sum(x => x.Value)</td>
+</tr>
+<tr class="LineMonth">
+    <td id="monthJuly" class="ViewMonth FirstMonth">@Model.GetMonth(7).Name @Model.GetMonth(7).SpanStatistics().Sum(x => x.Value)</td>
+    <td id="monthAugust" class="ViewMonth SecondMonth">@Model.GetMonth(8).Name @Model.GetMonth(8).SpanStatistics().Sum(x => x.Value)</td>
+    <td id="monthSeptember" class="ViewMonth ThirdMonth">@Model.GetMonth(9).Name @Model.GetMonth(9).SpanStatistics().Sum(x => x.Value)</td>
+</tr>
+<tr class="LineMonth">
+    <td id="monthOctober" class="ViewMonth FirstMonth">@Model.GetMonth(10).Name @Model.GetMonth(10).SpanStatistics().Sum(x => x.Value)</td>
+    <td id="monthNovember" class="ViewMonth SecondMonth">@Model.GetMonth(11).Name @Model.GetMonth(11).SpanStatistics().Sum(x => x.Value)</td>
+    <td id="monthDecember" class="ViewMonth ThirdMonth">@Model.GetMonth(12).Name @Model.GetMonth(12).SpanStatistics().Sum(x => x.Value)</td>
+</tr>
+</table>

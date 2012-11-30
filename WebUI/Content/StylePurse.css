@@ -1,16 +1,27 @@
-﻿#tablePurse {
+﻿#main {
+}
+#divtable {
+    float: left;
+    width: 50%;
+}
+#divdata {
+    float: right;
+    width: 50%;
+}
+#tablePurse {
     font-size: smaller;
     border: black;
     border-style: solid;
     border-width: 1px;
-    margin-left:auto; 
-    margin-right:auto;
-    float: left;
+    float: right;
+    margin-right: 10%;
+
 }
 #tablePurse tr {
     border: black;
     border-style: solid;
     border-width: 1px;
+    padding-right: 10%;
 }
 #tablePurse tr td{
     border: black;
@@ -82,7 +93,7 @@
     margin-right: .2em;
 }
 .ButtonDelete {
-     border: none;
+    border: none;
     padding: 0 0 0 0;
     margin: 0 0 0 0;
     width: 10px;
@@ -94,40 +105,41 @@
 #MonthSumSpan {
     border: none;
 }
+#DateSet {
+    margin: 0 1% 1% 0%;
+}
  #Year 
  {
-     margin: 0 2% 2% 10%;
+     margin: 0 2% 2% 0%;
      float: left;
  }
  #MonthNumber 
  {
      margin: 0 2% 2% 2%;
      float: left;
- }
+}
  #MonthName 
  {
      margin: 0 2% 2% 2%;
  }
  #ButtonSet 
  {
-     margin: 0 2% 2% 10%;
-     float :left
+     margin: 0 1% 1% 0%;
  }
  #ButtonDir 
  {
-     margin: 0 2% 2% 10%;
-     float :left
+     margin: 0 1% 1% 0%;
  }
  #MainDir {
      margin-left: auto;
      margin-right: auto;
  }
  #DiagramMonth {
-     float: left;
+     width: 70%;
+     height:450px;
  }
  #DiagramMonthLabel {
-     float: left;
-     margin-left: 10%;
+     margin: 0 1% 1% 0%;
      background: black;
  }
     

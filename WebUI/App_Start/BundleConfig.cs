@@ -48,6 +48,10 @@ namespace WebUI
                 "~/Content/StylePurse.css",
                 "~/Scripts/jqPlot/jquery.jqplot.css"));
 
+            bundles.Add(new StyleBundle("~/Content/styleviewyear").Include(
+                "~/Content/StyleViewYear.css",
+                "~/Scripts/jqPlot/jquery.jqplot.css"));
+
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery-ui-1.9.1.custom.css",
                         "~/Content/themes/base/jquery-ui-1.9.1.custom.min.css",

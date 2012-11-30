@@ -12,7 +12,7 @@ namespace Domain.Purse
     {
         private readonly Collection<Year> _years = new Collection<Year>();
         private Month _currentMonth;
-        private Collection<string> _autocompleteTags = new Collection<string>(); 
+        private readonly Collection<string> _autocompleteTags = new Collection<string>(); 
 
         /// <summary>
         /// Add a new operation
@@ -174,7 +174,6 @@ namespace Domain.Purse
         private readonly int _thisMonth;
         private readonly int _thisYear;
         private readonly Collection<SingleOperation> _monthSpanStatistics = new Collection<SingleOperation>();
-        private Collection<string> _autocompleteTags = null; 
         /// <summary>
         /// String name of the month
         /// </summary>
@@ -268,12 +267,12 @@ namespace Domain.Purse
         /// <returns></returns>
         public MonthJSON ToJSON()
         {
-            Collection<DayJSON> daysJson = new Collection<DayJSON>();
+            var daysJson = new Collection<DayJSON>();
             foreach (var day in _days)
             {
                 daysJson.Add(day.ToJSON());
             }
-            MonthJSON temp = new MonthJSON
+            var temp = new MonthJSON
                 {
                     Days = daysJson,
                     Name = Name,

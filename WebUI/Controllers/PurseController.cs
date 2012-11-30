@@ -21,6 +21,12 @@ namespace WebUI.Controllers
         {
             return View(_operationRepository.Model(GetUserID()).CurrentMonth());
         }
+        public ViewResult GetMonth(int currentMonth, int currentYear)
+        {
+            var temp = _operationRepository.Model(GetUserID());
+            temp.SetCurrentMonth(currentMonth, currentYear);
+            return View(temp.CurrentMonth());
+        }
         public ActionResult AddOperation(int year,int month,int day,string operationType, string operationName, int operationValue)
         {
             var itemID = _operationRepository.AddOperation(new RepositoryOperation
@@ -84,9 +90,10 @@ namespace WebUI.Controllers
             }
             return Json(_operationRepository.Model(GetUserID()).GetAutocompleteTags());
         }
-        public ActionResult ViewYear()
+
+        public ActionResult ViewYear(int currentYear)
         {
-            return null;
+            return View(_operationRepository.Model(GetUserID()).GetYear(currentYear));
         }
 
         private int GetUserID()

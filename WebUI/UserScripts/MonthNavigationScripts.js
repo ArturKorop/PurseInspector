@@ -27,7 +27,7 @@ function funcCreateMontTable(data) {
     $('#Year').text(data.ThisYear);
     $('#MonthNumber').text(data.ThisMonth);
     $('#MonthName').text(data.Name);
-    $('#main').prepend(function () {
+    $('#divtable').prepend(function () {
         var table = '';
         var tr = '';
         $.each(data.Days, function (k, val) {

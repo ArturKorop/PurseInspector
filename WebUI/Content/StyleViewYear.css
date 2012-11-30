@@ -1,0 +1,29 @@
+﻿#YearTable {
+    width: 90%;
+}
+#YearTable tr td{
+    border: black;
+    border-style: double;
+}
+.ViewMonth {
+    width: 30%;
+    height: 15%;
+}
+.FirstMonth 
+{
+    margin-left: 5%;
+    background: greenyellow;
+}
+.SecondMonth 
+{
+    background: pink;
+}
+.ThirdMonth 
+{
+    margin-right: 5%;
+    background: yellow;
+}
+.LineMonth {
+    padding-bottom: 10%;
+}
+
