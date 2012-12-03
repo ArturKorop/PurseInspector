@@ -1,12 +1,5 @@
-﻿function funcSetDiagram() {
-    /// <summary>Create post request to PurseController and, if sucessfull, call function for diagram paint</summary>
-    $.post("/Purse/SpanStatistics", { currentMonth: thisMonth, currentYear: thisYear }, function (data) {
-        funcDiagram_Flot(data);
-    });
-}
-
-function funcDiagram_Flot(dataStat) {
-    /// <summary>Create diagram for month operation. I think it is the best plugin for plooting , sparkline and jqPlot is worse</summary>
+﻿function funcDiagram_Flot(dataStat) {
+    /// <summary>Create diagram for operation. I think it is the best plugin for plooting , sparkline and jqPlot is worse</summary>
     /// <param name="dataStat" type="">Collection of SingleOperation</param>
     var dataTemp = [];
     var val = 0;

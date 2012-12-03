@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Web.Mvc;
 using Domain.Abstract;
 using Domain.Adapter;
@@ -25,7 +26,7 @@ namespace WebUI.Controllers
         {
             var temp = _operationRepository.Model(GetUserID());
             temp.SetCurrentMonth(currentMonth, currentYear);
-            return View(temp.CurrentMonth());
+            return View("Index",temp.CurrentMonth());
         }
         public ActionResult AddOperation(int year,int month,int day,string operationType, string operationName, int operationValue)
         {
@@ -90,10 +91,11 @@ namespace WebUI.Controllers
             }
             return Json(_operationRepository.Model(GetUserID()).GetAutocompleteTags());
         }
-
-        public ActionResult ViewYear(int currentYear)
+        public ActionResult ViewYear(int? currentYear)
         {
-            return View(_operationRepository.Model(GetUserID()).GetYear(currentYear));
+            if (currentYear == null)
+                currentYear = DateTime.Now.Year;
+            return View(_operationRepository.Model(GetUserID()).GetYear((int)currentYear));
         }
 
         private int GetUserID()

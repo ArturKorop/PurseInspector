@@ -1,12 +1,36 @@
 ﻿@model Domain.Purse.Year
 @{
     ViewBag.Title = "ViewYear";
-     @Styles.Render("~/Content/styleviewyear")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/viewyearscripts")
+    @Styles.Render("~/Content/styleviewyear")
 }
-<h2 style="padding-left: 40%;">@Model.Name</h2>
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            funcSetButtonClickMonthTransport();
+        });
+        function funcSetButtonClickMonthTransport() {
+            var dataMonth = [['monthJanuary', 1], ['monthFebruary', 2], ['monthMarch', 3], ['monthApril', 4], ['monthMay', 5], ['monthJune', 6],
+                             ['monthJuly', 7], ['monthAugust', 8], ['monthSeptember', 9], ['monthOctober', 10], ['monthNovember', 11], ['monthDecember', 12]];
+            $('.ViewMonth').click(function () {
+                var monthName = $(this).prop('id');
+                var monthNumber;
+                $(dataMonth).each(function () {
+                    if (this[0] == monthName)
+                        monthNumber = this[1];
+                });
+                funcGoToMonth($('.YearName').text(), monthNumber);
+            });
+        }
+    </script>
+}
+<h2 class="YearName">@Model.Name</h2>
 <table id="YearTable">
 <tr class="LineMonth">
-    <td id="monthJanuary" class="ViewMonth FirstMonth">@Model.GetMonth(1).Name @Model.GetMonth(1).SpanStatistics().Sum(x=>x.Value)</td>
+    <td id="monthJanuary" class="ViewMonth FirstMonth">@Model.GetMonth(1).Name @Model.GetMonth(1).SpanStatistics().Sum(x => x.Value)</td>
     <td id="monthFebruary" class="ViewMonth SecondMonth">@Model.GetMonth(2).Name @Model.GetMonth(2).SpanStatistics().Sum(x => x.Value)</td>
     <td id="monthMarch" class="ViewMonth ThirdMonth">@Model.GetMonth(3).Name @Model.GetMonth(3).SpanStatistics().Sum(x => x.Value)</td>
 </tr>

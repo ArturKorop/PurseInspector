@@ -15,14 +15,17 @@ namespace WebUI
                         "~/Scripts/jquery-ui-1.9.2.custom.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/viewpursescripts").Include(
-                "~/UserScripts/AddOperationScripts.js",
-                "~/UserScripts/AutoCompleateScript.js",
-                "~/UserScripts/ChangeOperationScripts.js",
-                "~/UserScripts/DeleteOperationScripts.js",
-                "~/UserScripts/MonthNavigationScripts.js",
-                "~/UserScripts/SetButtonScripts.js",
-                "~/UserScripts/ViewPurseScripts.js",
-                "~/UserScripts/ViewYearsScripts.js"));
+                "~/UserScripts/PurseScripts/AddOperationScripts.js",
+                "~/UserScripts/PurseScripts/AutoCompleateScript.js",
+                "~/UserScripts/PurseScripts/ChangeOperationScripts.js",
+                "~/UserScripts/PurseScripts/DeleteOperationScripts.js",
+                "~/UserScripts/PurseScripts/MonthNavigationScripts.js",
+                "~/UserScripts/PurseScripts/SetButtonScripts.js",
+                "~/UserScripts/PurseScripts/ViewPurseScripts.js",
+                "~/UserScripts/PurseScripts/ViewYearsScripts.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/viewyearscripts").Include(
+                "~/UserScripts/ViewYearScripts/SetViewYearScripts.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/diagram").Include(
                 "~/Scripts/jquery.sparkline.js",
@@ -31,7 +34,7 @@ namespace WebUI
                 "~/Scripts/jqPlot/Plugins/jqplot.pieRenderer.js",
                 "~/Scripts/Flot/jquery.flot.js",
                 "~/Scripts/Flot/jquery.flot.pie.js",
-                "~/UserScripts/DiagramScripts.js"));
+                "~/UserScripts/GlobalScripts/DiagramScripts.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",

@@ -327,15 +327,16 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
-    <Content Include="UserScripts\AddOperationScripts.js" />
-    <Content Include="UserScripts\AutoCompleateScript.js" />
-    <Content Include="UserScripts\ChangeOperationScripts.js" />
-    <Content Include="UserScripts\DeleteOperationScripts.js" />
-    <Content Include="UserScripts\DiagramScripts.js" />
-    <Content Include="UserScripts\MonthNavigationScripts.js" />
-    <Content Include="UserScripts\SetButtonScripts.js" />
-    <Content Include="UserScripts\ViewPurseScripts.js" />
-    <Content Include="UserScripts\ViewYearsScripts.js" />
+    <Content Include="UserScripts\PurseScripts\AddOperationScripts.js" />
+    <Content Include="UserScripts\PurseScripts\AutoCompleateScript.js" />
+    <Content Include="UserScripts\PurseScripts\ChangeOperationScripts.js" />
+    <Content Include="UserScripts\PurseScripts\DeleteOperationScripts.js" />
+    <Content Include="UserScripts\GlobalScripts\DiagramScripts.js" />
+    <Content Include="UserScripts\PurseScripts\MonthNavigationScripts.js" />
+    <Content Include="UserScripts\PurseScripts\SetButtonScripts.js" />
+    <Content Include="UserScripts\PurseScripts\ViewPurseScripts.js" />
+    <Content Include="UserScripts\PurseScripts\ViewYearsScripts.js" />
+    <Content Include="UserScripts\ViewYearScripts\SetViewYearScripts.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
