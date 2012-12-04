@@ -138,6 +138,7 @@ namespace Domain.Purse
     public class Year
     {
         private readonly Collection<Month> _months = new Collection<Month>();
+        private readonly Collection<SingleOperation> _yearSpanStatistics = new Collection<SingleOperation>();
         /// <summary>
         /// Number name of month
         /// </summary>
@@ -163,6 +164,30 @@ namespace Domain.Purse
         {
             return _months[name - 1];
         }
+        /// <summary>
+        /// Calculate statistics of year span operation
+        /// </summary>
+        /// <returns>Collection <see cref="SingleOperation"/> object<</returns>
+        public Collection<SingleOperation> YearSpanStatistics()
+        {
+            foreach (var month in _months)
+            {
+                foreach (var item in month.SpanStatistics())
+                {
+                    SingleOperation item1 = item;
+                    var y = _yearSpanStatistics.Where(x => item1 != null && x.OperationName == item1.OperationName).Select(x => x);
+                    if (!y.Any())
+                        _yearSpanStatistics.Add(new SingleOperation
+                        {
+                            OperationName = item.OperationName,
+                            Value = item.Value
+                        });
+                    else
+                        _yearSpanStatistics.Single(x => x.OperationName == item.OperationName).Value += item.Value;
+                }
+            }
+            return _yearSpanStatistics;
+        } 
     }
     /// <summary>
     /// Class that provides a description of the month

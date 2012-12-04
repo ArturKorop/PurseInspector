@@ -25,7 +25,11 @@ namespace WebUI
                 "~/UserScripts/PurseScripts/ViewYearsScripts.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/viewyearscripts").Include(
-                "~/UserScripts/ViewYearScripts/SetViewYearScripts.js"));
+                "~/UserScripts/ViewYearScripts/SetViewYearScripts.js",
+                "~/UserScripts/ViewYearScripts/ViewYearDiagram.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/setslidemenu").Include(
+                "~/UserScripts/GlobalScripts/SetSlideMenu.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/diagram").Include(
                 "~/Scripts/jquery.sparkline.js",

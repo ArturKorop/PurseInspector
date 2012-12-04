@@ -110,17 +110,19 @@
 }
  #Year 
  {
-     margin: 0 2% 2% 0%;
+     margin: 0 2% 2% 2%;
      float: left;
  }
  #MonthNumber 
  {
      margin: 0 2% 2% 2%;
-     float: left;
+     visibility: hidden;
+     
 }
  #MonthName 
  {
-     margin: 0 2% 2% 2%;
+     margin: 0 2% 2% 0%;
+     float: left;
  }
  #ButtonSet 
  {

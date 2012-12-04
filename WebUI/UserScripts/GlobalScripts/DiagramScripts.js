@@ -1,4 +1,5 @@
-﻿function funcDiagram_Flot(dataStat) {
+﻿var tempDiagramLabel;
+function funcDiagram_Flot(dataStat, currentDiagram, currentDiagramLabel) {
     /// <summary>Create diagram for operation. I think it is the best plugin for plooting , sparkline and jqPlot is worse</summary>
     /// <param name="dataStat" type="">Collection of SingleOperation</param>
     var dataTemp = [];
@@ -9,7 +10,9 @@
     });
     if (dataTemp.length == 0)
         dataTemp[0] = ["Empty", 0];
-    $.plot($("#DiagramMonth"), dataTemp,
+    var tempDiagram = "#" + currentDiagram;
+    tempDiagramLabel = "#" + currentDiagramLabel;
+    $.plot($(tempDiagram), dataTemp,
         {
             series: {
                 pie: {
@@ -36,7 +39,7 @@
                 hoverable: true
             }
         });
-        $("#DiagramMonth").bind("plothover", pieHover);
+        $(tempDiagram).bind("plothover", pieHover);
 }
 function funcDiagram_jqPlot(dataStat) {
     /// <summary>Create diagram for month operation.</summary>
@@ -105,5 +108,5 @@ function pieHover(event, pos, obj) {
     if (!obj)
         return;
     var percent = parseFloat(obj.series.percent).toFixed(2);
-    $("#DiagramMonthLabel").html('<span style="font-weight: bold; color: ' + obj.series.color + '">' + obj.series.label + ' (' + percent + '%: ' + obj.series.data[0][1] +'грн.)</span>');
+    $(tempDiagramLabel).html('<span style="font-weight: bold; color: ' + obj.series.color + '">' + obj.series.label + ' (' + percent + '%: ' + obj.series.data[0][1] + 'грн.)</span>');
 }

@@ -10,17 +10,17 @@
     </head>
     <body>
         <header>
+            <div style="float: left;margin-top: 0;">
+                    @{ Html.RenderAction("Menu","Nav"); }
+                </div>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                    <p class="site-title">@Html.ActionLink("Home, sweet home)", "Index", "Home")</p>
                 </div>
                 <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
                     <nav>
                         <ul id="menu">
-                             @{ Html.RenderAction("Menu","Nav"); }
+                            <div id="DivUserInfo">@{Html.RenderAction("UserInfo","UserInformation");}</div>
                         </ul>
                     </nav>
                 </div>

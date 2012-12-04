@@ -168,6 +168,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\PurseController.cs" />
+    <Compile Include="Controllers\UserInformationController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -308,8 +309,6 @@
     <Content Include="Scripts\jqPlot\Plugins\jqplot.trendline.js" />
     <Content Include="Scripts\jqPlot\Plugins\jqplot.trendline.min.js" />
     <Content Include="Scripts\jquery-1.8.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.8.2.js" />
-    <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-ui-1.9.1.custom.js" />
     <Content Include="Scripts\jquery-ui-1.9.1.custom.min.js" />
@@ -327,6 +326,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="UserScripts\GlobalScripts\SetSlideMenu.js" />
     <Content Include="UserScripts\PurseScripts\AddOperationScripts.js" />
     <Content Include="UserScripts\PurseScripts\AutoCompleateScript.js" />
     <Content Include="UserScripts\PurseScripts\ChangeOperationScripts.js" />
@@ -337,6 +337,7 @@
     <Content Include="UserScripts\PurseScripts\ViewPurseScripts.js" />
     <Content Include="UserScripts\PurseScripts\ViewYearsScripts.js" />
     <Content Include="UserScripts\ViewYearScripts\SetViewYearScripts.js" />
+    <Content Include="UserScripts\ViewYearScripts\ViewYearDiagram.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -405,6 +406,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Purse\ViewYear.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UserInformation\UserInfo.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

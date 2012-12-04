@@ -3,6 +3,7 @@
     ViewBag.Title = "ViewYear";
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
+     @Scripts.Render("~/bundles/diagram")
     @Scripts.Render("~/bundles/viewyearscripts")
     @Styles.Render("~/Content/styleviewyear")
 }
@@ -11,42 +12,55 @@
     <script type="text/javascript">
         $(document).ready(function () {
             funcSetButtonClickMonthTransport();
+            funcSetViewYearDiagram($('#YearName').text());
+            SetButton();
         });
-        function funcSetButtonClickMonthTransport() {
-            var dataMonth = [['monthJanuary', 1], ['monthFebruary', 2], ['monthMarch', 3], ['monthApril', 4], ['monthMay', 5], ['monthJune', 6],
-                             ['monthJuly', 7], ['monthAugust', 8], ['monthSeptember', 9], ['monthOctober', 10], ['monthNovember', 11], ['monthDecember', 12]];
-            $('.ViewMonth').click(function () {
-                var monthName = $(this).prop('id');
-                var monthNumber;
-                $(dataMonth).each(function () {
-                    if (this[0] == monthName)
-                        monthNumber = this[1];
-                });
-                funcGoToMonth($('.YearName').text(), monthNumber);
-            });
+        
+        function SetButton() {
+            $('#YearPrev').button();
+            $('#YearNext').button();
+            $('#YearPrev').mousedown(funcYearPrev);
+            $('#YearNext').mousedown(funcYearNext);
+            ViewYear_year = $('#YearName').text();
+        }
+
+        var ViewYear_year;
+        function funcYearNext() {
+            window.location.href = '/Purse/ViewYear?currentYear=' + (parseInt(ViewYear_year) + 1);
+        }
+        function funcYearPrev() {
+            window.location.href = '/Purse/ViewYear?currentYear=' + (parseInt(ViewYear_year) - 1);
         }
     </script>
 }
-<h2 class="YearName">@Model.Name</h2>
+<div id="DivYearData">
+    <input type="button" id="YearPrev" value="<-"/>
+    <h2 id="YearName">@Model.Name</h2>
+    <input type="button" id="YearNext" value="->"/>
+</div>
 <table id="YearTable">
-<tr class="LineMonth">
-    <td id="monthJanuary" class="ViewMonth FirstMonth">@Model.GetMonth(1).Name @Model.GetMonth(1).SpanStatistics().Sum(x => x.Value)</td>
-    <td id="monthFebruary" class="ViewMonth SecondMonth">@Model.GetMonth(2).Name @Model.GetMonth(2).SpanStatistics().Sum(x => x.Value)</td>
-    <td id="monthMarch" class="ViewMonth ThirdMonth">@Model.GetMonth(3).Name @Model.GetMonth(3).SpanStatistics().Sum(x => x.Value)</td>
-</tr>
-<tr class="LineMonth">
-    <td id="monthApril" class="ViewMonth FirstMonth">@Model.GetMonth(4).Name @Model.GetMonth(4).SpanStatistics().Sum(x => x.Value)</td>
-    <td id="monthMay" class="ViewMonth SecondMonth">@Model.GetMonth(5).Name @Model.GetMonth(5).SpanStatistics().Sum(x => x.Value)</td>
-    <td id="monthJune" class="ViewMonth ThirdMonth">@Model.GetMonth(6).Name @Model.GetMonth(6).SpanStatistics().Sum(x => x.Value)</td>
-</tr>
-<tr class="LineMonth">
-    <td id="monthJuly" class="ViewMonth FirstMonth">@Model.GetMonth(7).Name @Model.GetMonth(7).SpanStatistics().Sum(x => x.Value)</td>
-    <td id="monthAugust" class="ViewMonth SecondMonth">@Model.GetMonth(8).Name @Model.GetMonth(8).SpanStatistics().Sum(x => x.Value)</td>
-    <td id="monthSeptember" class="ViewMonth ThirdMonth">@Model.GetMonth(9).Name @Model.GetMonth(9).SpanStatistics().Sum(x => x.Value)</td>
-</tr>
-<tr class="LineMonth">
-    <td id="monthOctober" class="ViewMonth FirstMonth">@Model.GetMonth(10).Name @Model.GetMonth(10).SpanStatistics().Sum(x => x.Value)</td>
-    <td id="monthNovember" class="ViewMonth SecondMonth">@Model.GetMonth(11).Name @Model.GetMonth(11).SpanStatistics().Sum(x => x.Value)</td>
-    <td id="monthDecember" class="ViewMonth ThirdMonth">@Model.GetMonth(12).Name @Model.GetMonth(12).SpanStatistics().Sum(x => x.Value)</td>
-</tr>
+    <tr class="LineMonth">
+        <td id="monthJanuary" class="ViewMonth FirstMonth">@Model.GetMonth(1).Name @Model.GetMonth(1).SpanStatistics().Sum(x => x.Value)</td>
+        <td id="monthFebruary" class="ViewMonth SecondMonth">@Model.GetMonth(2).Name @Model.GetMonth(2).SpanStatistics().Sum(x => x.Value)</td>
+        <td id="monthMarch" class="ViewMonth ThirdMonth">@Model.GetMonth(3).Name @Model.GetMonth(3).SpanStatistics().Sum(x => x.Value)</td>
+    </tr>
+    <tr class="LineMonth">
+        <td id="monthApril" class="ViewMonth FirstMonth">@Model.GetMonth(4).Name @Model.GetMonth(4).SpanStatistics().Sum(x => x.Value)</td>
+        <td id="monthMay" class="ViewMonth SecondMonth">@Model.GetMonth(5).Name @Model.GetMonth(5).SpanStatistics().Sum(x => x.Value)</td>
+        <td id="monthJune" class="ViewMonth ThirdMonth">@Model.GetMonth(6).Name @Model.GetMonth(6).SpanStatistics().Sum(x => x.Value)</td>
+    </tr>
+    <tr class="LineMonth">
+        <td id="monthJuly" class="ViewMonth FirstMonth">@Model.GetMonth(7).Name @Model.GetMonth(7).SpanStatistics().Sum(x => x.Value)</td>
+        <td id="monthAugust" class="ViewMonth SecondMonth">@Model.GetMonth(8).Name @Model.GetMonth(8).SpanStatistics().Sum(x => x.Value)</td>
+        <td id="monthSeptember" class="ViewMonth ThirdMonth">@Model.GetMonth(9).Name @Model.GetMonth(9).SpanStatistics().Sum(x => x.Value)</td>
+    </tr>
+    <tr class="LineMonth">
+        <td id="monthOctober" class="ViewMonth FirstMonth">@Model.GetMonth(10).Name @Model.GetMonth(10).SpanStatistics().Sum(x => x.Value)</td>
+        <td id="monthNovember" class="ViewMonth SecondMonth">@Model.GetMonth(11).Name @Model.GetMonth(11).SpanStatistics().Sum(x => x.Value)</td>
+        <td id="monthDecember" class="ViewMonth ThirdMonth">@Model.GetMonth(12).Name @Model.GetMonth(12).SpanStatistics().Sum(x => x.Value)</td>
+    </tr>
 </table>
+<div style="margin-top: 1%;">
+    <div><span id="DiagramYearLabel"></span></div>
+    <div id="DiagramYear"></div>
+</div>

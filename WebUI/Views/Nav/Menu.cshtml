@@ -2,15 +2,27 @@
 @{
     Layout = null;
 }
-@foreach(var link in Model)
-{
-    @Html.RouteLink(link.Name,new
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/setslidemenu")
+<script type="text/javascript">
+    $(document).ready(function () {
+        funcSetSlideMenu();
+    });
+</script>
+<div id="mainMenu">
+ <p id="Menu" style="background: green;">Menu</p>
+    <div id="divSlide">
+        @foreach(var link in Model)
         {
-            controller = link.Controller,
-            action = link.Action
-        },
-        new
-            {
-                @class = link.Name == ViewBag.SelectedCategory ? "selected" : null
-            })
-}
+            @Html.RouteLink(link.Name,new
+                {
+                    controller = link.Controller,
+                    action = link.Action
+                },
+                            new
+                                {
+                                    @class = link.Name == ViewBag.SelectedCategory ? "selected" : null
+                                })
+        }
+    </div>
+</div>

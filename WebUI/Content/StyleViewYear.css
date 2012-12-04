@@ -23,9 +23,35 @@
     margin-right: 5%;
     background: yellow;
 }
-.LineMonth {
+.LineMonth 
+{
     padding-bottom: 10%;
 }
-.YearName {
-    padding-left: 40%;
+#DivYearData 
+{
+    display: block;
+    margin-left: 40%;
 }
+#YearPrev {
+    float: left;
+    margin-right: 2%;
+}
+#YearName {
+    float: left;
+    margin-right: 2%;
+}
+#YearNext {
+    
+}
+ #DiagramYear {
+     width: 40%;
+     height:450px;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+ }
+ #DiagramYearLabel 
+ {
+     background: black;
+     margin-left: 40%;
+ }

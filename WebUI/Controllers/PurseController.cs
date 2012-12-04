@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Web.Mvc;
 using Domain.Abstract;
-using Domain.Adapter;
 using Domain.Purse;
 using Domain.Repository;
 
@@ -12,7 +10,7 @@ namespace WebUI.Controllers
     {
         private readonly IOperationRepository _operationRepository;
         private readonly IUserRepository _userRepository;
-     
+        
         public PurseController(IOperationRepository operationRepository, IUserRepository userRepository)
         {
             _operationRepository = operationRepository;
@@ -82,6 +80,15 @@ namespace WebUI.Controllers
                 return Json(temp.CurrentMonth().SpanStatistics());
             }
             return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
+        }
+        public ActionResult YearSpanStatistics(int currentYear)
+        {
+            var temp = _operationRepository.Model(GetUserID()).GetYear(currentYear);
+            if (Request != null && Request.IsAjaxRequest())
+            {
+                return Json(temp.YearSpanStatistics());
+            }
+            return View("ViewYear", _operationRepository.Model(GetUserID()).GetYear(DateTime.Now.Year));
         }
         public ActionResult GetAutocompleteTags()
         {
