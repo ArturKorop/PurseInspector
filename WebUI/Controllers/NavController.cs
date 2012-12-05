@@ -24,7 +24,7 @@ namespace WebUI.Controllers
                 {
                     new MenuLinkModels {Name = "Home", Controller = "Home", Action = "Index"},
                     new MenuLinkModels {Name = "Purse", Controller = "Purse", Action = "Index"},
-                    new MenuLinkModels {Name = "Year", Controller = "Purse", Action = "ViewYear"},
+                    new MenuLinkModels {Name = "YearPurse", Controller = "Purse", Action = "ViewYear"},
                     new MenuLinkModels {Name = "About", Controller = "Home", Action = "About"},
                     new MenuLinkModels {Name = "Contact", Controller = "Home", Action = "Contact"}
                 };

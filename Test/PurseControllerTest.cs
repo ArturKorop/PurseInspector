@@ -35,7 +35,7 @@ namespace Test
 
             PurseController controller = new PurseController(mock.Object, mockUser.Object);
             controller.DeleteOperation(2);
-            mock.Verify(m => m.RemoveOperation(2, 1));
+            mock.Verify(m => m.RemoveOperation(It.IsAny<int>(), It.IsAny<int>()));
         }
         [TestMethod]
         public void IndexTest()
@@ -50,18 +50,18 @@ namespace Test
             Assert.AreEqual(result.GetDay(5).SpanDaysSingleOperations[0].OperationName, "Mouse");
         }
         [TestMethod]
-        public void ChangeOperation()
+        public void ChangeOperationTest()
         {
             Mock<IOperationRepository> mock = CreateRepository();
             Mock<IUserRepository> mockUser = CreateUserRepository();
 
             PurseController controller = new PurseController(mock.Object, mockUser.Object);
             controller.ChangeOperation(1, "Ticket", 125);
-            mock.Verify(x => x.ChangeOperation(It.IsAny<SingleOperation>(), 1));
+            mock.Verify(x => x.ChangeOperation(It.IsAny<SingleOperation>(), It.IsAny<int>()));
 
         }
         [TestMethod]
-        public void NextMonth()
+        public void NextMonthTest()
         {
             Mock<IOperationRepository> mock = CreateRepository();
             Mock<IUserRepository> mockUser = CreateUserRepository();
@@ -74,7 +74,7 @@ namespace Test
             Assert.AreEqual(result.GetDay(5).SpanDaysSingleOperations[0].OperationName, "Mouse");
         }
         [TestMethod]
-        public void PrevMonth()
+        public void PrevMonthTest()
         {
             Mock<IOperationRepository> mock = CreateRepository();
             Mock<IUserRepository> mockUser = CreateUserRepository();
@@ -85,7 +85,7 @@ namespace Test
             Assert.AreEqual(result.GetThisYear(), 2012);
         }
         [TestMethod]
-        public void SpanStatistics()
+        public void SpanStatisticsTest()
         {
             Mock<IOperationRepository> mock = CreateRepository();
             Mock<IUserRepository> mockUser = CreateUserRepository();
@@ -95,7 +95,7 @@ namespace Test
             Assert.AreEqual(result.SpanStatistics().Sum(x=>x.Value), 120);
         }
         [TestMethod]
-        public void GetAutocompleteTags()
+        public void GetAutocompleteTagsTest()
         {
             Mock<IOperationRepository> mock = CreateRepository();
             Mock<IUserRepository> mockUser = CreateUserRepository();
@@ -104,6 +104,26 @@ namespace Test
             var result = (JsonResult)controller.GetAutocompleteTags();
             Assert.AreEqual(((Collection<string>)result.Data).Count(),3);
             Assert.AreEqual(((Collection<string>)result.Data)[0], "Novus");
+        }
+        [TestMethod]
+        public void ViewYearTest()
+        {
+            Mock<IOperationRepository> mock = CreateRepository();
+            Mock<IUserRepository> mockUser = CreateUserRepository();
+
+            PurseController controller = new PurseController(mock.Object, mockUser.Object);
+            var result = (Year)((ViewResult)controller.ViewYear(2012)).ViewData.Model;
+            Assert.AreEqual(2012, result.Name);
+        }
+        [TestMethod]
+        public void YearSpanStatisticsTest()
+        {
+            Mock<IOperationRepository> mock = CreateRepository();
+            Mock<IUserRepository> mockUser = CreateUserRepository();
+
+            PurseController controller = new PurseController(mock.Object, mockUser.Object);
+            var result = (Year)((ViewResult)controller.YearSpanStatistics(2012)).ViewData.Model;
+            Assert.AreEqual(result.YearSpanStatistics().Sum(x=>x.Value), 200);
         }
 
         private Mock<IOperationRepository> CreateRepository()
