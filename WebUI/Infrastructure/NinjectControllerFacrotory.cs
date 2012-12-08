@@ -8,10 +8,15 @@ using Ninject;
 
 namespace WebUI.Infrastructure
 {
+    /// <summary>
+    /// Contoller factory which base on Ninject
+    /// </summary>
     public class NinjectControllerFactory : DefaultControllerFactory
     {
-        private IKernel _ninjectKernel;
-
+        private readonly IKernel _ninjectKernel;
+        /// <summary>
+        /// Constructor of controllers factory
+        /// </summary>
         public NinjectControllerFactory()
         {
             _ninjectKernel = new StandardKernel();

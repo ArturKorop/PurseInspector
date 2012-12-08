@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Domain.Repository;
 
 namespace WebUI.Controllers
 {
@@ -17,6 +18,8 @@ namespace WebUI.Controllers
         /// <returns>View</returns>
         public ActionResult Index()
         {
+            //_context.RO.Add(new RepositoryOperation{Day = 1,Month = 1,Year = 2012,OperationName = "q",OperationType = "ss",OperationValue = 23,UserName = "aa",UserID = 1});
+           // _context.SaveChanges();
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();

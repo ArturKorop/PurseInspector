@@ -21,6 +21,5 @@ namespace WebUI.Controllers
             string date = DateTime.Now.Day.ToString(CultureInfo.InvariantCulture) + " " + DateTime.Now.Month.ToString(CultureInfo.InvariantCulture) + " " + DateTime.Now.Year.ToString(CultureInfo.InvariantCulture);
             return PartialView("UserInfo",date);
         }
-
     }
 }

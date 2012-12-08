@@ -6,12 +6,19 @@ namespace Domain.Repository
     /// <summary>
     /// Class that implements DbContext for Entity Frameworks
     /// </summary>
-    public class EFDbContext : DbContext   
+    public class EFDbContext : DbContext
     {
         /// <summary>
         /// Connections for table <see cref="RepositoryOperation"/>
         /// </summary>
         public DbSet<RepositoryOperation> RepositoryOperations { get; set; }
+    }
+
+    /// <summary>
+    /// Class that implements DbContext for Entity Frameworks
+    /// </summary>
+    public class UserContext : DbContext
+    {
         /// <summary>
         /// Connections for table <see cref="UserInformation"/>
         /// </summary>

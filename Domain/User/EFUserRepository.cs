@@ -9,7 +9,7 @@ namespace Domain.User
     /// </summary>
     public class EFUserRepository : IUserRepository
     {
-        private readonly EFDbContext _context = new EFDbContext();
+        private readonly UserContext _context = new UserContext();
         public int GetUserID(string userName)
         {
             return _context.UserProfile.Where(x=>x.UserName == userName).Select(x=>x.UserId).FirstOrDefault();

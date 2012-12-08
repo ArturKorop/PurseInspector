@@ -23,7 +23,7 @@ namespace WebUI
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
-            Database.SetInitializer<EFDbContext>(null);
+            Database.SetInitializer<UserContext>(null);
         }
     }
 }
