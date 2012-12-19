@@ -4,11 +4,15 @@ function funcSetSlideMenu() {
         $('#divSlide').css('display', 'none');
     }
     $('#Menu').mouseenter(function () {
-        $('#divSlide').slideDown(10);
+        $('#Menu').css('font-size', "small");
+        $('#divSlide').slideDown(0);
+        $('#Menu').css('height', "19");
         menuSlideStatus = true;
     });
     $('#mainMenu').mouseleave(function () {
-        $('#divSlide').slideUp(10);
+        $('#divSlide').slideUp(0);
+        $('#Menu').css('font-size', " x-large");
+        $('#Menu').css('height', "30");
         menuSlideStatus = false;
     });
 }
