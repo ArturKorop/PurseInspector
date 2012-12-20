@@ -26,7 +26,8 @@ namespace WebUI.Controllers
                     new MenuLinkModels {Name = "Purse", Controller = "Purse", Action = "Index"},
                     new MenuLinkModels {Name = "YearPurse", Controller = "Purse", Action = "ViewYear"},
                     new MenuLinkModels {Name = "About", Controller = "Home", Action = "About"},
-                    new MenuLinkModels {Name = "Contact", Controller = "Home", Action = "Contact"}
+                    new MenuLinkModels {Name = "Contact", Controller = "Home", Action = "Contact"},
+                    new MenuLinkModels {Name = "Blog", Controller = "Blog", Action = "Index"}
                 };
             return PartialView(listMenuItem);
         }

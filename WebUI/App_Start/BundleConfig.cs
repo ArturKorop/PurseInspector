@@ -51,6 +51,12 @@ namespace WebUI
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/blog").Include("~/Content/StyleBlog.css"));
+
+            bundles.Add(new StyleBundle("~/Content/stylepurse").Include(
+                "~/Content/StylePurse.css",
+                "~/Scripts/jqPlot/jquery.jqplot.css"));
+
             bundles.Add(new StyleBundle("~/Content/stylepurse").Include(
                 "~/Content/StylePurse.css",
                 "~/Scripts/jqPlot/jquery.jqplot.css"));

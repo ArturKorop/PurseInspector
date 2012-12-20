@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -23,8 +19,7 @@ namespace WebUI
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
-            Database.SetInitializer<EFDbContext>(null);
-            Database.SetInitializer<UserContext>(null);
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<EFDbContext>());
         }
     }
 }

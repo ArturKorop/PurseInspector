@@ -1,0 +1,15 @@
+﻿body {
+}
+#BlogField 
+{
+    float: left;
+    background: greenyellow;
+    width: 70%;
+    display: block;
+}
+#ArchiveField 
+{
+    float: right;
+    background: khaki;
+    width: 30%;
+}

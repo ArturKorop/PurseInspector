@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 using Domain.Abstract;
+using Domain.Blog;
 using Domain.Repository;
 using Domain.User;
 using Ninject;
@@ -32,6 +33,7 @@ namespace WebUI.Infrastructure
         {
             _ninjectKernel.Bind<IOperationRepository>().To<EFOperationRepository>();
             _ninjectKernel.Bind<IUserRepository>().To<EFUserRepository>();
+            _ninjectKernel.Bind<IBlogRepository>().To<EFBlogRepository>();
         }
     }
 }

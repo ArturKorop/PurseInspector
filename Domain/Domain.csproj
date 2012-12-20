@@ -48,9 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IBlogRepository.cs" />
     <Compile Include="Abstract\IOperationRepository.cs" />
     <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Adapter\AdapterEFURepoToPrevMod.cs" />
+    <Compile Include="Blog\Article.cs" />
+    <Compile Include="Blog\EFBlogRepository.cs" />
     <Compile Include="User\EFUserRepository.cs" />
     <Compile Include="User\UserInformation.cs" />
     <Compile Include="Purse\PreviewModel.cs" />
