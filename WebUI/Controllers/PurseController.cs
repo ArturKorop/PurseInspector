@@ -78,7 +78,7 @@ namespace WebUI.Controllers
         public ActionResult DeleteOperation(int id)
         {
             _operationRepository.RemoveOperation(id, GetUserID());
-            return View();
+            return View("Index", _operationRepository.Model(GetUserID()).CurrentMonth());
         }
         /// <summary>
         /// Action, that change exists operation

@@ -1,3 +1,5 @@
+using Domain.Repository;
+
 namespace WebUI.Migrations
 {
     using System;
@@ -5,14 +7,14 @@ namespace WebUI.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WebUI.Models.UsersContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<EFDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(WebUI.Models.UsersContext context)
+        protected override void Seed(EFDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

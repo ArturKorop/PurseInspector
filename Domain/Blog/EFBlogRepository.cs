@@ -19,6 +19,7 @@ namespace Domain.Blog
 
         public int AddOperation(Article article)
         {
+            //_context.Tests.Add(new Test(){Name = "sssfgg"});
             _context.BlogRepository.Add(new Article{ArticleShortName = "Test1",Text = "qweasdzxcrtyfghfgjgh", UserID = article.UserID});
             _context.SaveChanges();
             return _context.BlogRepository.Where(x => x.UserID == article.UserID).Max(y => y.ID);

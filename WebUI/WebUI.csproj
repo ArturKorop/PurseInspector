@@ -175,6 +175,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectControllerFacrotory.cs" />
+    <Compile Include="Migrations\201212201427144_AddTestClass.cs" />
+    <Compile Include="Migrations\201212201427144_AddTestClass.Designer.cs">
+      <DependentUpon>201212201427144_AddTestClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201212201429359_DelTestClass.cs" />
+    <Compile Include="Migrations\201212201429359_DelTestClass.Designer.cs">
+      <DependentUpon>201212201429359_DelTestClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\MenuLinkModels.cs" />
@@ -412,6 +420,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Blog\BlogArchive.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201212201427144_AddTestClass.resx">
+      <DependentUpon>201212201427144_AddTestClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201212201429359_DelTestClass.resx">
+      <DependentUpon>201212201429359_DelTestClass.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

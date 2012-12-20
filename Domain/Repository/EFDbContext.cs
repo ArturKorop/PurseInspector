@@ -21,26 +21,21 @@ namespace Domain.Repository
         /// Connections for table <see cref="UserInformation"/>
         /// </summary>
         public DbSet<Article> BlogRepository { get; set; }
-    }
 
-  /*  /// <summary>
-    /// Class that implements DbContext for user repository
-    /// </summary>
-    public class UserContext : DbContext
-    {
-        /// <summary>
-        /// Connections for table <see cref="UserInformation"/>
-        /// </summary>
-        public DbSet<UserInformation> UserProfile { get; set; }
+       // public DbSet<Test> Tests { get; set; } 
     }
     /// <summary>
-    /// Class that implements DbContext for Entity Frameworks
+    /// Test class
     /// </summary>
-    public class EFBlogContext : DbContext
+    public class Test
     {
         /// <summary>
-        /// Connections for table <see cref="UserInformation"/>
+        /// Id
         /// </summary>
-        public DbSet<Article> BlogRepository { get; set; }
-    }*/
+        public int ID { get;set ;}
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; set; }
+    }
 }
