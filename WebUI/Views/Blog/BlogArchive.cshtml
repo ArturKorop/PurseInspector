@@ -1,8 +1,10 @@
-﻿@{
+﻿@model System.Collections.ObjectModel.Collection<Domain.Blog.ShortArticle>
+@{
     Layout = null;
 }
 <div>
-    <p>qwe</p>
-    <p>gghh</p>
-    <p>dvv</p>
+    @foreach (var item in Model)
+    {
+        <p>@Html.ActionLink(item.Date.ToShortDateString() + " " + item.ArticleShortName, "GetArticle", new { item.ID })</p>
+    }
 </div>

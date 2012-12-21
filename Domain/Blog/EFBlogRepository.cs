@@ -11,25 +11,41 @@ namespace Domain.Blog
     public class EFBlogRepository : IBlogRepository
     {
         private readonly EFDbContext _context = new EFDbContext();
+        private readonly Collection<Article> _article = new Collection<Article>(); 
+        private readonly Collection<ShortArticle> _articlesMap = new Collection<ShortArticle>(); 
 
         public Collection<Article> GetBlog()
         {
-            return null;
+            _article.Clear();
+            foreach (var article in _context.BlogRepository.Select(x=>x))
+            {
+                _article.Add(article);
+            }
+            return _article;
         }
 
-        public int AddOperation(Article article)
+        public Collection<ShortArticle> GetBlogMap()
         {
-            //_context.Tests.Add(new Test(){Name = "sssfgg"});
-            _context.BlogRepository.Add(new Article{ArticleShortName = "Test1",Text = "qweasdzxcrtyfghfgjgh", UserID = article.UserID});
+            _articlesMap.Clear();
+            foreach (var article in _context.BlogRepository.Select(x => x))
+            {
+                _articlesMap.Add(article);
+            }
+            return _articlesMap;
+        }
+
+        public int AddArticle(Article article)
+        {
+            _context.BlogRepository.Add(new Article{ArticleShortName = article.ArticleShortName, Text = article.Text, UserID = article.UserID, Date = article.Date});
             _context.SaveChanges();
             return _context.BlogRepository.Where(x => x.UserID == article.UserID).Max(y => y.ID);
         }
 
-        public void ChangeOperation(Article article, int userID)
+        public void ChangeAddArticle(Article article, int userID)
         {
         }
 
-        public void RemoveOperation(int id, int userID)
+        public void RemoveAddArticle(int id, int userID)
         {
         }
     }
