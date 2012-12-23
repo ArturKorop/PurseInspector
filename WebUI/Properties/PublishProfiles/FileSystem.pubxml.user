@@ -11,100 +11,103 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>10/31/2012 12:27:26</publishTime>
+      <publishTime>10/31/2012 12:27:28</publishTime>
     </File>
     <File Include="bin/Domain.dll">
-      <publishTime>12/07/2012 20:47:23</publishTime>
+      <publishTime>12/23/2012 17:34:03</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.AspNet.dll">
-      <publishTime>10/31/2012 12:29:10</publishTime>
+      <publishTime>10/31/2012 12:29:12</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.Core.dll">
-      <publishTime>10/31/2012 12:29:10</publishTime>
+      <publishTime>10/31/2012 12:29:12</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OAuth.Consumer.dll">
-      <publishTime>10/31/2012 12:29:10</publishTime>
+      <publishTime>10/31/2012 12:29:12</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OAuth.dll">
-      <publishTime>10/31/2012 12:29:11</publishTime>
+      <publishTime>10/31/2012 12:29:12</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OpenId.dll">
-      <publishTime>10/31/2012 12:29:11</publishTime>
+      <publishTime>10/31/2012 12:29:12</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OpenId.RelyingParty.dll">
-      <publishTime>10/31/2012 12:29:11</publishTime>
+      <publishTime>10/31/2012 12:29:12</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>10/31/2012 12:27:00</publishTime>
+      <publishTime>10/31/2012 12:27:02</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>10/31/2012 12:27:20</publishTime>
+      <publishTime>10/31/2012 12:27:22</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.WebPages.OAuth.dll">
-      <publishTime>10/31/2012 12:29:09</publishTime>
+      <publishTime>10/31/2012 12:29:10</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>10/31/2012 12:27:21</publishTime>
+      <publishTime>10/31/2012 12:27:22</publishTime>
     </File>
     <File Include="bin/Ninject.dll">
       <publishTime>03/18/2012 22:43:02</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
-      <publishTime>10/31/2012 12:27:24</publishTime>
+      <publishTime>10/31/2012 12:27:26</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>10/31/2012 12:27:23</publishTime>
+      <publishTime>10/31/2012 12:27:24</publishTime>
     </File>
     <File Include="bin/System.Net.Http.WebRequest.dll">
-      <publishTime>10/31/2012 12:27:24</publishTime>
+      <publishTime>10/31/2012 12:27:26</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>10/31/2012 12:27:22</publishTime>
-    </File>
-    <File Include="bin/System.Web.Http.dll">
       <publishTime>10/31/2012 12:27:24</publishTime>
     </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>10/31/2012 12:27:26</publishTime>
+    </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
-      <publishTime>10/31/2012 12:27:25</publishTime>
+      <publishTime>10/31/2012 12:27:26</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>10/31/2012 12:27:22</publishTime>
+      <publishTime>10/31/2012 12:27:24</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>10/31/2012 12:27:26</publishTime>
+      <publishTime>10/31/2012 12:27:28</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>10/31/2012 12:27:21</publishTime>
+      <publishTime>10/31/2012 12:27:22</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>10/31/2012 12:27:22</publishTime>
+      <publishTime>10/31/2012 12:27:24</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>10/31/2012 12:27:22</publishTime>
+      <publishTime>10/31/2012 12:27:24</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>10/31/2012 12:27:22</publishTime>
+      <publishTime>10/31/2012 12:27:24</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>10/31/2012 12:27:26</publishTime>
+      <publishTime>10/31/2012 12:27:28</publishTime>
     </File>
     <File Include="bin/WebMatrix.Data.dll">
-      <publishTime>10/31/2012 12:29:09</publishTime>
+      <publishTime>10/31/2012 12:29:10</publishTime>
     </File>
     <File Include="bin/WebMatrix.WebData.dll">
-      <publishTime>10/31/2012 12:29:09</publishTime>
+      <publishTime>10/31/2012 12:29:10</publishTime>
     </File>
     <File Include="bin/WebUI.dll">
-      <publishTime>12/10/2012 19:59:20</publishTime>
+      <publishTime>12/23/2012 17:34:04</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
+    </File>
+    <File Include="Content/StyleBlog.css">
+      <publishTime>12/21/2012 11:49:46</publishTime>
     </File>
     <File Include="Content/StylePurse.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/StyleViewYear.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>11/12/2012 01:34:46</publishTime>
@@ -131,7 +134,7 @@
       <publishTime>11/12/2012 01:34:46</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
       <publishTime>11/12/2012 01:34:46</publishTime>
@@ -146,64 +149,64 @@
       <publishTime>11/12/2012 01:34:46</publishTime>
     </File>
     <File Include="Content/themes/base/jquery-ui-1.9.1.custom.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery-ui-1.9.1.custom.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery-ui.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.accordion.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.all.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.autocomplete.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.base.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.button.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.core.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.datepicker.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.dialog.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.menu.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.progressbar.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.resizable.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.selectable.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.slider.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.spinner.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.tabs.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.theme.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/jquery.ui.tooltip.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>11/12/2012 01:34:46</publishTime>
@@ -245,289 +248,289 @@
       <publishTime>11/12/2012 01:34:46</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery-ui.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.accordion.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.autocomplete.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.button.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.core.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.datepicker.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.dialog.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.menu.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.progressbar.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.resizable.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.selectable.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.slider.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.spinner.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.tabs.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.theme.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Content/themes/base/minified/jquery.ui.tooltip.min.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>10/31/2012 12:28:57</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>10/31/2012 12:28:57</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/accent.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/bullet.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/heroAccent.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/orderedList0.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/orderedList1.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/orderedList2.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/orderedList3.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/orderedList4.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/orderedList5.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/orderedList6.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/orderedList7.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/orderedList8.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Images/orderedList9.png">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>10/31/2012 12:29:12</publishTime>
+      <publishTime>10/31/2012 12:29:14</publishTime>
     </File>
     <File Include="Scripts/Flot/excanvas.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/excanvas.min.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/jquery.colorhelpers.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/jquery.flot.crosshair.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/jquery.flot.fillbetween.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/jquery.flot.image.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/jquery.flot.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/jquery.flot.navigate.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/jquery.flot.pie.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/jquery.flot.resize.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/jquery.flot.selection.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/jquery.flot.stack.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/jquery.flot.symbol.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/Flot/jquery.flot.threshold.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/jqPlot/excanvas.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/jqPlot/jquery.jqplot.css">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/jqPlot/jquery.jqplot.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.barRenderer.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.barRenderer.min.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.BezierCurveRenderer.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.BezierCurveRenderer.min.js">
-      <publishTime>12/06/2012 22:01:01</publishTime>
+      <publishTime>12/06/2012 22:01:02</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.blockRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.blockRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.bubbleRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.bubbleRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.canvasAxisLabelRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.canvasAxisLabelRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.canvasAxisTickRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.canvasAxisTickRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.canvasTextRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.canvasTextRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.categoryAxisRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.categoryAxisRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.cursor.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.cursor.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.dateAxisRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.dateAxisRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.donutRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.donutRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.dragable.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.dragable.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.enhancedLegendRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.enhancedLegendRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.funnelRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.funnelRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.highlighter.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.highlighter.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.logAxisRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.logAxisRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.mekkoAxisRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.mekkoAxisRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.mekkoRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.mekkoRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.meterGaugeRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.meterGaugeRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.ohlcRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.ohlcRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.pieRenderer.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.pieRenderer.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.pointLabels.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.pointLabels.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.trendline.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jqPlot/Plugins/jqplot.trendline.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jquery-1.7.1-vsdoc.js">
       <publishTime>12/06/2012 21:50:51</publishTime>
@@ -539,10 +542,10 @@
       <publishTime>12/06/2012 21:50:51</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.1-vsdoc.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.3.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.8.20.js">
       <publishTime>12/06/2012 21:50:51</publishTime>
@@ -551,163 +554,172 @@
       <publishTime>12/06/2012 21:50:51</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.9.1.custom.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.9.1.custom.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.9.2.custom.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.9.2.custom.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jquery.sparkline.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jquery.sparkline.min.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Scripts/jquery.unobtrusive-ajax.js">
-      <publishTime>10/31/2012 12:29:06</publishTime>
+      <publishTime>10/31/2012 12:29:08</publishTime>
     </File>
     <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
-      <publishTime>10/31/2012 12:29:06</publishTime>
+      <publishTime>10/31/2012 12:29:08</publishTime>
     </File>
     <File Include="Scripts/jquery.validate-vsdoc.js">
-      <publishTime>10/31/2012 12:29:03</publishTime>
+      <publishTime>10/31/2012 12:29:04</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
-      <publishTime>10/31/2012 12:29:03</publishTime>
+      <publishTime>10/31/2012 12:29:04</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>10/31/2012 12:29:03</publishTime>
+      <publishTime>10/31/2012 12:29:04</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>10/31/2012 12:29:06</publishTime>
+      <publishTime>10/31/2012 12:29:08</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>10/31/2012 12:29:06</publishTime>
+      <publishTime>10/31/2012 12:29:08</publishTime>
     </File>
     <File Include="Scripts/knockout-2.1.0.debug.js">
-      <publishTime>10/31/2012 12:29:12</publishTime>
+      <publishTime>10/31/2012 12:29:14</publishTime>
     </File>
     <File Include="Scripts/knockout-2.1.0.js">
-      <publishTime>10/31/2012 12:29:12</publishTime>
+      <publishTime>10/31/2012 12:29:14</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.5.3.js">
-      <publishTime>10/31/2012 12:29:07</publishTime>
+      <publishTime>10/31/2012 12:29:08</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="UserScripts/GlobalScripts/DiagramScripts.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="UserScripts/GlobalScripts/SetSlideMenu.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/17/2012 16:48:36</publishTime>
     </File>
     <File Include="UserScripts/PurseScripts/AddOperationScripts.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="UserScripts/PurseScripts/AutoCompleateScript.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="UserScripts/PurseScripts/ChangeOperationScripts.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="UserScripts/PurseScripts/DeleteOperationScripts.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/20/2012 15:09:36</publishTime>
     </File>
     <File Include="UserScripts/PurseScripts/MonthNavigationScripts.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="UserScripts/PurseScripts/SetButtonScripts.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="UserScripts/PurseScripts/ViewPurseScripts.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="UserScripts/PurseScripts/ViewYearsScripts.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="UserScripts/ViewYearScripts/SetViewYearScripts.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="UserScripts/ViewYearScripts/ViewYearDiagram.js">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/Account/ExternalLoginFailure.cshtml">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/Account/Manage.cshtml">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/Account/Register.cshtml">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/Account/_ChangePasswordPartial.cshtml">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/Account/_RemoveExternalLoginsPartial.cshtml">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/Account/_SetPasswordPartial.cshtml">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
+    </File>
+    <File Include="Views/Blog/AddArticle.cshtml">
+      <publishTime>12/21/2012 11:49:46</publishTime>
+    </File>
+    <File Include="Views/Blog/BlogArchive.cshtml">
+      <publishTime>12/21/2012 11:49:46</publishTime>
+    </File>
+    <File Include="Views/Blog/Index.cshtml">
+      <publishTime>12/21/2012 11:49:46</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>10/31/2012 15:18:01</publishTime>
+      <publishTime>10/31/2012 15:18:02</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/10/2012 19:58:32</publishTime>
+      <publishTime>12/17/2012 16:57:18</publishTime>
     </File>
     <File Include="Views/Nav/Menu.cshtml">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/17/2012 16:44:58</publishTime>
     </File>
     <File Include="Views/Purse/DeleteOperation.cshtml">
       <publishTime>11/06/2012 09:54:34</publishTime>
     </File>
     <File Include="Views/Purse/Index.cshtml">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Views/Purse/IndexTest.cshtml">
       <publishTime>11/02/2012 15:29:12</publishTime>
     </File>
     <File Include="Views/Purse/ViewYear.cshtml">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/10/2012 19:58:08</publishTime>
+      <publishTime>12/21/2012 11:49:46</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/UserInformation/UserInfo.cshtml">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>10/31/2012 12:28:57</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>10/31/2012 12:28:56</publishTime>
+      <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/10/2012 19:59:21</publishTime>
+      <publishTime>12/23/2012 17:34:04</publishTime>
     </File>
   </ItemGroup>
 </Project>
