@@ -23,8 +23,15 @@ namespace WebUI.Controllers
 
         public ActionResult Index()
         {
-            var maxDate = _blogRepository.GetBlog().Max(x => x.Date);
-            ViewBag.Article = _blogRepository.GetBlog().Single(x=>x.Date == maxDate).Text;
+            if (_blogRepository.GetBlog().Count > 0)
+            {
+                var maxDate = _blogRepository.GetBlog().Max(x => x.Date);
+                ViewBag.Article = _blogRepository.GetBlog().Single(x => x.Date == maxDate).Text;
+            }
+            else
+            {
+                ViewBag.Article = "No one article";
+            }
             return View("Index");
         }
 
