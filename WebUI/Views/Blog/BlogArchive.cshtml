@@ -5,6 +5,6 @@
 <div>
     @foreach (var item in Model)
     {
-        <p>@Html.ActionLink(item.Date.ToShortDateString() + " " + item.ArticleShortName, "GetArticle", new { item.ID })</p>
+        <p>@Html.ActionLink(item.Date.ToShortDateString() + " " + item.ArticleShortName, "GetArticle", new {item.ID})@Html.ActionLink("Delete", "DeleteArticle", new {item.ID})@Html.ActionLink("Edit", "EditArticle", new {item.ID})</p>
     }
 </div>

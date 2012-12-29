@@ -36,17 +36,49 @@ namespace Domain.Blog
 
         public int AddArticle(Article article)
         {
-            _context.BlogRepository.Add(new Article{ArticleShortName = article.ArticleShortName, Text = article.Text, UserID = article.UserID, Date = article.Date});
+            var tempText = article.Text ?? "";
+            if (article.ID == 0)
+            {
+                _context.BlogRepository.Add(new Article
+                    {
+                        ArticleShortName = article.ArticleShortName,
+                        Text = tempText,
+                        UserID = article.UserID,
+                        Date = article.Date
+                    });
+            }
             _context.SaveChanges();
             return _context.BlogRepository.Where(x => x.UserID == article.UserID).Max(y => y.ID);
         }
 
-        public void ChangeAddArticle(Article article, int userID)
+        public void EditArticle(Article article, int userID)
         {
         }
 
-        public void RemoveAddArticle(int id, int userID)
+        public bool DeleteArticle(int id, int userID)
         {
+            var delete = _context.BlogRepository.SingleOrDefault(x => x.ID == id && x.UserID == userID);
+            if (delete != null)
+            {
+                _context.BlogRepository.Remove(delete);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public Article LastArticle
+        {
+            get
+            {
+                var maxDate = _context.BlogRepository.Max(x => x.Date);
+                return _context.BlogRepository.Single(x => x.Date == maxDate);
+            }
+        }
+
+        public Article GetArticle(int id)
+        {
+            return _context.BlogRepository.SingleOrDefault(x => x.ID == id);
         }
     }
 }

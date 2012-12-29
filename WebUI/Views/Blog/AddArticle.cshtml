@@ -2,6 +2,7 @@
 
 @{
     Layout = null;
+    @Styles.Render("~/Content/blog")
 }
 <!DOCTYPE html>
 <html>
@@ -13,9 +14,11 @@
     @using (Html.BeginForm("AddArticle", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.ValidationSummary(true)
-    
-        <fieldset>
-            <legend>Article</legend>
+       <fieldset>
+           <legend>Article</legend>
+           <div class="editor-field" style="visibility: hidden">
+                @Html.EditorFor(model => model.ID)
+            </div>
             <div class="editor-label">
                 @Html.LabelFor(model => model.ArticleShortName)
             </div>
@@ -32,9 +35,7 @@
             </div><p>
                 <input type="submit" value="Create" />
             </p>
-        </fieldset>
-    }
-    
+        </fieldset>}
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>

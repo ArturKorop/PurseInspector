@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace Domain.Blog
 {
@@ -12,12 +14,17 @@ namespace Domain.Blog
         /// <summary>
         /// User ID
         /// </summary>
+        [HiddenInput(DisplayValue = false)]
         public int UserID { get; set; }
+
         /// <summary>
         /// All text of Article 
         /// </summary>
+        [Required(ErrorMessage = "Please enter an article's text")]
+        [DataType(DataType.MultilineText)]
         public string Text { get; set; }
     }
+
     /// <summary>
     /// Class that provides a short description(without content) of blog's article in database
     /// </summary>
@@ -26,16 +33,19 @@ namespace Domain.Blog
         /// <summary>
         /// Article ID
         /// </summary>
+        [HiddenInput(DisplayValue = false)]
         public int ID { get; set; }
-       
+
         /// <summary>
         /// Short name of Article for display in archive widget
         /// </summary>
+        [Required(ErrorMessage = "Please enter a short article name")]
         public string ArticleShortName { get; set; }
-        
+
         /// <summary>
         /// Time, when arricle add to database
         /// </summary>
+        [HiddenInput(DisplayValue = false)]
         public DateTime Date { get; set; }
     }
 }

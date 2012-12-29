@@ -29,12 +29,24 @@ namespace Domain.Abstract
         /// </summary>
         /// <param name="article">Object that provides a description of the new parameters of changed article</param>
         /// <param name="userID">Unique identifier of User</param>
-        void ChangeAddArticle(Article article, int userID);
+        void EditArticle(Article article, int userID);
         /// <summary>
         /// Delete an existing article
         /// </summary>
         /// <param name="id">ID of article, that we delete</param>
         /// <param name="userID">Unique identifier of User</param>
-        void RemoveAddArticle(int id, int userID); 
+        bool DeleteArticle(int id, int userID);
+
+        /// <summary>
+        /// Return last article
+        /// </summary>
+        /// <returns><see cref="Article"/></returns>
+        Article LastArticle { get; }
+        /// <summary>
+        /// Return article by id
+        /// </summary>
+        /// <param name="id">Article's id</param>
+        /// <returns><see cref="Article"/></returns>
+        Article GetArticle(int id);
     }
 }

@@ -25,8 +25,12 @@ namespace WebUI.Controllers
         {
             if (_blogRepository.GetBlog().Count > 0)
             {
-                var maxDate = _blogRepository.GetBlog().Max(x => x.Date);
-                ViewBag.Article = _blogRepository.GetBlog().Single(x => x.Date == maxDate).Text;
+                try
+                {
+                    ViewBag.Article = new HtmlString(_blogRepository.LastArticle.Text.Replace("\n", "<br>"));
+                }
+                catch (Exception)
+                {}
             }
             else
             {
@@ -37,7 +41,7 @@ namespace WebUI.Controllers
 
         public ActionResult GetArticle(int id)
         {
-            ViewBag.Article = _blogRepository.GetBlog().Single(x => x.ID == id).Text;
+            ViewBag.Article = new HtmlString(_blogRepository.GetArticle(id).Text.Replace("\n", "<br>"));
             return View("Index");
         }
 
@@ -54,13 +58,26 @@ namespace WebUI.Controllers
         [HttpPost]
         public ActionResult AddArticle(Article article)
         {
-            var temp = article;
+            Article temp;
+            temp = article.ID != 0 ? _blogRepository.GetArticle(article.ID) : new Article();
+            temp.Text = article.Text;
+            temp.ArticleShortName = article.ArticleShortName;
             temp.Date = DateTime.Now;
             temp.UserID = GetUserID();
-            _blogRepository.AddArticle(article);
-            var maxDate = _blogRepository.GetBlog().Max(x => x.Date);
-            ViewBag.Article = _blogRepository.GetBlog().Single(x => x.Date == maxDate).Text;
+            _blogRepository.AddArticle(temp);
+            ViewBag.Article = new HtmlString(_blogRepository.LastArticle.Text.Replace("\n", "<br>"));
             return View("Index");
+        }
+        public ActionResult DeleteArticle(int id)
+        {
+            _blogRepository.DeleteArticle(id, GetUserID());
+            ViewBag.Article = new HtmlString(_blogRepository.LastArticle.Text.Replace("\n", "<br>"));
+            return View("Index");
+        }
+        public ActionResult EditArticle(int id)
+        {
+            var edit = _blogRepository.GetArticle(id);
+            return View("AddArticle", edit);
         }
 
         private int GetUserID()

@@ -1,4 +1,3 @@
-using Domain.Blog;
 using Domain.Repository;
 
 namespace WebUI.Migrations
@@ -17,7 +16,6 @@ namespace WebUI.Migrations
 
         protected override void Seed(EFDbContext context)
         {
-            context.BlogRepository.AddOrUpdate(x=>x.ID,new Article(){Date = DateTime.Now});
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
