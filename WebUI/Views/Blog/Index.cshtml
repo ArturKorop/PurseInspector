@@ -2,10 +2,10 @@
     ViewBag.Title = "Blog";
     @Styles.Render("~/Content/blog")
 }
-<div id="AddArticle">@Html.ActionLink("Add new article", "AddArticle")</div>
-<div>
-    <div id="BlogField">
-        @ViewBag.Article
+<div id="AddArticle">@Html.ActionLink("Add new article", "SaveArticle")</div>
+<div id="MainBlog">
+    <div id="BlogField" style="font-size: x-small">
+        <textarea rows="40" cols="100" readonly="readonly" style="width: 95%;height: 40%;">@ViewBag.Article</textarea>
     </div>
     <div id="ArchiveField">
         <div id="DivUserInfo"><br>@{Html.RenderAction("BlogArchive","Blog");}</br></div>        

@@ -11,7 +11,7 @@
     <title>AddArticle</title>
 </head>
 <body>
-    @using (Html.BeginForm("AddArticle", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("SaveArticle", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.ValidationSummary(true)
        <fieldset>
@@ -33,7 +33,7 @@
                 @Html.TextAreaFor(model => model.Text, new { @cols = "200", @rows = "40" })
                 @Html.ValidationMessageFor(model => model.Text)
             </div><p>
-                <input type="submit" value="Create" />
+                <input type="submit" value="Save" />
             </p>
         </fieldset>}
     <div>

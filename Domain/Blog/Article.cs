@@ -23,6 +23,24 @@ namespace Domain.Blog
         [Required(ErrorMessage = "Please enter an article's text")]
         [DataType(DataType.MultilineText)]
         public string Text { get; set; }
+        /// <summary>
+        /// Transform Text to Sql form
+        /// </summary>
+        /// <returns><see cref="Article"/></returns>
+        public Article ForSql()
+        {
+            Text = Support.Support.Instance.ForSql(Text);
+            return this;
+        }
+        /// <summary>
+        /// Transform Text to Html form
+        /// </summary>
+        /// <returns><see cref="Article"/></returns>
+        public Article ForHtml()
+        {
+            Text = Support.Support.Instance.ForHtml(Text);
+            return this;
+        }
     }
 
     /// <summary>

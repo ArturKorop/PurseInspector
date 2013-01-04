@@ -19,7 +19,7 @@ namespace Domain.Blog
             _article.Clear();
             foreach (var article in _context.BlogRepository.Select(x=>x))
             {
-                _article.Add(article);
+                _article.Add(article.ForHtml());
             }
             return _article;
         }
@@ -36,16 +36,9 @@ namespace Domain.Blog
 
         public int AddArticle(Article article)
         {
-            var tempText = article.Text ?? "";
             if (article.ID == 0)
             {
-                _context.BlogRepository.Add(new Article
-                    {
-                        ArticleShortName = article.ArticleShortName,
-                        Text = tempText,
-                        UserID = article.UserID,
-                        Date = article.Date
-                    });
+                _context.BlogRepository.Add(article.ForSql());
             }
             _context.SaveChanges();
             return _context.BlogRepository.Where(x => x.UserID == article.UserID).Max(y => y.ID);
@@ -71,14 +64,18 @@ namespace Domain.Blog
         {
             get
             {
-                var maxDate = _context.BlogRepository.Max(x => x.Date);
-                return _context.BlogRepository.Single(x => x.Date == maxDate);
+                if (_context.BlogRepository.Any())
+                {
+                    var maxDate = _context.BlogRepository.Max(x => x.Date);
+                    return _context.BlogRepository.Single(x => x.Date == maxDate).ForHtml();
+                }
+                return null;
             }
         }
 
         public Article GetArticle(int id)
         {
-            return _context.BlogRepository.SingleOrDefault(x => x.ID == id);
+            return _context.BlogRepository.SingleOrDefault(x => x.ID == id).ForHtml();
         }
     }
 }
