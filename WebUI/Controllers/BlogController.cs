@@ -69,6 +69,7 @@ namespace WebUI.Controllers
             ViewBag.Article = _blogRepository.LastArticle.Text;
             return RedirectToAction("Index");
         }
+        [Authorize]
         public ActionResult DeleteArticle(int id)
         {
             _blogRepository.DeleteArticle(id, GetUserID());
@@ -78,6 +79,7 @@ namespace WebUI.Controllers
                 ViewBag.Article = "No one article";
             return RedirectToAction("Index");
         }
+        [Authorize]
         public ActionResult EditArticle(int id)
         {
             var edit = _blogRepository.GetArticle(id);

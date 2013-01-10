@@ -6,13 +6,13 @@
     public interface IUserRepository
     {
         /// <summary>
-        /// Returns user ID wirh user name
+        /// Returns user ID from user name
         /// </summary>
         /// <param name="userName">User name</param>
         /// <Returns></Returns>
         int GetUserID(string userName);
         /// <summary>
-        /// Returns user name with user ID
+        /// Returns user name from user ID
         /// </summary>
         /// <param name="userID">User ID</param>
         /// <Returns></Returns>
