@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Knoema.Localization.Cassette</id>
+    <version>0.1.27</version>
+    <authors>Knoema</authors>
+    <owners>Knoema</owners>
+    <licenseUrl>http://github.com/Knoema/Localization</licenseUrl>
+    <projectUrl>http://github.com/Knoema/Localization</projectUrl>
+    <iconUrl>http://knoema.com/favicon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Add-on for Knoema.Localization framework to make it extremely easy to localize JavaScript and HTML templates</description>
+    <copyright>© 2012 Knoema</copyright>
+    <tags>web asp.net mvc localization globalization cassette js</tags>
+    <dependencies>
+      <dependency id="Knoema.Localization.Core" version="0.1.0.0" />
+      <dependency id="Cassette" version="1.0" />
+    </dependencies>
+    <references>
+      <reference file="Knoema.Localization.Cassette.dll" />
+    </references>
+  </metadata>
+</package>
