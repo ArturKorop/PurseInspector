@@ -16,6 +16,10 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,6 +39,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.37.4345.34101\lib\net20\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette">
+      <HintPath>..\packages\Cassette.1.0.2\lib\net40-Client\Cassette.dll</HintPath>
+    </Reference>
+    <Reference Include="Jurassic">
+      <HintPath>..\packages\Jurassic.2.1.1\lib\Jurassic.dll</HintPath>
+    </Reference>
+    <Reference Include="Knoema.Localization.Cassette">
+      <HintPath>..\packages\Knoema.Localization.Cassette.0.1.27\lib\net40\Knoema.Localization.Cassette.dll</HintPath>
+    </Reference>
+    <Reference Include="Knoema.Localization.Core">
+      <HintPath>..\packages\Knoema.Localization.Core.0.1.27\lib\net40\Knoema.Localization.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Knoema.Localization.EFProvider">
+      <HintPath>..\packages\Knoema.Localization.EFProvider.0.1.27\lib\net40\Knoema.Localization.EFProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Knoema.Localization.Mvc">
+      <HintPath>..\packages\Knoema.Localization.Mvc.0.1.27\lib\net40\Knoema.Localization.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject-3.0.0.15-release-net-4.0\Ninject.dll</HintPath>
