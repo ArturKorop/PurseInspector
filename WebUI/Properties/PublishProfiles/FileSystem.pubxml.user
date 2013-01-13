@@ -14,7 +14,7 @@
       <publishTime>10/31/2012 12:27:28</publishTime>
     </File>
     <File Include="bin/Domain.dll">
-      <publishTime>12/23/2012 17:34:03</publishTime>
+      <publishTime>01/13/2013 16:51:09</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.AspNet.dll">
       <publishTime>10/31/2012 12:29:12</publishTime>
@@ -95,13 +95,19 @@
       <publishTime>10/31/2012 12:29:10</publishTime>
     </File>
     <File Include="bin/WebUI.dll">
-      <publishTime>12/23/2012 18:13:54</publishTime>
+      <publishTime>01/13/2013 16:51:09</publishTime>
+    </File>
+    <File Include="Content/MyContent/Background_1.png">
+      <publishTime>01/10/2013 14:42:32</publishTime>
+    </File>
+    <File Include="Content/MyContent/Background_2.png">
+      <publishTime>01/10/2013 15:17:16</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>12/06/2012 22:01:02</publishTime>
+      <publishTime>01/10/2013 15:01:20</publishTime>
     </File>
     <File Include="Content/StyleBlog.css">
-      <publishTime>12/21/2012 11:49:46</publishTime>
+      <publishTime>12/29/2012 11:25:10</publishTime>
     </File>
     <File Include="Content/StylePurse.css">
       <publishTime>12/06/2012 22:01:02</publishTime>
@@ -647,7 +653,7 @@
       <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>10/31/2012 12:28:58</publishTime>
+      <publishTime>01/08/2013 10:11:16</publishTime>
     </File>
     <File Include="Views/Account/Manage.cshtml">
       <publishTime>10/31/2012 12:28:58</publishTime>
@@ -671,22 +677,25 @@
       <publishTime>12/21/2012 11:49:46</publishTime>
     </File>
     <File Include="Views/Blog/BlogArchive.cshtml">
-      <publishTime>12/21/2012 11:49:46</publishTime>
+      <publishTime>12/29/2012 11:25:10</publishTime>
     </File>
     <File Include="Views/Blog/Index.cshtml">
-      <publishTime>12/21/2012 11:49:46</publishTime>
+      <publishTime>01/04/2013 14:51:28</publishTime>
+    </File>
+    <File Include="Views/Blog/SaveArticle.cshtml">
+      <publishTime>01/02/2013 10:18:24</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>10/31/2012 15:18:02</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>12/23/2012 17:37:18</publishTime>
+      <publishTime>12/23/2012 17:37:20</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/23/2012 17:36:35</publishTime>
+      <publishTime>01/13/2013 16:42:35</publishTime>
     </File>
     <File Include="Views/Nav/Menu.cshtml">
-      <publishTime>12/17/2012 16:44:58</publishTime>
+      <publishTime>01/10/2013 14:57:20</publishTime>
     </File>
     <File Include="Views/Purse/DeleteOperation.cshtml">
       <publishTime>11/06/2012 09:54:34</publishTime>
@@ -704,7 +713,7 @@
       <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/21/2012 11:49:46</publishTime>
+      <publishTime>01/10/2013 15:04:18</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>10/31/2012 12:28:58</publishTime>
@@ -713,13 +722,13 @@
       <publishTime>12/06/2012 22:01:04</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>10/31/2012 12:28:58</publishTime>
+      <publishTime>12/29/2012 11:54:52</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>10/31/2012 12:28:58</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/23/2012 18:14:59</publishTime>
+      <publishTime>01/13/2013 16:51:40</publishTime>
     </File>
   </ItemGroup>
 </Project>
